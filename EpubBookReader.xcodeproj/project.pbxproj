@@ -16,6 +16,8 @@
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
 		C5678CB928D61F35001096BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB828D61F35001096BE /* Assets.xcassets */; };
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
+		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
+		C5BC7CD22913066900950F23 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CD12913066900950F23 /* BookViewController.swift */; };
 		C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F905E42906FE710022521E /* LibraryListViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,21 @@
 		C5678CB828D61F35001096BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5678CBB28D61F35001096BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5678CBD28D61F35001096BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5BC7CC22913039800950F23 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		C5BC7CC32913039800950F23 /* SkyDRMControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyDRMControl.h; sourceTree = "<group>"; };
+		C5BC7CC42913039800950F23 /* Highlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highlight.h; sourceTree = "<group>"; };
+		C5BC7CC52913039800950F23 /* SkyEpub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyEpub.h; sourceTree = "<group>"; };
+		C5BC7CC62913039800950F23 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		C5BC7CC72913039800950F23 /* BookInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInformation.h; sourceTree = "<group>"; };
+		C5BC7CC82913039800950F23 /* libskyepub.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libskyepub.a; sourceTree = "<group>"; };
+		C5BC7CC92913039800950F23 /* ContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentProvider.h; sourceTree = "<group>"; };
+		C5BC7CCA2913039800950F23 /* SpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechSynthesizer.h; sourceTree = "<group>"; };
+		C5BC7CCB2913039800950F23 /* ReflowableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReflowableViewController.h; sourceTree = "<group>"; };
+		C5BC7CCC2913039800950F23 /* SkyProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyProvider.h; sourceTree = "<group>"; };
+		C5BC7CCD2913039800950F23 /* SkyKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyKeyManager.h; sourceTree = "<group>"; };
+		C5BC7CCE2913039800950F23 /* FixedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedViewController.h; sourceTree = "<group>"; };
+		C5BC7CD02913047B00950F23 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		C5BC7CD12913066900950F23 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookViewController.swift; path = ../../../../../../Downloads/SkyAD/SkyAD/BookViewController.swift; sourceTree = "<group>"; };
 		C5F905E42906FE710022521E /* LibraryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListViewController.swift; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5201F4663449A602073007AA /* Pods_EpubBookReader.framework in Frameworks */,
+				C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				C51E9DFB28F8533B00A972A6 /* .gitignore */,
+				C5BC7CD02913047B00950F23 /* Bridge.h */,
+				C5BC7CC12913039800950F23 /* SkyEpub */,
 				C5678CAE28D61F34001096BE /* EpubBookReader */,
 				C5678CAD28D61F34001096BE /* Products */,
 				5AE0911A1AA993142F5B458E /* Pods */,
@@ -91,6 +111,7 @@
 				C5678CB528D61F34001096BE /* Main.storyboard */,
 				C5678CB328D61F34001096BE /* ViewController.swift */,
 				C5F905E42906FE710022521E /* LibraryListViewController.swift */,
+				C5BC7CD12913066900950F23 /* BookViewController.swift */,
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
 				C5678CBD28D61F35001096BE /* Info.plist */,
@@ -98,6 +119,26 @@
 				C51E9DF528F8415D00A972A6 /* English_Book.epub */,
 			);
 			path = EpubBookReader;
+			sourceTree = "<group>";
+		};
+		C5BC7CC12913039800950F23 /* SkyEpub */ = {
+			isa = PBXGroup;
+			children = (
+				C5BC7CC82913039800950F23 /* libskyepub.a */,
+				C5BC7CC22913039800950F23 /* Book.h */,
+				C5BC7CC32913039800950F23 /* SkyDRMControl.h */,
+				C5BC7CC42913039800950F23 /* Highlight.h */,
+				C5BC7CC52913039800950F23 /* SkyEpub.h */,
+				C5BC7CC62913039800950F23 /* SearchResult.h */,
+				C5BC7CC72913039800950F23 /* BookInformation.h */,
+				C5BC7CC92913039800950F23 /* ContentProvider.h */,
+				C5BC7CCA2913039800950F23 /* SpeechSynthesizer.h */,
+				C5BC7CCB2913039800950F23 /* ReflowableViewController.h */,
+				C5BC7CCC2913039800950F23 /* SkyProvider.h */,
+				C5BC7CCD2913039800950F23 /* SkyKeyManager.h */,
+				C5BC7CCE2913039800950F23 /* FixedViewController.h */,
+			);
+			path = SkyEpub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */,
+				C5BC7CD22913066900950F23 /* BookViewController.swift in Sources */,
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
 			);
@@ -362,11 +404,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkyEpub",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.EpubBookReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -392,11 +439,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SkyEpub",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.EpubBookReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

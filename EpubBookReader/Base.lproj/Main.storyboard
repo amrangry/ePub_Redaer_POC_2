@@ -111,6 +111,39 @@
             </objects>
             <point key="canvasLocation" x="994" y="98"/>
         </scene>
+        <!--Book View Controller-->
+        <scene sceneID="ty5-Ua-0mj">
+            <objects>
+                <viewController storyboardIdentifier="BookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cAZ-Zg-wiD" customClass="BookViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YMh-8R-hUx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yH6-34-wve">
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="w4S-Dn-f0F"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yH6-34-wve" firstAttribute="trailing" secondItem="w4S-Dn-f0F" secondAttribute="trailing" id="BZ0-2I-kBw"/>
+                            <constraint firstItem="yH6-34-wve" firstAttribute="leading" secondItem="w4S-Dn-f0F" secondAttribute="leading" id="X10-2J-J5Z"/>
+                            <constraint firstItem="yH6-34-wve" firstAttribute="top" secondItem="w4S-Dn-f0F" secondAttribute="top" id="YoA-TB-ueb"/>
+                            <constraint firstItem="w4S-Dn-f0F" firstAttribute="bottom" secondItem="yH6-34-wve" secondAttribute="bottom" id="bl9-eN-Wpo"/>
+                            <constraint firstItem="yH6-34-wve" firstAttribute="bottom" secondItem="w4S-Dn-f0F" secondAttribute="bottom" id="eAK-TV-wyP"/>
+                            <constraint firstItem="w4S-Dn-f0F" firstAttribute="trailing" secondItem="yH6-34-wve" secondAttribute="trailing" id="lgv-4y-acp"/>
+                            <constraint firstItem="yH6-34-wve" firstAttribute="leading" secondItem="w4S-Dn-f0F" secondAttribute="leading" id="qWg-r9-7cR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="skyepubView" destination="yH6-34-wve" id="STm-gj-6tH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8W-gR-SN7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313" y="50"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemGreenColor">
