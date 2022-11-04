@@ -18,6 +18,7 @@
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
 		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
 		C5BC7CD22913066900950F23 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CD12913066900950F23 /* BookViewController.swift */; };
+		C5BC7CD82914957F00950F23 /* BookReaderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */; };
 		C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F905E42906FE710022521E /* LibraryListViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		C5BC7CCE2913039800950F23 /* FixedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedViewController.h; sourceTree = "<group>"; };
 		C5BC7CD02913047B00950F23 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		C5BC7CD12913066900950F23 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookViewController.swift; path = ../../../../../../Downloads/SkyAD/SkyAD/BookViewController.swift; sourceTree = "<group>"; };
+		C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookReaderStoryboard.storyboard; sourceTree = "<group>"; };
 		C5F905E42906FE710022521E /* LibraryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListViewController.swift; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				C5678CB528D61F34001096BE /* Main.storyboard */,
 				C5678CB328D61F34001096BE /* ViewController.swift */,
 				C5F905E42906FE710022521E /* LibraryListViewController.swift */,
+				C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */,
 				C5BC7CD12913066900950F23 /* BookViewController.swift */,
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
@@ -204,6 +207,7 @@
 				C51E9DF828F8416400A972A6 /* English_Book.epub in Resources */,
 				C5678CB928D61F35001096BE /* Assets.xcassets in Resources */,
 				C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */,
+				C5BC7CD82914957F00950F23 /* BookReaderStoryboard.storyboard in Resources */,
 				C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */,
 				C5678CB728D61F34001096BE /* Main.storyboard in Resources */,
 			);
