@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         ad = UIApplication.shared.delegate as? AppDelegate
         sd = ad.data
         self.addSkyErrorNotificationObserver()
+        installSampleBooks() // if books are already installed, it will do nothing.
         self.reload()
     }
     
