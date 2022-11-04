@@ -916,6 +916,11 @@
             <point key="canvasLocation" x="270" y="-247"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="VLb-uA-3ys">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="blueBox" width="24" height="24"/>
         <image name="bookmark" width="24" height="24"/>
