@@ -36,15 +36,15 @@ class LibraryListViewController: UIViewController {
     }
     
     func openBook() {
-        let bvc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier:
-        "BookViewController") as! BookViewController
-        bvc.modalPresentationStyle = .fullScreen
+        let storyboard = UIStoryboard(name: "BookReaderStoryboard", bundle: nil)
+        let bvc = storyboard.instantiateViewController(withIdentifier: "BookViewController") as? BookViewController
+        bvc?.modalPresentationStyle = .fullScreen
         let bi = BookInformation()
         bi.bookCode = 0
         bi.position = 0
         bi.fileName = "Arabic_Book.epub"
-        bvc.bookInformation = bi
-        self.present(bvc, animated: false, completion: nil)
+        bvc?.bookInformation = bi
+        self.present(bvc!, animated: false, completion: nil)
     }
     
 }
