@@ -65,59 +65,10 @@
             </objects>
             <point key="canvasLocation" x="-1001" y="106"/>
         </scene>
-        <!--Library List View Controller-->
-        <scene sceneID="yL9-GY-o7i">
-            <objects>
-                <viewController storyboardIdentifier="LibraryListViewController" id="czb-Wx-4Tv" customClass="LibraryListViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j6g-AE-Gr9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-Fc-ECf">
-                                <rect key="frame" x="103.5" y="438" width="207" height="34.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L50-5m-Kzx">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Read"/>
-                                        <connections>
-                                            <action selector="readButtonPressed:" destination="czb-Wx-4Tv" eventType="touchUpInside" id="tkU-uW-8sa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ4-lq-My5">
-                                <rect key="frame" x="186.5" y="98" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="2h8-FZ-NM4"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
-                        <constraints>
-                            <constraint firstItem="xZ4-lq-My5" firstAttribute="top" secondItem="2h8-FZ-NM4" secondAttribute="top" constant="50" id="IMW-bj-IVx"/>
-                            <constraint firstItem="EiO-Fc-ECf" firstAttribute="centerX" secondItem="2h8-FZ-NM4" secondAttribute="centerX" id="TiP-DZ-87K"/>
-                            <constraint firstItem="EiO-Fc-ECf" firstAttribute="centerY" secondItem="2h8-FZ-NM4" secondAttribute="centerY" id="aLc-qQ-ftE"/>
-                            <constraint firstItem="xZ4-lq-My5" firstAttribute="centerX" secondItem="2h8-FZ-NM4" secondAttribute="centerX" id="c5y-4q-na4"/>
-                            <constraint firstItem="EiO-Fc-ECf" firstAttribute="width" secondItem="j6g-AE-Gr9" secondAttribute="width" multiplier="1:2" id="raQ-g5-Nmj"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="bookTitle" destination="xZ4-lq-My5" id="kFc-jZ-pML"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PzI-1t-MJY" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="994" y="98"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

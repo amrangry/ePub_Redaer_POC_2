@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5201F4663449A602073007AA /* Pods_EpubBookReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8670F98AD48F35C40967A51C /* Pods_EpubBookReader.framework */; };
+		5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF739E29151A1F00112C27 /* SkyData.swift */; };
+		5DFF73A129151A4900112C27 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A029151A4900112C27 /* Setting.swift */; };
+		5DFF73AE29151A7B00112C27 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A429151A7B00112C27 /* FMDatabaseQueue.m */; };
+		5DFF73AF29151A7B00112C27 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A729151A7B00112C27 /* FMDatabaseAdditions.m */; };
+		5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A829151A7B00112C27 /* FMDatabase.m */; };
+		5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73AC29151A7B00112C27 /* FMDatabasePool.m */; };
+		5DFF73B229151A7B00112C27 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73AD29151A7B00112C27 /* FMResultSet.m */; };
+		5DFF73B529151B4A00112C27 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73B329151B4A00112C27 /* SearchResultView.swift */; };
+		5DFF73B629151B4A00112C27 /* SearchResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFF73B429151B4A00112C27 /* SearchResultView.xib */; };
+		5DFF73B829151BB600112C27 /* ContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73B729151BB600112C27 /* ContentsTableViewCell.swift */; };
+		5DFF73BA29151BD400112C27 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73B929151BD400112C27 /* NotesTableViewCell.swift */; };
+		5DFF73BC29151BE800112C27 /* BookmarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73BB29151BE800112C27 /* BookmarksTableViewCell.swift */; };
 		C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */; };
 		C51E9DF828F8416400A972A6 /* English_Book.epub in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DF528F8415D00A972A6 /* English_Book.epub */; };
 		C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DFB28F8533B00A972A6 /* .gitignore */; };
@@ -20,10 +32,27 @@
 		C5BC7CD82914957F00950F23 /* BookReaderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */; };
 		C5BC7CDA291497BA00950F23 /* AppDelegate+Extension+ePubReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CD9291497BA00950F23 /* AppDelegate+Extension+ePubReader.swift */; };
 		C5BC7CDC29149A5A00950F23 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CDB29149A5A00950F23 /* BookViewController.swift */; };
-		C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F905E42906FE710022521E /* LibraryListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5DFF739E29151A1F00112C27 /* SkyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyData.swift; sourceTree = "<group>"; };
+		5DFF73A029151A4900112C27 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		5DFF73A329151A7B00112C27 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5DFF73A429151A7B00112C27 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		5DFF73A529151A7B00112C27 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5DFF73A629151A7B00112C27 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		5DFF73A729151A7B00112C27 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5DFF73A829151A7B00112C27 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5DFF73A929151A7B00112C27 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		5DFF73AA29151A7B00112C27 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		5DFF73AB29151A7B00112C27 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5DFF73AC29151A7B00112C27 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		5DFF73AD29151A7B00112C27 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5DFF73B329151B4A00112C27 /* SearchResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		5DFF73B429151B4A00112C27 /* SearchResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultView.xib; sourceTree = "<group>"; };
+		5DFF73B729151BB600112C27 /* ContentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentsTableViewCell.swift; sourceTree = "<group>"; };
+		5DFF73B929151BD400112C27 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		5DFF73BB29151BE800112C27 /* BookmarksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksTableViewCell.swift; sourceTree = "<group>"; };
 		8670F98AD48F35C40967A51C /* Pods_EpubBookReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpubBookReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FC3C88A5D1A1E5BE341FB5 /* Pods-EpubBookReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.debug.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.debug.xcconfig"; sourceTree = "<group>"; };
 		C51E9DF528F8415D00A972A6 /* English_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Book.epub; sourceTree = "<group>"; };
@@ -53,7 +82,6 @@
 		C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookReaderStoryboard.storyboard; sourceTree = "<group>"; };
 		C5BC7CD9291497BA00950F23 /* AppDelegate+Extension+ePubReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extension+ePubReader.swift"; sourceTree = "<group>"; };
 		C5BC7CDB29149A5A00950F23 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
-		C5F905E42906FE710022521E /* LibraryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListViewController.swift; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,12 +115,46 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5DFF739D291519FE00112C27 /* SkyEpubExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5DFF73A229151A7B00112C27 /* fmdb */,
+				5DFF739E29151A1F00112C27 /* SkyData.swift */,
+				5DFF73A029151A4900112C27 /* Setting.swift */,
+				5DFF73BB29151BE800112C27 /* BookmarksTableViewCell.swift */,
+				5DFF73B729151BB600112C27 /* ContentsTableViewCell.swift */,
+				5DFF73B929151BD400112C27 /* NotesTableViewCell.swift */,
+				5DFF73B329151B4A00112C27 /* SearchResultView.swift */,
+				5DFF73B429151B4A00112C27 /* SearchResultView.xib */,
+			);
+			path = SkyEpubExtension;
+			sourceTree = "<group>";
+		};
+		5DFF73A229151A7B00112C27 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				5DFF73A329151A7B00112C27 /* FMDatabase.h */,
+				5DFF73A429151A7B00112C27 /* FMDatabaseQueue.m */,
+				5DFF73A529151A7B00112C27 /* FMResultSet.h */,
+				5DFF73A629151A7B00112C27 /* FMDatabasePool.h */,
+				5DFF73A729151A7B00112C27 /* FMDatabaseAdditions.m */,
+				5DFF73A829151A7B00112C27 /* FMDatabase.m */,
+				5DFF73A929151A7B00112C27 /* FMDatabaseQueue.h */,
+				5DFF73AA29151A7B00112C27 /* FMDB.h */,
+				5DFF73AB29151A7B00112C27 /* FMDatabaseAdditions.h */,
+				5DFF73AC29151A7B00112C27 /* FMDatabasePool.m */,
+				5DFF73AD29151A7B00112C27 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		C5678CA328D61F34001096BE = {
 			isa = PBXGroup;
 			children = (
 				C51E9DFB28F8533B00A972A6 /* .gitignore */,
 				C5BC7CD02913047B00950F23 /* Bridge.h */,
 				C5BC7CC12913039800950F23 /* SkyEpub */,
+				5DFF739D291519FE00112C27 /* SkyEpubExtension */,
 				C5678CAE28D61F34001096BE /* EpubBookReader */,
 				C5678CAD28D61F34001096BE /* Products */,
 				5AE0911A1AA993142F5B458E /* Pods */,
@@ -115,9 +177,8 @@
 				C5BC7CD9291497BA00950F23 /* AppDelegate+Extension+ePubReader.swift */,
 				C5678CB528D61F34001096BE /* Main.storyboard */,
 				C5678CB328D61F34001096BE /* ViewController.swift */,
-				C5F905E42906FE710022521E /* LibraryListViewController.swift */,
-				C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */,
 				C5BC7CDB29149A5A00950F23 /* BookViewController.swift */,
+				C5BC7CD72914957F00950F23 /* BookReaderStoryboard.storyboard */,
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
 				C5678CBD28D61F35001096BE /* Info.plist */,
@@ -211,6 +272,7 @@
 				C5678CB928D61F35001096BE /* Assets.xcassets in Resources */,
 				C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */,
 				C5BC7CD82914957F00950F23 /* BookReaderStoryboard.storyboard in Resources */,
+				5DFF73B629151B4A00112C27 /* SearchResultView.xib in Resources */,
 				C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */,
 				C5678CB728D61F34001096BE /* Main.storyboard in Resources */,
 			);
@@ -248,9 +310,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */,
+				5DFF73B529151B4A00112C27 /* SearchResultView.swift in Sources */,
+				5DFF73BA29151BD400112C27 /* NotesTableViewCell.swift in Sources */,
+				5DFF73BC29151BE800112C27 /* BookmarksTableViewCell.swift in Sources */,
+				5DFF73AE29151A7B00112C27 /* FMDatabaseQueue.m in Sources */,
+				5DFF73B829151BB600112C27 /* ContentsTableViewCell.swift in Sources */,
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
+				5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */,
 				C5BC7CDC29149A5A00950F23 /* BookViewController.swift in Sources */,
+				5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */,
+				5DFF73B229151A7B00112C27 /* FMResultSet.m in Sources */,
+				5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */,
+				5DFF73AF29151A7B00112C27 /* FMDatabaseAdditions.m in Sources */,
+				5DFF73A129151A4900112C27 /* Setting.swift in Sources */,
 				C5BC7CDA291497BA00950F23 /* AppDelegate+Extension+ePubReader.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
 			);
