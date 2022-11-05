@@ -36,10 +36,10 @@ class ViewController: UIViewController {
     
     // install sample epubs from bundle.
     func installSampleBooks() {
-        //let fileName = "Arabic_Book.epub"
+        sd.installEpub(fileName: "Alice.epub")
+        sd.installEpub(fileName: "Doctor.epub")
+        sd.installEpub(fileName: "English_Book.epub")
         sd.installEpub(fileName: "Arabic_Book.epub")
-        //sd.installEpub(fileName: "Alice.epub")
-        //sd.installEpub(fileName: "Doctor.epub")
     }
     
     func addSkyErrorNotificationObserver() {
