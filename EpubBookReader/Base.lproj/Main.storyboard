@@ -33,30 +33,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-CJ-KY5">
-                                <rect key="frame" x="149" y="460" width="116" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Arabic Book"/>
-                                <connections>
-                                    <action selector="openArabicBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvo-fW-aQj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-oD-PNh">
-                                <rect key="frame" x="146" y="514.5" width="122" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="English Book"/>
-                                <connections>
-                                    <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTU-cQ-JmT"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-Ik-2wg">
+                                <rect key="frame" x="97.5" y="418.5" width="219" height="117.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-Zz-nLA">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="English Book"/>
+                                        <connections>
+                                            <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smc-8l-H08"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-CJ-KY5">
+                                        <rect key="frame" x="0.0" y="41.5" width="219" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Arabic Book"/>
+                                        <connections>
+                                            <action selector="openArabicBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvo-fW-aQj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-oD-PNh">
+                                        <rect key="frame" x="0.0" y="83" width="219" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Download Book and Read"/>
+                                        <connections>
+                                            <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTU-cQ-JmT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
-                            <constraint firstItem="9bO-oD-PNh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4JN-zj-0hV"/>
-                            <constraint firstItem="bGZ-CJ-KY5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="9Ji-6q-zLJ"/>
-                            <constraint firstItem="bGZ-CJ-KY5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZKU-EU-y4j"/>
-                            <constraint firstItem="9bO-oD-PNh" firstAttribute="top" secondItem="bGZ-CJ-KY5" secondAttribute="bottom" constant="20" id="kan-p3-NC3"/>
+                            <constraint firstItem="zbt-Ik-2wg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1NK-GJ-68F"/>
+                            <constraint firstItem="zbt-Ik-2wg" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="23S-Pi-3Lj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O2L-mG-AzM"/>
