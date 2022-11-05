@@ -44,6 +44,8 @@
 		C5F89F60291673B6008144BA /* SkySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F5F291673B6008144BA /* SkySlider.swift */; };
 		C5F89F62291673CF008144BA /* SearchResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F61291673CF008144BA /* SearchResultType.swift */; };
 		C5F89F6429167424008144BA /* SkyEpubTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F6329167424008144BA /* SkyEpubTheme.swift */; };
+		C5F89F6929168616008144BA /* Alice.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6729168616008144BA /* Alice.epub */; };
+		C5F89F6A29168616008144BA /* Doctor.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6829168616008144BA /* Doctor.epub */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		C5F89F5F291673B6008144BA /* SkySlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkySlider.swift; sourceTree = "<group>"; };
 		C5F89F61291673CF008144BA /* SearchResultType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultType.swift; sourceTree = "<group>"; };
 		C5F89F6329167424008144BA /* SkyEpubTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyEpubTheme.swift; sourceTree = "<group>"; };
+		C5F89F6729168616008144BA /* Alice.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alice.epub; sourceTree = "<group>"; };
+		C5F89F6829168616008144BA /* Doctor.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Doctor.epub; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +148,7 @@
 			children = (
 				5DFF739E29151A1F00112C27 /* SkyData.swift */,
 				5DFF73A029151A4900112C27 /* Setting.swift */,
+				C5F89F6629168616008144BA /* Samples */,
 				C5F89F652916745F008144BA /* BookViewReader */,
 				C5F89F56291672F0008144BA /* UIViewHelpers */,
 				C592004929165C5E001A8879 /* Scripts */,
@@ -202,8 +207,6 @@
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
 				C5678CBD28D61F35001096BE /* Info.plist */,
-				C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */,
-				C51E9DF528F8415D00A972A6 /* English_Book.epub */,
 			);
 			path = EpubBookReader;
 			sourceTree = "<group>";
@@ -276,6 +279,17 @@
 			path = BookViewReader;
 			sourceTree = "<group>";
 		};
+		C5F89F6629168616008144BA /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */,
+				C51E9DF528F8415D00A972A6 /* English_Book.epub */,
+				C5F89F6729168616008144BA /* Alice.epub */,
+				C5F89F6829168616008144BA /* Doctor.epub */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -335,9 +349,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F89F6A29168616008144BA /* Doctor.epub in Resources */,
 				C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */,
 				C51E9DF828F8416400A972A6 /* English_Book.epub in Resources */,
 				C592005029165C5E001A8879 /* script.js in Resources */,
+				C5F89F6929168616008144BA /* Alice.epub in Resources */,
 				C592005529165C91001A8879 /* uwch.ttf in Resources */,
 				C592004E29165C5E001A8879 /* scriptForFixed.js in Resources */,
 				C5678CB928D61F35001096BE /* Assets.xcassets in Resources */,
