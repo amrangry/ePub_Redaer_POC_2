@@ -259,7 +259,8 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.setTTSPitch(1.0)
         // set the language of tts
         // if "auto" is set, TTS follows the language of epub itself.
-        rv.setTTSLanguage("auto")
+       // rv.setTTSLanguage("auto")
+        rv.setTTSLanguage("sa_ar")
         // set the voice rate (voice speed) of mediaOverlay (1.0f is default, if 2.0 is set, twice times faster than normal speed.
         rv.setMediaOverlayRate(1.0)
         // disable scroll mode.
