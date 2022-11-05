@@ -87,20 +87,14 @@ class ViewController: UIViewController {
     
     @IBAction func openArabicBook(_ sender: Any) {
         //let bi:BookInformation = self.bis.object(at: 0) as! BookInformation
-        let name = "Arabic_Book"
-        let bi = BookInformation()
-        bi.bookCode = 0
-        bi.position = 0
-        bi.fileName = "Arabic_Book.epub"
+        let name = "Arabic_Book.epub"
+        guard let bi = sd.fetchBookInformation(fileName: name) else { return }
         openBook(bi)
     }
     
     @IBAction func openEnglishBook(_ sender: Any) {
-        let name = "English_Book"
-        let bi = BookInformation()
-        bi.bookCode = 0
-        bi.position = 0
-        bi.fileName = "Arabic_Book.epub"
+        let name = "English_Book.epub"
+        guard let bi = sd.fetchBookInformation(fileName: name) else { return }
         openBook(bi)
     }
     
