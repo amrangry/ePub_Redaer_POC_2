@@ -22,7 +22,7 @@ extension String {
 class SkyData:NSObject ,SkyProviderDataSource {
     var database: FMDatabase!
     var keyManager:SkyKeyManager!
-
+    
     override init() {
         super.init()
         let docPath = self.getDocumentsPath()
@@ -233,7 +233,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         self.insertBookInformation(bi)
         return
     }
-
+    
     
     func skyProvider(_ sp: SkyProvider!, keyForEncryptedData uuidForContent: String!, contentName: String!, uuidForEpub: String!) -> String! {
         let key = keyManager.getKey(uuidForEpub, uuidForContent: uuidForContent)
@@ -437,7 +437,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         var condition:String = ""
         if !(key ?? "").isEmpty {
             condition = " WHERE Title like '%%\(key)%%' OR Author like '%%\(key)%%'"
-//            condition = " WHERE Title like '%\(key)%' OR Author like '%\(key)%'"
+            //            condition = " WHERE Title like '%\(key)%' OR Author like '%\(key)%'"
         }
         let sql = "Select * from Book " + condition + orderBy
         return self.fetchBookInformations(sql:sql)
@@ -475,14 +475,14 @@ class SkyData:NSObject ,SkyProviderDataSource {
                 bi.url              =   results.string(forColumn: "URL")
                 bi.coverUrl         =   results.string(forColumn: "CoverURL")
                 bi.lastRead         =   results.string(forColumn: "LastRead")
-
+                
                 bi.bookCode         =   Int32(results.int(forColumn:"BookCode"))
                 bi.type             =   results.string(forColumn: "Type")
                 bi.fileSize         =   Int32(results.int(forColumn:"FileSize"))
                 bi.customOrder      =   Int32(results.int(forColumn:"CustomOrder"))
                 bi.downSize         =   Int32(results.int(forColumn:"DownSize"))
                 bi.spread           =   Int32(results.int(forColumn:"Spread"))
-
+                
                 bi.position         =   Double(results.double(forColumn:"Position"))
                 
                 bi.isRead           =   results.int(forColumn:"IsRead") != 0 ? true:false
@@ -516,14 +516,14 @@ class SkyData:NSObject ,SkyProviderDataSource {
                 bi.url              =   results.string(forColumn: "URL")
                 bi.coverUrl         =   results.string(forColumn: "CoverURL")
                 bi.lastRead         =   results.string(forColumn: "LastRead")
-
+                
                 bi.bookCode         =   Int32(results.int(forColumn:"BookCode"))
                 bi.type             =   results.string(forColumn: "Type")
                 bi.fileSize         =   Int32(results.int(forColumn:"FileSize"))
                 bi.customOrder      =   Int32(results.int(forColumn:"CustomOrder"))
                 bi.downSize         =   Int32(results.int(forColumn:"DownSize"))
                 bi.spread           =   Int32(results.int(forColumn:"Spread"))
-
+                
                 bi.position         =   Double(results.double(forColumn:"Position"))
                 
                 bi.isRead           =   results.int(forColumn:"IsRead") != 0 ? true:false
@@ -728,7 +728,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         }else {
             let pageDelta = 1.0/Double(pageInformation.numberOfPagesInChapter)
             let target = pageInformation.pagePositionInChapter
-
+            
             let sql = "SELECT Code,PagePositionInChapter from Bookmark where BookCode=\(pageInformation.bookCode) and ChapterIndex=\(pageInformation.chapterIndex)"
             do {
                 let results = try database.executeQuery(sql, values: [])
@@ -767,7 +767,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         }
         return rets
     }
-        
+    
     // PagingInformation ===========================================================================================================
     func deletePagingInformation(pagingInformation pgi:PagingInformation!) {
         checkDatabase()
@@ -848,7 +848,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
                 pg.horizontalGapRatio = Double(results.double(forColumn:"HorizontalGapRatio"))
                 pg.isPortrait = results.int(forColumn:"IsPortrait") != 0 ? true:false
                 pg.isDoublePagedForLandscape =  results.int(forColumn:"IsDoublePagedForLandscape") != 0 ? true:false
-
+                
                 rets.add(pg)
             }
         }catch {
@@ -866,7 +866,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
     func fetchPagingInformations(pagingInformation pgi:PagingInformation)->NSMutableArray! {
         checkDatabase()
         let sql = String(format:"SELECT * FROM Paging WHERE BookCode=%d AND FontName='%@' AND FontSize=%d AND LineSpacing=%d AND Width=%d AND Height=%d AND HorizontalGapRatio=%f AND VerticalGapRatio=%f AND IsPortrait=%d AND IsDoublePagedForLandscape=%d Order By ChapterIndex",
-                               pgi.bookCode,         pgi.fontName,        pgi.fontSize,        pgi.lineSpacing,    pgi.width,        pgi.height,        pgi.horizontalGapRatio,        pgi.verticalGapRatio,        pgi.isPortrait ? 1:0,    pgi.isDoublePagedForLandscape ? 1:0 );
+                         pgi.bookCode,         pgi.fontName,        pgi.fontSize,        pgi.lineSpacing,    pgi.width,        pgi.height,        pgi.horizontalGapRatio,        pgi.verticalGapRatio,        pgi.isPortrait ? 1:0,    pgi.isDoublePagedForLandscape ? 1:0 );
         return self.fetchPagingInformations(sql: sql)
     }
     
@@ -887,10 +887,10 @@ class SkyData:NSObject ,SkyProviderDataSource {
     func insertItemRef(itemRef:ItemRef!) {
         checkDatabase()
         /*
-        let sql = "INSERT INTO ItemRef (BookCode,ChapterIndex,Title,Text,HRef,IdRef) Values(\(itemRef.bookCode),\(itemRef.chapterIndex),'','test text','','')"
-        database.executeUpdate(sql, withArgumentsIn: [])
-        */
-
+         let sql = "INSERT INTO ItemRef (BookCode,ChapterIndex,Title,Text,HRef,IdRef) Values(\(itemRef.bookCode),\(itemRef.chapterIndex),'','test text','','')"
+         database.executeUpdate(sql, withArgumentsIn: [])
+         */
+        
         let sql = "INSERT INTO ItemRef (BookCode,ChapterIndex,Title,Text,HRef,IdRef) VALUES(?,?,?,?,?,?)"
         do {
             try database.executeUpdate(sql, values: [itemRef.bookCode,itemRef.chapterIndex,itemRef.title! ,itemRef.text! ,itemRef.href!  ,itemRef.idref! ])
@@ -934,6 +934,6 @@ class SkyData:NSObject ,SkyProviderDataSource {
         }catch {
             print(error.localizedDescription)
         }
-        return nil 
+        return nil
     }
 }
