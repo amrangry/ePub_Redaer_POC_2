@@ -210,6 +210,8 @@ class SkyData:NSObject ,SkyProviderDataSource {
         skyProvider.book = bi.book
         bi.contentProvider = skyProvider
         bi.make()
+        
+        print("Book Code: \(bi.bookCode)")
         self.insertBookInformation(bi)
         return
     }
@@ -535,6 +537,48 @@ class SkyData:NSObject ,SkyProviderDataSource {
                 return bi
             }
         }catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    
+    func fetchBookInformation(fileName: String) -> BookInformation? {
+        checkDatabase()
+        //'%%\(key)%%'
+        let sql = "SELECT * FROM Book where FileName LIKE '%\(fileName)%'"
+        do {
+            let results = try database.executeQuery(sql, values: [])
+            while results.next() {
+                let bi:BookInformation = BookInformation()
+                bi.title            =   results.string(forColumn: "Title")
+                bi.creator          =   results.string(forColumn: "Author")
+                bi.publisher        =   results.string(forColumn: "Publisher")
+                bi.subject          =   results.string(forColumn: "Subject")
+                bi.date             =   results.string(forColumn: "Date")
+                bi.language         =   results.string(forColumn: "Language")
+                bi.fileName         =   results.string(forColumn: "FileName")
+                bi.url              =   results.string(forColumn: "URL")
+                bi.coverUrl         =   results.string(forColumn: "CoverURL")
+                bi.lastRead         =   results.string(forColumn: "LastRead")
+                
+                bi.bookCode         =   Int32(results.int(forColumn:"BookCode"))
+                bi.type             =   results.string(forColumn: "Type")
+                bi.fileSize         =   Int32(results.int(forColumn:"FileSize"))
+                bi.customOrder      =   Int32(results.int(forColumn:"CustomOrder"))
+                bi.downSize         =   Int32(results.int(forColumn:"DownSize"))
+                bi.spread           =   Int32(results.int(forColumn:"Spread"))
+                
+                bi.position         =   Double(results.double(forColumn:"Position"))
+                
+                bi.isRead           =   results.int(forColumn:"IsRead") != 0 ? true:false
+                bi.isRTL            =   results.int(forColumn:"IsRTL") != 0 ? true:false
+                bi.isVerticalWriting =  results.int(forColumn:"IsVerticalWriting") != 0 ? true:false
+                bi.isFixedLayout    =   results.int(forColumn:"IsFixedLayout") != 0 ? true:false
+                bi.isGlobalPagination = results.int(forColumn:"IsGlobalPagination") != 0 ? true:false
+                bi.isDownloaded     =   results.int(forColumn:"IsDownloaded") != 0 ? true:false
+                return bi
+            }
+        } catch {
             print(error.localizedDescription)
         }
         return nil
