@@ -109,7 +109,7 @@ class ViewController: UIViewController {
         let bvc = storyboard.instantiateViewController(withIdentifier: "BookViewController") as? BookViewController
         bvc?.modalPresentationStyle = .fullScreen
         bvc?.bookInformation = bi
-        self.present(bvc!, animated: false, completion: nil)
+        present(bvc!, animated: false, completion: nil)
     }
 }
 

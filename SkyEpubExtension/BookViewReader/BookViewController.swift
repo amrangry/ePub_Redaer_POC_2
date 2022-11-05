@@ -7,155 +7,6 @@
 
 import UIKit
 
-class ArrowView : UIView {
-    private var _upSide:Bool = true
-    private var _color:UIColor = UIColor.white
-    
-    var color:UIColor {
-        get {
-            return _color
-        }
-        set(newColor) {
-            _color = newColor
-            self.setNeedsDisplay()
-        }
-    }
-    
-    var upSide:Bool {
-        get {
-            return _upSide
-        }
-        set(newValue) {
-            _upSide = newValue
-            self.setNeedsDisplay()
-        }
-    }
-    
-    override func draw(_ rect: CGRect) {
-        let ctx:CGContext! = UIGraphicsGetCurrentContext();
-        if (upSide) {
-            ctx.beginPath()
-            ctx.move(to: CGPoint(x:(rect.maxX)/2,y:rect.minY))
-            ctx.addLine(to: CGPoint(x:rect.minX,y:rect.maxY))
-            ctx.addLine(to: CGPoint(x:rect.maxX,y:rect.maxX))
-            ctx.closePath()
-        }else {
-            ctx.beginPath()
-            ctx.move(to: CGPoint(x:rect.minX,y:rect.minY))
-            ctx.addLine(to: CGPoint(x:rect.maxX,y:rect.minY))
-            ctx.addLine(to: CGPoint(x:(rect.maxX)/2,y:rect.maxY))
-            ctx.closePath()
-        }
-        ctx.setFillColor(_color.cgColor)
-        ctx.fillPath()
-    }
-}
-
-class Theme {
-    var textColor:UIColor = .black
-    var labelColor:UIColor = .darkGray
-    var backgroundColor:UIColor = .white
-    var boxColor:UIColor = .white
-    var borderColor:UIColor = .lightGray
-    var iconColor:UIColor = .lightGray
-    var selectedColor:UIColor = .blue
-    var themeName:String = ""
-    
-    var sliderMinTrackColor:UIColor = .lightGray
-    var sliderMaxTrackColor:UIColor = .lightGray
-    var sliderThumbColor:UIColor = .lightGray
-    
-    init() {
-        
-    }
-    
-    init(themeName:String,textColor:UIColor, backgroundColor:UIColor, boxColor:UIColor, borderColor:UIColor, iconColor:UIColor,labelColor:UIColor,selectedColor:UIColor,sliderThumbColor:UIColor,sliderMinTrackColor:UIColor,sliderMaxTrackColor:UIColor) {
-        self.textColor = textColor
-        self.backgroundColor = backgroundColor
-        self.boxColor = boxColor
-        self.borderColor = borderColor
-        self.iconColor = iconColor
-        self.labelColor = labelColor
-        self.sliderThumbColor = sliderThumbColor
-        self.sliderMinTrackColor = sliderMinTrackColor
-        self.sliderMaxTrackColor = sliderMaxTrackColor
-        self.selectedColor = selectedColor
-    }
-}
-
-extension UIImage {
-    func imageWithColor(color: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        color.setFill()
-
-        let context = UIGraphicsGetCurrentContext()
-        context?.translateBy(x: 0, y: self.size.height)
-        context?.scaleBy(x: 1.0, y: -1.0)
-        context?.setBlendMode(CGBlendMode.normal)
-
-        let rect = CGRect(origin: .zero, size: CGSize(width: self.size.width, height: self.size.height))
-        context?.clip(to: rect, mask: self.cgImage!)
-        context?.fill(rect)
-
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage!
-    }
-}
-
-extension UIColor {
-    public convenience init?(hex: String) {
-        let r, g, b, a: CGFloat
-
-        if hex.hasPrefix("#") {
-            let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexColor = String(hex[start...])
-
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-
-        return nil
-    }
-}
-
-extension UIButton {
-    open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        let margin: CGFloat = 10
-        let hitArea = self.bounds.insetBy(dx: -margin, dy: -margin)
-        return hitArea.contains(point)
-    }
-}
-
-
-@IBDesignable
-class SkySlider : UISlider {
-    @IBInspectable var thumbImage: UIImage?{
-        didSet {
-            setThumbImage(thumbImage, for: .normal)
-            setThumbImage(thumbImage, for: .highlighted)
-        }
-    }
-}
-
-enum SearchResultType {
-  case normal,more,finished
-}
-
-
 class BookViewController: UIViewController,ReflowableViewControllerDataSource,ReflowableViewControllerDelegate,SkyProviderDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource  {
     var bookCode:Int = -1
     var sd:SkyData!
@@ -189,7 +40,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     var currentSelectedFontButton:UIButton!
     
     var themes:NSMutableArray = NSMutableArray()
-    var currentTheme:Theme = Theme()
+    var currentTheme:SkyEpubTheme = SkyEpubTheme()
     var currentThemeIndex:Int = 0
     
     var highlights:NSMutableArray   = NSMutableArray()
@@ -439,13 +290,13 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     // make all custom themes.
     func makeThemes() {
         // Theme 0  -  White
-        self.themes.add(Theme(themeName:"White", textColor: .black, backgroundColor: UIColor.init(red:252/255,green:252/255,blue: 252/255,alpha:1), boxColor: .white, borderColor: UIColor.init(red:198/255,green:198/255,blue: 200/255,alpha:1), iconColor: UIColor.init(red:0/255,green:2/255,blue: 0/255,alpha:1), labelColor: .black,     selectedColor:.blue, sliderThumbColor: .black,sliderMinTrackColor: .darkGray, sliderMaxTrackColor: UIColor.init(red:220/255,green:220/255,blue: 220/255,alpha:1)))
+        self.themes.add(SkyEpubTheme(themeName:"White", textColor: .black, backgroundColor: UIColor.init(red:252/255,green:252/255,blue: 252/255,alpha:1), boxColor: .white, borderColor: UIColor.init(red:198/255,green:198/255,blue: 200/255,alpha:1), iconColor: UIColor.init(red:0/255,green:2/255,blue: 0/255,alpha:1), labelColor: .black,     selectedColor:.blue, sliderThumbColor: .black,sliderMinTrackColor: .darkGray, sliderMaxTrackColor: UIColor.init(red:220/255,green:220/255,blue: 220/255,alpha:1)))
         // Theme 1 -   Brown
-        self.themes.add(Theme(themeName:"Brown", textColor: .black, backgroundColor: UIColor.init(red:240/255,green:232/255,blue: 206/255,alpha:1), boxColor: UIColor.init(red:253/255,green:249/255,blue: 237/255,alpha:1), borderColor: UIColor.init(red:219/255,green:212/255,blue: 199/255,alpha:1), iconColor:UIColor.brown, labelColor: UIColor.init(red:70/255,green:52/255,blue: 35/255,alpha:1), selectedColor:.blue,sliderThumbColor: UIColor.init(red:191/255,green:154/255,blue: 70/255,alpha:1),sliderMinTrackColor: UIColor.init(red:191/255,green:154/255,blue: 70/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:219/255,green:212/255,blue: 199/255,alpha:1)))
+        self.themes.add(SkyEpubTheme(themeName:"Brown", textColor: .black, backgroundColor: UIColor.init(red:240/255,green:232/255,blue: 206/255,alpha:1), boxColor: UIColor.init(red:253/255,green:249/255,blue: 237/255,alpha:1), borderColor: UIColor.init(red:219/255,green:212/255,blue: 199/255,alpha:1), iconColor:UIColor.brown, labelColor: UIColor.init(red:70/255,green:52/255,blue: 35/255,alpha:1), selectedColor:.blue,sliderThumbColor: UIColor.init(red:191/255,green:154/255,blue: 70/255,alpha:1),sliderMinTrackColor: UIColor.init(red:191/255,green:154/255,blue: 70/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:219/255,green:212/255,blue: 199/255,alpha:1)))
         // Theme 2 -  Dark
-        self.themes.add(Theme(themeName:"Dark", textColor: UIColor.init(red:212/255,green:212/255,blue: 213/255,alpha:1), backgroundColor: UIColor.init(red:71/255,green:71/255,blue: 73/255,alpha:1), boxColor: UIColor.init(red:77/255,green:77/255,blue: 79/255,alpha:1), borderColor: UIColor.init(red:91/255,green:91/255,blue: 95/255,alpha:1), iconColor: UIColor.init(red:238/255,green:238/255,blue: 238/255,alpha:1), labelColor: UIColor.init(red:212/255,green:212/255,blue: 213/255,alpha:1),selectedColor:.yellow, sliderThumbColor: UIColor.init(red:254/255,green:254/255,blue: 254/255,alpha:1),sliderMinTrackColor: UIColor.init(red:254/255,green:254/255,blue: 254/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:103/255,green:103/255,blue: 106/255,alpha:1)))
+        self.themes.add(SkyEpubTheme(themeName:"Dark", textColor: UIColor.init(red:212/255,green:212/255,blue: 213/255,alpha:1), backgroundColor: UIColor.init(red:71/255,green:71/255,blue: 73/255,alpha:1), boxColor: UIColor.init(red:77/255,green:77/255,blue: 79/255,alpha:1), borderColor: UIColor.init(red:91/255,green:91/255,blue: 95/255,alpha:1), iconColor: UIColor.init(red:238/255,green:238/255,blue: 238/255,alpha:1), labelColor: UIColor.init(red:212/255,green:212/255,blue: 213/255,alpha:1),selectedColor:.yellow, sliderThumbColor: UIColor.init(red:254/255,green:254/255,blue: 254/255,alpha:1),sliderMinTrackColor: UIColor.init(red:254/255,green:254/255,blue: 254/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:103/255,green:103/255,blue: 106/255,alpha:1)))
         // Theme 3 - Black
-        self.themes.add(Theme(themeName:"Black",textColor: UIColor.init(red:175/255,green:175/255,blue: 175/255,alpha:1), backgroundColor: .black, boxColor: UIColor.init(red:44/255,green:44/255,blue: 46/255,alpha:1), borderColor: UIColor.init(red:90/255,green:90/255,blue: 92/255,alpha:1), iconColor: UIColor.init(red:241/255,green:241/255,blue: 241/255,alpha:1), labelColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1),selectedColor:.white, sliderThumbColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1),sliderMinTrackColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:42/255,green:42/255,blue: 44/255,alpha:1)))
+        self.themes.add(SkyEpubTheme(themeName:"Black",textColor: UIColor.init(red:175/255,green:175/255,blue: 175/255,alpha:1), backgroundColor: .black, boxColor: UIColor.init(red:44/255,green:44/255,blue: 46/255,alpha:1), borderColor: UIColor.init(red:90/255,green:90/255,blue: 92/255,alpha:1), iconColor: UIColor.init(red:241/255,green:241/255,blue: 241/255,alpha:1), labelColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1),selectedColor:.white, sliderThumbColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1),sliderMinTrackColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:42/255,green:42/255,blue: 44/255,alpha:1)))
     }
     
     // make user interface.
@@ -585,6 +436,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     // entry point of view controller.
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var ad:AppDelegate!
         ad = UIApplication.shared.delegate as? AppDelegate
         sd = ad.data
@@ -592,7 +444,9 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         setting = sd.fetchSetting()
         makeThemes()
         currentThemeIndex = setting.theme
-        currentTheme = themes.object(at: currentThemeIndex) as! Theme
+        currentThemeIndex = 0
+
+        currentTheme = themes.object(at: currentThemeIndex) as! SkyEpubTheme
         
         self.addSkyErrorNotificationObserver()
         NotificationCenter.default.addObserver(self, selector: #selector(didRotate), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -1610,7 +1464,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
     }
     
-    func applyThemeToSearchTextFieldClearButton(theme:Theme) {
+    func applyThemeToSearchTextFieldClearButton(theme:SkyEpubTheme) {
         if didApplyClearBox {
             return
         }
@@ -1631,7 +1485,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
     }
     
-    func applyThemeToListBox(theme:Theme) {
+    func applyThemeToListBox(theme:SkyEpubTheme) {
         listBox.backgroundColor = theme.backgroundColor
         
         listBoxTitleLabel.textColor = theme.textColor
@@ -1645,7 +1499,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
     }
     
-    func applyThemeToSearchBox(theme:Theme) {
+    func applyThemeToSearchBox(theme:SkyEpubTheme) {
         searchBox.backgroundColor = theme.boxColor
         searchBox.layer.borderWidth = 1
         searchBox.layer.borderColor = theme.borderColor.cgColor
@@ -2084,7 +1938,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             theme0Button.layer.borderWidth = 3
         }
         
-        currentTheme = themes.object(at: currentThemeIndex) as! Theme
+        currentTheme = themes.object(at: currentThemeIndex) as! SkyEpubTheme
     }
     
     func applyCurrentTheme() {
@@ -2092,7 +1946,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         self.applyTheme(theme:currentTheme)
     }
     
-    func applyTheme(theme:Theme) {
+    func applyTheme(theme:SkyEpubTheme) {
         applyThemeToBookViewer(theme: theme)
         applyThemeToFontBox(theme: theme)
         applyThemeToListBox(theme: theme)
@@ -2100,7 +1954,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         applyThemeToMediaBox(theme: theme)
     }
     
-    func applyThemeToBookViewer(theme:Theme) {
+    func applyThemeToBookViewer(theme:SkyEpubTheme) {
         homeButton.tintColor = theme.iconColor
         listButton.tintColor = theme.iconColor
         searchButton.tintColor = theme.iconColor
@@ -2126,7 +1980,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
     }
     
-    func applyThemeToFontBox(theme:Theme) {
+    func applyThemeToFontBox(theme:SkyEpubTheme) {
         fontBox.backgroundColor = theme.boxColor
         fontBox.layer.borderColor = theme.borderColor.cgColor
         
@@ -2152,7 +2006,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         focusSelectedFont()
     }
     
-    func applyThemeToMediaBox(theme:Theme) {
+    func applyThemeToMediaBox(theme:SkyEpubTheme) {
         prevButton.tintColor = theme.iconColor
         playButton.tintColor = theme.iconColor
         stopButton.tintColor = theme.iconColor
@@ -2430,7 +2284,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     }
     
     // SIBox - slider IndexBox
-    func applyThemeToSIBox(theme:Theme) {
+    func applyThemeToSIBox(theme:SkyEpubTheme) {
         siBox.layer.borderWidth = 1
         siBox.layer.cornerRadius = 10
         
