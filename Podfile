@@ -10,6 +10,9 @@ target 'EpubBookReader' do
 
   #Pods for EpubBookReader
   
+  # Network
+  pod 'Alamofire', :inhibit_warnings => true #, '~> 5.2.2' #5.5.0
+  
 end
 
 post_install do |installer|

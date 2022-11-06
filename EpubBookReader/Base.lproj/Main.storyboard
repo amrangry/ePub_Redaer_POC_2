@@ -57,7 +57,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Download Book and Read"/>
                                         <connections>
-                                            <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTU-cQ-JmT"/>
+                                            <action selector="downloadAndOpenEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIz-kW-aoh"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -46,6 +46,8 @@
 		C5F89F6429167424008144BA /* SkyEpubTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F6329167424008144BA /* SkyEpubTheme.swift */; };
 		C5F89F6929168616008144BA /* Alice.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6729168616008144BA /* Alice.epub */; };
 		C5F89F6A29168616008144BA /* Doctor.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6829168616008144BA /* Doctor.epub */; };
+		C5F89F762916A055008144BA /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F752916A055008144BA /* FileHelper.swift */; };
+		C5F89F782916A096008144BA /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F772916A096008144BA /* Debugger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		C5F89F6329167424008144BA /* SkyEpubTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyEpubTheme.swift; sourceTree = "<group>"; };
 		C5F89F6729168616008144BA /* Alice.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alice.epub; sourceTree = "<group>"; };
 		C5F89F6829168616008144BA /* Doctor.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Doctor.epub; sourceTree = "<group>"; };
+		C5F89F752916A055008144BA /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		C5F89F772916A096008144BA /* Debugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +187,7 @@
 				C5BC7CD02913047B00950F23 /* Bridge.h */,
 				C5BC7CC12913039800950F23 /* SkyEpub */,
 				5DFF739D291519FE00112C27 /* SkyEpubExtension */,
+				C5F89F742916A048008144BA /* Extra */,
 				C5678CAE28D61F34001096BE /* EpubBookReader */,
 				C5678CAD28D61F34001096BE /* Products */,
 				5AE0911A1AA993142F5B458E /* Pods */,
@@ -290,6 +295,15 @@
 			path = Samples;
 			sourceTree = "<group>";
 		};
+		C5F89F742916A048008144BA /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				C5F89F752916A055008144BA /* FileHelper.swift */,
+				C5F89F772916A096008144BA /* Debugger.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +315,7 @@
 				C5678CA828D61F34001096BE /* Sources */,
 				C5678CA928D61F34001096BE /* Frameworks */,
 				C5678CAA28D61F34001096BE /* Resources */,
+				0347084B1D409793EBD6E9F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -371,6 +386,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0347084B1D409793EBD6E9F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FEA4CD3CE4F4FF097593DA4C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,6 +435,7 @@
 				5DFF73B529151B4A00112C27 /* SearchResultView.swift in Sources */,
 				C5F89F5E2916739B008144BA /* UIColor+Extension+SkyEpub.swift in Sources */,
 				5DFF73BA29151BD400112C27 /* NotesTableViewCell.swift in Sources */,
+				C5F89F782916A096008144BA /* Debugger.swift in Sources */,
 				5DFF73BC29151BE800112C27 /* BookmarksTableViewCell.swift in Sources */,
 				C5F89F6429167424008144BA /* SkyEpubTheme.swift in Sources */,
 				5DFF73AE29151A7B00112C27 /* FMDatabaseQueue.m in Sources */,
@@ -415,6 +448,7 @@
 				5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */,
 				C5F89F62291673CF008144BA /* SearchResultType.swift in Sources */,
 				5DFF73B229151A7B00112C27 /* FMResultSet.m in Sources */,
+				C5F89F762916A055008144BA /* FileHelper.swift in Sources */,
 				C5F89F5A2916735A008144BA /* UIImage+Extension+SkyEpub.swift in Sources */,
 				5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */,
 				5DFF73AF29151A7B00112C27 /* FMDatabaseAdditions.m in Sources */,
@@ -566,9 +600,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F6M3JLX3CY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EpubBookReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -586,7 +621,7 @@
 					"$(PROJECT_DIR)/SkyEpub",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apps.EpubBookReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adkatech.bookJuice.live;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -602,9 +637,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F6M3JLX3CY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EpubBookReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -622,7 +658,7 @@
 					"$(PROJECT_DIR)/SkyEpub",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apps.EpubBookReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adkatech.bookJuice.live;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
