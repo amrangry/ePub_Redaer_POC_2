@@ -14,7 +14,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     var bookInformation:BookInformation!
     var setting:Setting!
     var rv:ReflowableViewController!
-   
+    
     // Informations related to Hightlight/Note UI, Coordinations.
     var currentColor:UIColor!
     var currentHighlight:Highlight!
@@ -32,7 +32,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     var lastNumberOfSearched:Int = 0
     var searchScrollHeight:CGFloat = 0
     var searchResults:NSMutableArray = NSMutableArray()
-
+    
     var fontNames:NSMutableArray = NSMutableArray()
     var fontAliases:NSMutableArray = NSMutableArray()
     var selectedFontOffsetY:CGFloat = 0
@@ -55,14 +55,14 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     var isControlsShown:Bool = true
     var isScrollMode:Bool = false
     var isFontBoxMade:Bool = false
-
+    
     var arrow:ArrowView!
-
+    
     
     var snapView:UIView!
     var activityIndicator:UIActivityIndicatorView!
     
-
+    
     @IBOutlet var listBox: UIView!
     @IBOutlet weak var listBoxTitleLabel: UILabel!
     @IBOutlet weak var listBoxResumeButton: UIButton!
@@ -235,7 +235,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.fileName = self.bookInformation!.fileName
         rv.bookCode = self.bookInformation!.bookCode
         self.bookCode = Int(self.bookInformation!.bookCode)
-
+        
         // set baseDirector of rv to booksDirectory
         let booksDirectory = sd.getBooksDirectory()
         rv.baseDirectory = booksDirectory
@@ -243,7 +243,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         // since 8.5.0, the path of epub can be set by setBookPath.
         let bookPath = self.getBookPath()
         rv.setBookPath(bookPath)
-                
+        
         // 25% space (in both left most and right most margins)
         rv.setHorizontalGapRatio(0.25)
         // 20% space (in both top and bottom margins)
@@ -259,7 +259,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.setTTSPitch(1.0)
         // set the language of tts
         // if "auto" is set, TTS follows the language of epub itself.
-       // rv.setTTSLanguage("auto")
+        // rv.setTTSLanguage("auto")
         rv.setTTSLanguage("sa_ar")
         // set the voice rate (voice speed) of mediaOverlay (1.0f is default, if 2.0 is set, twice times faster than normal speed.
         rv.setMediaOverlayRate(1.0)
@@ -315,9 +315,9 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             let globalPageIndex = rv.getPageIndexInBook()
             slider.value = Float(globalPageIndex)
         }
-
+        
         isRotationLocked = setting.lockRotation
-       
+        
         self.makeFonts()
         
         arrow = ArrowView()
@@ -362,9 +362,9 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
-        selector: #selector(didReceiveSkyErrorNotification(_:)),
-        name: NSNotification.Name("SkyError"),
-        object: nil)
+                                               selector: #selector(didReceiveSkyErrorNotification(_:)),
+                                               name: NSNotification.Name("SkyError"),
+                                               object: nil)
     }
     
     func removeSkyErrorNotification() {
@@ -380,7 +380,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         NSLog("SkyError code %d level %d message:%@",code,level,message)
     }
     
-
+    
     // display proper ui controls for rotation and direction.
     func recalcPageLabels() {
         if self.isPortrait() {
@@ -400,7 +400,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
     }
     
-
+    
     // returns true when device is portrait.
     func isPortrait()->Bool {
         guard let interfaceOrientation = UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.windowScene?.interfaceOrientation else { return false }
@@ -421,7 +421,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
         return ret
     }
-
+    
     
     // called when device has just been rotated.
     @objc func didRotated() {
@@ -446,12 +446,12 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         makeThemes()
         currentThemeIndex = setting.theme
         currentThemeIndex = 0
-
+        
         currentTheme = themes.object(at: currentThemeIndex) as! SkyEpubTheme
         
         self.addSkyErrorNotificationObserver()
         NotificationCenter.default.addObserver(self, selector: #selector(didRotate), name: UIDevice.orientationDidChangeNotification, object: nil)
-
+        
         self.makeBookViewer()
         self.makeUI()
         
@@ -467,7 +467,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         isLoop = false
         // Do any additional setup after loading the view.
     }
-
+    
     // this destory function should be called whenever is is dismissed.
     func destroy() {
         NotificationCenter.default.removeObserver(self)
@@ -477,14 +477,14 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         self.bookInformation = nil;
         rv.dataSource = nil;
         rv.delegate = nil;
-//        rv.customView = nil;
+        //        rv.customView = nil;
         rv.removeFromParent()
         rv.view.removeFromSuperview()
         rv.destroy()
     }
     
     override func dismiss(animated flag: Bool,
-                             completion: (() -> Void)?) {
+                          completion: (() -> Void)?) {
         super.dismiss(animated: flag, completion: completion)
         NSLog("Dismissed");
     }
@@ -768,7 +768,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         showNoteBox()
     }
     
-   
+    
     func showHighlightBox() {
         showBaseView()
         self.view.addSubview(highlightBox)
@@ -801,7 +801,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         var arrowHeight:CGFloat = 20
         var arrowX:CGFloat = 0
         var arrowY:CGFloat = 0
-
+        
         arrow.color = currentColor
         let delta:CGFloat = 60
         
@@ -1078,7 +1078,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         let anotherColorComponents = anotherColor.cgColor.components!
         
         if  (abs(colorComponents[0]-anotherColorComponents[0])<0.00001) && (abs(colorComponents[1]-anotherColorComponents[1])<0.00001) &&
-            (abs(colorComponents[2]-anotherColorComponents[2])<0.00001) {
+                (abs(colorComponents[2]-anotherColorComponents[2])<0.00001) {
             return true
         }
         return false
@@ -1116,7 +1116,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     func reflowableViewController(_ rvc: ReflowableViewController!, didSelectionCanceled lastSelectedText: String!) {
         self.hideMenuBox()
     }
-
+    
     @IBAction func colorPressed(_ sender: Any) {
         hideHighlightBox()
         showColorBox()
@@ -1184,7 +1184,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
                 context.draw(markerImage.cgImage!, in: bottomRect)
             }
         }
-     }
+    }
     
     func processBookmark() {
         if self.isBookmarked {
@@ -1268,7 +1268,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         self.changePageLabels(pageInformation : pg)
         self.recalcPageLabels()
     }
-
+    
     // SKYEPUB SDK CALLBACK
     // called when Global Pagination starts.
     func reflowableViewController(_ rvc: ReflowableViewController!, didStartPaging bookCode: Int32) {
@@ -1316,7 +1316,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     func reflowableViewController(_ rvc: ReflowableViewController!, anyPagingInformationsForBookCode bookCode: Int32, numberOfChapters: Int32) -> NSMutableArray! {
         return sd.fetchPagingInformationsForScan(bookCode: Int(bookCode), numberOfChapters: Int(numberOfChapters))
     }
-
+    
     // SKYEPUB SDK CALLBACK
     // called when text inforamtion is extracted from each chapter. text information of each chapter can be stored external storage with or without encrypting.
     // and they will be used for searching, text speech, highlight or etc.
@@ -1383,7 +1383,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.searchMore()
         rv.isSearching = true
     }
-
+    
     func stopSearch() {
         rv.stopSearch()
     }
@@ -1401,7 +1401,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         let image = UIImage(named: "magnifier");
         imageView.image = image;
         searchTextField.leftView = imageView;
-
+        
         searchBox.layer.borderWidth = 1
         searchBox.layer.cornerRadius = 10
         isRotationLocked = true
@@ -1599,7 +1599,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         searchScrollView.contentOffset  = CGPoint(x:0,y:co)
         
     }
-
+    
     @IBAction func searchCancelPressed(_ sender: Any) {
         self.hideSearchBox()
     }
@@ -1622,7 +1622,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             }
         }
     }
-
+    
     // SKYEPUB SDK CALLBACK
     // called when key is found while searching.
     func reflowableViewController(_ rvc: ReflowableViewController!, didSearchKey searchResult: SearchResult!) {
@@ -1691,7 +1691,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         
         let rightMargin:CGFloat = 50.0
         let topMargin:CGFloat = 60.0 + view.safeAreaInsets.top
-
+        
         if self.isPad() {
             fx = self.view.bounds.size.width - fontBox.bounds.size.width - rightMargin
             fy = topMargin
@@ -1785,7 +1785,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             }
         }
     }
-
+    
     
     func decreaseFontSize() {
         var fontName:String = setting.fontName
@@ -1800,7 +1800,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
                 setting.fontSize = fontSize;
             }
         }
-
+        
     }
     
     func getRealLineSpacing(_ lineSpaceIndex:Int) ->Int {
@@ -1822,8 +1822,8 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             rs = 150
         }
         return rs
-      }
-
+    }
+    
     func decreaseLineSpacing() {
         if setting.lineSpacing != 0 {
             var lineSpacingIndex = setting.lineSpacing!
@@ -1847,7 +1847,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             }
         }
     }
-
+    
     func getRealFontSize(fontSizeIndex:Int) ->Int {
         var rs:Int = 0
         switch fontSizeIndex {
@@ -1866,7 +1866,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
         return rs
     }
-
+    
     
     @objc func fontNameButtonClick(_ sender: Any) {
         if currentSelectedFontButton != nil {
@@ -1895,11 +1895,11 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         decreaseFontSizeButton.backgroundColor = .clear
         self.decreaseFontSize()
     }
-
+    
     @IBAction func increaseFontSizeDown(_ sender: Any) {
         increaseFontSizeButton.backgroundColor = .lightGray
     }
-
+    
     
     @IBAction func increaseFontSizePressed(_ sender: Any) {
         increaseFontSizeButton.backgroundColor = .clear
@@ -1988,7 +1988,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         brightnessSlider.thumbTintColor = UIColor.init(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
         brightnessSlider.minimumTrackTintColor = theme.sliderMinTrackColor
         brightnessSlider.maximumTrackTintColor = theme.sliderMaxTrackColor
-            
+        
         decreaseBrightnessIcon.tintColor = theme.iconColor
         increaseBrightnessIcon.tintColor = theme.iconColor
         
@@ -2085,7 +2085,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         print(listBoxSegmentedControl.selectedSegmentIndex)
         self.showTableView(index:listBoxSegmentedControl.selectedSegmentIndex)
     }
-
+    
     @IBAction func listBoxResumePressed(_ sender: Any) {
         self.hideListBox()
     }
@@ -2139,10 +2139,10 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     }
     
     func reloadContents() {
-//        if !isContentsTableViewLoaded {
-            contentsTableView.reloadData()
-//            isContentsTableViewLoaded = true
-//        }
+        //        if !isContentsTableViewLoaded {
+        contentsTableView.reloadData()
+        //            isContentsTableViewLoaded = true
+        //        }
     }
     
     func reloadHighlights() {
@@ -2207,7 +2207,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
                 cell.highlightTextLabel.textColor = .black
                 cell.noteTextLabel.textColor = currentTheme.textColor
                 cell.datetimeLabel.textColor = currentTheme.textColor
-
+                
                 cell.highlightTextLabel.backgroundColor =  UIColorFromRGB(rgbValue: UInt(highlight.highlightColor))
                 return cell
             }
@@ -2250,7 +2250,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
         return false
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             let index = indexPath.row
@@ -2373,7 +2373,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }
         isControlsShown = true
     }
-
+    
     func hideControls() {
         homeButton.isHidden = true
         listButton.isHidden = true
@@ -2423,7 +2423,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     @IBAction func stopPressed(_ sender: Any) {
         self.stopPlaying()
     }
-        
+    
     @IBAction func nextPressed(_ sender: Any) {
         self.playNext()
     }
@@ -2445,7 +2445,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             self.changePlayAndPauseButton()
         }
     }
-
+    
     // stop playing the parallel.
     func stopPlaying() {
         rv.stopPlayingParallel()
@@ -2459,7 +2459,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             self.changePlayAndPauseButton()
         }
     }
-
+    
     // play the previous parallel.
     func playPrev() {
         rv.playPrevParallel()
@@ -2467,7 +2467,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             self.changePlayAndPauseButton()
         }
     }
-
+    
     // play the next paralle.
     func playNext() {
         rv.playNextParallel()
@@ -2509,7 +2509,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             }
         }
     }
-
+    
     // SKYEPUB SDK CALLBACK
     // called after playing all parallels are finished in MediaOverlay or TTS.
     func parallesDidEnd(_ rvc: ReflowableViewController!) {
@@ -2529,7 +2529,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         return rawString
     }
     
-
+    
     
     func reflowableViewController(_ rvc: ReflowableViewController!, didHitLink urlString: String!) {
         print("didHitLink "+urlString)
@@ -2561,56 +2561,56 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
      }
      
      
-    
-    
-    func reflowableViewController(_ rvc: ReflowableViewController!, didHitLinkForLinearNo urlString: String!) {
-        <#code#>
-    }
-    
-    
-    
-    func reflowableViewController(_ rvc: ReflowableViewController!, didDetectDoubleTapAt position: CGPoint) {
-        <#code#>
-    }
-    
-    
-    
-    func reflowableViewController(_ rvc: ReflowableViewController!, didHitBookmark pageInformation: PageInformation!, isBookmarked: Bool) {
-        <#code#>
-    }
-    
-    
-    
-    func pageTransitionStarted(_ rvc: ReflowableViewController!) {
-        <#code#>
-    }
-    
-    func pageTransitionEnded(_ rvc: ReflowableViewController!) {
-        <#code#>
-    }
-    
-    
-    func reflowableViewController(_ rvc: ReflowableViewController!, styleForChapter chapterIndex: Int) -> String! {
-        <#code#>
-    }
-    
-
-    
-    func reflowableViewController(_ rvc: ReflowableViewController!, isBookmarked pageInformation: PageInformation!) -> Bool {
-        <#code#>
-    }
-    
-
-    
-    
-    func bookmarkImage(_ rvc: ReflowableViewController!, isBookmarked: Bool) -> UIImage! {
-        <#code#>
-    }
-    
-    func bookmarkRect(_ rvc: ReflowableViewController!, isBookmarked: Bool) -> CGRect {
-        <#code#>
-    }
-    */
+     
+     
+     func reflowableViewController(_ rvc: ReflowableViewController!, didHitLinkForLinearNo urlString: String!) {
+     <#code#>
+     }
+     
+     
+     
+     func reflowableViewController(_ rvc: ReflowableViewController!, didDetectDoubleTapAt position: CGPoint) {
+     <#code#>
+     }
+     
+     
+     
+     func reflowableViewController(_ rvc: ReflowableViewController!, didHitBookmark pageInformation: PageInformation!, isBookmarked: Bool) {
+     <#code#>
+     }
+     
+     
+     
+     func pageTransitionStarted(_ rvc: ReflowableViewController!) {
+     <#code#>
+     }
+     
+     func pageTransitionEnded(_ rvc: ReflowableViewController!) {
+     <#code#>
+     }
+     
+     
+     func reflowableViewController(_ rvc: ReflowableViewController!, styleForChapter chapterIndex: Int) -> String! {
+     <#code#>
+     }
+     
+     
+     
+     func reflowableViewController(_ rvc: ReflowableViewController!, isBookmarked pageInformation: PageInformation!) -> Bool {
+     <#code#>
+     }
+     
+     
+     
+     
+     func bookmarkImage(_ rvc: ReflowableViewController!, isBookmarked: Bool) -> UIImage! {
+     <#code#>
+     }
+     
+     func bookmarkRect(_ rvc: ReflowableViewController!, isBookmarked: Bool) -> CGRect {
+     <#code#>
+     }
+     */
     
     func reflowableViewController(_ rvc: ReflowableViewController!, failedToMove toForward: Bool) {
         //
@@ -2619,7 +2619,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
