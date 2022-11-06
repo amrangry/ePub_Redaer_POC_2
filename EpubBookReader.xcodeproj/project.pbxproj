@@ -28,7 +28,7 @@
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
 		C5678CB928D61F35001096BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB828D61F35001096BE /* Assets.xcassets */; };
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
-		C592002529163C8C001A8879 /* BookReaderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C592002429163C8C001A8879 /* BookReaderStoryboard.storyboard */; };
+		C592002529163C8C001A8879 /* EpubBookReaderStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C592002429163C8C001A8879 /* EpubBookReaderStoryboard.storyboard */; };
 		C592004E29165C5E001A8879 /* scriptForFixed.js in Resources */ = {isa = PBXBuildFile; fileRef = C592004A29165C5E001A8879 /* scriptForFixed.js */; };
 		C592004F29165C5E001A8879 /* custom.css in Resources */ = {isa = PBXBuildFile; fileRef = C592004B29165C5E001A8879 /* custom.css */; };
 		C592005029165C5E001A8879 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = C592004C29165C5E001A8879 /* script.js */; };
@@ -36,7 +36,7 @@
 		C592005529165C91001A8879 /* uwch.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C592005329165C91001A8879 /* uwch.ttf */; };
 		C592005629165C91001A8879 /* Mayflower Antique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C592005429165C91001A8879 /* Mayflower Antique.ttf */; };
 		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
-		C5BC7CDC29149A5A00950F23 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CDB29149A5A00950F23 /* BookViewController.swift */; };
+		C5BC7CDC29149A5A00950F23 /* EpubBookReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CDB29149A5A00950F23 /* EpubBookReaderViewController.swift */; };
 		C5F89F582916731F008144BA /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F572916731F008144BA /* ArrowView.swift */; };
 		C5F89F5A2916735A008144BA /* UIImage+Extension+SkyEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F592916735A008144BA /* UIImage+Extension+SkyEpub.swift */; };
 		C5F89F5C2916737A008144BA /* UIButton+Extension+SkyEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */; };
@@ -81,7 +81,7 @@
 		C5678CB828D61F35001096BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5678CBB28D61F35001096BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5678CBD28D61F35001096BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C592002429163C8C001A8879 /* BookReaderStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BookReaderStoryboard.storyboard; sourceTree = "<group>"; };
+		C592002429163C8C001A8879 /* EpubBookReaderStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EpubBookReaderStoryboard.storyboard; sourceTree = "<group>"; };
 		C592004A29165C5E001A8879 /* scriptForFixed.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scriptForFixed.js; sourceTree = "<group>"; };
 		C592004B29165C5E001A8879 /* custom.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = custom.css; sourceTree = "<group>"; };
 		C592004C29165C5E001A8879 /* script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		C5BC7CCD2913039800950F23 /* SkyKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkyKeyManager.h; sourceTree = "<group>"; };
 		C5BC7CCE2913039800950F23 /* FixedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedViewController.h; sourceTree = "<group>"; };
 		C5BC7CD02913047B00950F23 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
-		C5BC7CDB29149A5A00950F23 /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		C5BC7CDB29149A5A00950F23 /* EpubBookReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubBookReaderViewController.swift; sourceTree = "<group>"; };
 		C5F89F572916731F008144BA /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		C5F89F592916735A008144BA /* UIImage+Extension+SkyEpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension+SkyEpub.swift"; sourceTree = "<group>"; };
 		C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension+SkyEpub.swift"; sourceTree = "<group>"; };
@@ -273,8 +273,8 @@
 		C5F89F652916745F008144BA /* BookViewReader */ = {
 			isa = PBXGroup;
 			children = (
-				C5BC7CDB29149A5A00950F23 /* BookViewController.swift */,
-				C592002429163C8C001A8879 /* BookReaderStoryboard.storyboard */,
+				C5BC7CDB29149A5A00950F23 /* EpubBookReaderViewController.swift */,
+				C592002429163C8C001A8879 /* EpubBookReaderStoryboard.storyboard */,
 				5DFF73BB29151BE800112C27 /* BookmarksTableViewCell.swift */,
 				5DFF73B729151BB600112C27 /* ContentsTableViewCell.swift */,
 				5DFF73B929151BD400112C27 /* NotesTableViewCell.swift */,
@@ -375,7 +375,7 @@
 				C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */,
 				5DFF73B629151B4A00112C27 /* SearchResultView.xib in Resources */,
 				C592004F29165C5E001A8879 /* custom.css in Resources */,
-				C592002529163C8C001A8879 /* BookReaderStoryboard.storyboard in Resources */,
+				C592002529163C8C001A8879 /* EpubBookReaderStoryboard.storyboard in Resources */,
 				C592005129165C5E001A8879 /* Books.sql in Resources */,
 				C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */,
 				C592005629165C91001A8879 /* Mayflower Antique.ttf in Resources */,
@@ -443,7 +443,7 @@
 				5DFF73B829151BB600112C27 /* ContentsTableViewCell.swift in Sources */,
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
 				5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */,
-				C5BC7CDC29149A5A00950F23 /* BookViewController.swift in Sources */,
+				C5BC7CDC29149A5A00950F23 /* EpubBookReaderViewController.swift in Sources */,
 				C5F89F582916731F008144BA /* ArrowView.swift in Sources */,
 				5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */,
 				C5F89F62291673CF008144BA /* SearchResultType.swift in Sources */,

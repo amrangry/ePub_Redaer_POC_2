@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Book View Controller-->
+        <!--Epub Book Reader View Controller-->
         <scene sceneID="y3Z-kE-zKl">
             <objects>
-                <viewController storyboardIdentifier="BookViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qBF-iV-SBP" customClass="BookViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EpubBookReaderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qBF-iV-SBP" customClass="EpubBookReaderViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7l0-X0-hwi">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

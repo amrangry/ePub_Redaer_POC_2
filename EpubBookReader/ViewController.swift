@@ -126,8 +126,8 @@ class ViewController: UIViewController {
     }
     
     func openBook(_ bi: BookInformation) {
-        let storyboard = UIStoryboard(name: "BookReaderStoryboard", bundle: nil)
-        let bvc = storyboard.instantiateViewController(withIdentifier: "BookViewController") as? BookViewController
+        let storyboard = UIStoryboard(name: "EpubBookReaderStoryboard", bundle: nil)
+        let bvc = storyboard.instantiateViewController(withIdentifier: "EpubBookReaderViewController") as? EpubBookReaderViewController
         bvc?.modalPresentationStyle = .fullScreen
         bvc?.bookInformation = bi
         present(bvc!, animated: false, completion: nil)

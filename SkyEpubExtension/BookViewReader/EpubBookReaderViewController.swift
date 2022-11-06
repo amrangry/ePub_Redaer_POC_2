@@ -1,5 +1,5 @@
 //
-//  BookViewController.swift
+//  EpubBookReaderViewController.swift
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 04/11/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookViewController: UIViewController {
+class EpubBookReaderViewController: UIViewController {
     
     //MARK: - Variables In extension usage
     var didApplyClearBox:Bool = false
@@ -671,7 +671,7 @@ class BookViewController: UIViewController {
 }
 
 // MARK: - Search
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func searchPressed(_ sender: Any) {
         self.showSearchBox(isCollapsed: true)
@@ -776,7 +776,7 @@ extension BookViewController {
 }
 
 // MARK: - Theme
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func theme0Pressed(_ sender: Any) {
         self.themePressed(themeIndex: 0)
@@ -977,7 +977,7 @@ extension BookViewController {
 }
 
 // MARK: - highlight
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func highlightPressed(_ sender: Any) {
         hideMenuBox()
@@ -1018,7 +1018,7 @@ extension BookViewController {
     }
 }
 // MARK: - listBox
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func listPressed(_ sender: Any) {
         self.showListBox()
@@ -1071,7 +1071,7 @@ extension BookViewController {
 }
 
 // MARK: - Bookmark
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func bookmarkPressed(_ sender: Any) {
         self.toggleBookmark()
@@ -1099,7 +1099,7 @@ extension BookViewController {
 }
 
 // MARK: - ColorBox
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func yellowPressed(_ sender: Any) {
         let color = self.getMarkerColor(colorIndex: 0)
@@ -1238,7 +1238,7 @@ extension BookViewController {
 }
 
 // MARK: - LineSpacing
-extension BookViewController {
+extension EpubBookReaderViewController {
     func getRealLineSpacing(_ lineSpaceIndex:Int) ->Int {
         var rs:Int = 0
         switch lineSpaceIndex {
@@ -1323,7 +1323,7 @@ extension BookViewController {
 }
 
 // MARK: - fonts
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func fontPressed(_ sender: Any) {
         self.showFontBox()
@@ -1509,7 +1509,7 @@ extension BookViewController {
 }
 
 // MARK: - SIBox
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         self.updateSIBox()
@@ -1618,7 +1618,7 @@ extension BookViewController {
 }
 
 // MARK: - Note
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     @IBAction func notePressed(_ sender: Any) {
         hideMenuBox()
@@ -1856,7 +1856,7 @@ extension BookViewController {
 }
 
 // MARK: - Media Box
-extension BookViewController {
+extension EpubBookReaderViewController {
     // MediaOverlay && TTS
     func showMediaBox() {
         self.view.addSubview(mediaBox)
@@ -1951,7 +1951,7 @@ extension BookViewController {
 }
 
 // MARK: - UITextFieldDelegate
-extension BookViewController: UITextFieldDelegate {
+extension EpubBookReaderViewController: UITextFieldDelegate {
     // Saerch Routine ======================================================================================
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         let searchKey = searchTextField.text
@@ -2064,7 +2064,7 @@ extension BookViewController: UITextFieldDelegate {
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension BookViewController: UITableViewDelegate, UITableViewDataSource  {
+extension EpubBookReaderViewController: UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var ret:Int = 0
@@ -2197,7 +2197,7 @@ extension BookViewController: UITableViewDelegate, UITableViewDataSource  {
 }
 
 // MARK: - SkyError
-extension BookViewController {
+extension EpubBookReaderViewController {
     
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
@@ -2221,7 +2221,7 @@ extension BookViewController {
 }
 
 // MARK: - SkyProviderDataSource
-extension BookViewController: SkyProviderDataSource {
+extension EpubBookReaderViewController: SkyProviderDataSource {
     
     // SKYEPUB SDK CALLBACK
     // called when sdk needs to ask key to decrypt the encrypted epub. (encrypted by skydrm or any other drm which conforms to epub3 encrypt specification)
@@ -2237,7 +2237,7 @@ extension BookViewController: SkyProviderDataSource {
 }
 
 // MARK: - ReflowableViewControllerDataSource, ReflowableViewControllerDelegate
-extension BookViewController: ReflowableViewControllerDataSource, ReflowableViewControllerDelegate {
+extension EpubBookReaderViewController: ReflowableViewControllerDataSource, ReflowableViewControllerDelegate {
     
     // SKYEPUB SDK CALLBACK
     // called when page is moved.
