@@ -16,17 +16,22 @@ class ViewController: UIViewController {
     var sortType:Int = 0
     var searchKey:String = ""
     var bis:NSMutableArray!
-    
+        
     func loadBis() {
         self.bis = sd.fetchBookInformations(sortType: self.sortType, key: searchKey)
     }
+    
     func reload() {
         self.loadBis()
     }
     
+    @IBOutlet weak var mediaSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        mediaSwitch.isOn = true
         
         ad = UIApplication.shared.delegate as? AppDelegate
         sd = ad.data
@@ -86,6 +91,10 @@ class ViewController: UIViewController {
 //        openBook()
 //    }
     
+    @IBAction func mediaSwitchValueChange(_ sender: Any) {
+        
+    }
+    
     @IBAction func openArabicBook(_ sender: Any) {
         //let bi:BookInformation = self.bis.object(at: 0) as! BookInformation
         let name = "Arabic_Book.epub"
@@ -102,27 +111,30 @@ class ViewController: UIViewController {
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
         let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
         let fileName = "FederalistPapers.epub"
-        download(downloadURL, fileName: fileName) { [weak self] response in
-            switch response {
-            case .failure(let error):
-                print(error)
-            case .success(let result):
-                guard let file = result as? String else {
-                    print("not string")
-                    return
+        if let bi = sd.fetchBookInformation(fileName: fileName) {
+            openBook(bi)
+        } else {
+            download(downloadURL, fileName: fileName) { [weak self] response in
+                switch response {
+                case .failure(let error):
+                    print(error)
+                case .success(let result):
+                    guard let file = result as? String else {
+                        print("not string")
+                        return
+                    }
+                    //sourcePath = sourcePath.replacingOccurrences(of: "file://", with: "")
+                    let startWithValue = "file://"
+                    if (file.starts(with: startWithValue) == false) {
+                        print("here")
+                    }
+                        
+                    self?.sd.installEpub(fileName: fileName)
+                    guard let bi = self?.sd.fetchBookInformation(fileName: fileName) else { return }
+                    self?.openBook(bi)
                 }
-                //sourcePath = sourcePath.replacingOccurrences(of: "file://", with: "")
-                let startWithValue = "file://"
-                if (file.starts(with: startWithValue) == false) {
-                    print("here")
-                }
-                    
-                self?.sd.installEpub(fileName: fileName)
-                guard let bi = self?.sd.fetchBookInformation(fileName: fileName) else { return }
-                self?.openBook(bi)
             }
         }
-        
     }
     
     func openBook(_ bi: BookInformation) {
@@ -130,6 +142,8 @@ class ViewController: UIViewController {
         let bvc = storyboard.instantiateViewController(withIdentifier: "EpubBookReaderViewController") as? EpubBookReaderViewController
         bvc?.modalPresentationStyle = .fullScreen
         bvc?.bookInformation = bi
+        let enableMediaOverlar = mediaSwitch.isOn
+        bvc?.enableMediaOverlay = enableMediaOverlar
         present(bvc!, animated: false, completion: nil)
     }
 }

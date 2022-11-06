@@ -138,7 +138,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
             } catch {
                 print("Couldn't create downloads directory")
             }
-        }else {
+        } else {
             print(ePubDir+" has been already created!")
         }
     }
@@ -151,7 +151,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         let path = bundle.resourcePath! + "/" + fileName
         do {
             try fileManager.copyItem(atPath: path, toPath: downloadPath)
-        }catch {
+        } catch {
             print(error)
         }
     }
@@ -162,7 +162,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         let targetPath = self.getBooksDirectory()+"/"+fileName;
         do {
             try fileManager.copyItem(atPath: sourcePath, toPath: targetPath)
-        }catch {
+        } catch {
             print(error)
         }
     }
@@ -174,7 +174,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
         let targetPath = self.getBooksDirectory()+"/"+fileName;
         do {
             try fileManager.copyItem(atPath: sourcePath, toPath: targetPath)
-        }catch {
+        } catch {
             print(error)
         }
     }

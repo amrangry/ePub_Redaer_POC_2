@@ -9,6 +9,7 @@ import UIKit
 
 class EpubBookReaderViewController: UIViewController {
     
+    var enableMediaOverlay = true
     //MARK: - Variables In extension usage
     var didApplyClearBox:Bool = false
     //MARK: - Variables
@@ -142,7 +143,7 @@ class EpubBookReaderViewController: UIViewController {
         sd = ad?.data
         
         setting = sd.fetchSetting()
-        setting.mediaOverlay = false
+        setting.mediaOverlay = enableMediaOverlay
         
         makeThemes()
         
@@ -1859,12 +1860,14 @@ extension EpubBookReaderViewController {
 extension EpubBookReaderViewController {
     // MediaOverlay && TTS
     func showMediaBox() {
-        self.view.addSubview(mediaBox)
-        applyThemeToMediaBox(theme: currentTheme)
-        mediaBox.frame.origin.x = titleLabel.frame.origin.x
-        mediaBox.frame.origin.y = listButton.frame.origin.y - 7
-        mediaBox.isHidden = false
-        titleLabel.isHidden = true
+        if setting.mediaOverlay == true {
+            self.view.addSubview(mediaBox)
+            applyThemeToMediaBox(theme: currentTheme)
+            mediaBox.frame.origin.x = titleLabel.frame.origin.x
+            mediaBox.frame.origin.y = listButton.frame.origin.y - 7
+            mediaBox.isHidden = false
+            titleLabel.isHidden = true
+        }
     }
     
     func hideMediaBox() {
@@ -2284,20 +2287,15 @@ extension EpubBookReaderViewController: ReflowableViewControllerDataSource, Refl
     // SKYEPUB SDK CALLBACK
     // called when a new chapter has been just loaded.
     func reflowableViewController(_ rvc: ReflowableViewController!, didChapterLoad chapterIndex: Int32) {
-        isChapterJustLoaded = true
-        if setting.mediaOverlay == false {
-            self.hideMediaBox()
-            return
+        if rv.isMediaOverlayAvailable() && setting.mediaOverlay {
+            rv.setTTSEnabled(false)
+            self.showMediaBox()
+        } else if  rv.isTTSEnabled() {
+            self.showMediaBox()
         } else {
-            if rv.isMediaOverlayAvailable() && setting.mediaOverlay {
-                rv.setTTSEnabled(false)
-                self.showMediaBox()
-            } else if  rv.isTTSEnabled() {
-                self.showMediaBox()
-            } else {
-                self.hideMediaBox()
-            }
+            self.hideMediaBox()
         }
+        isChapterJustLoaded = true
     }
     
     // SKYEPUB SDK CALLBACK - DataSource
