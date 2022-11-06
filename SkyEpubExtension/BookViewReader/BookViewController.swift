@@ -7,62 +7,63 @@
 
 import UIKit
 
-class BookViewController: UIViewController,ReflowableViewControllerDataSource,ReflowableViewControllerDelegate,SkyProviderDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource  {
-    var bookCode:Int = -1
-    var sd:SkyData!
-    var info:PageInformation!
-    var bookInformation:BookInformation!
-    var setting:Setting!
-    var rv:ReflowableViewController!
+class BookViewController: UIViewController, ReflowableViewControllerDataSource, ReflowableViewControllerDelegate, SkyProviderDataSource, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource  {
+    
+    //MARK: - Variables
+    var bookCode: Int = -1
+    var sd: SkyData!
+    var info: PageInformation!
+    var bookInformation: BookInformation!
+    var setting: Setting!
+    var rv: ReflowableViewController!
     
     // Informations related to Hightlight/Note UI, Coordinations.
-    var currentColor:UIColor!
-    var currentHighlight:Highlight!
-    var currentStartRect:CGRect!
-    var currentEndRect:CGRect!
-    var currentMenuFrame:CGRect!
-    var isUpArrow:Bool!
-    var currentArrowFrame:CGRect!
-    var currentArrowFrameForNote:CGRect!
-    var currentNoteFrame:CGRect!
-    var currentPageInformation:PageInformation = PageInformation()
+    var currentColor: UIColor!
+    var currentHighlight: Highlight!
+    var currentStartRect: CGRect!
+    var currentEndRect: CGRect!
+    var currentMenuFrame: CGRect!
+    var isUpArrow: Bool!
+    var currentArrowFrame: CGRect!
+    var currentArrowFrameForNote: CGRect!
+    var currentNoteFrame: CGRect!
+    var currentPageInformation: PageInformation = PageInformation()
     
-    var isRotationLocked:Bool = false
-    var isBookmarked:Bool!
-    var lastNumberOfSearched:Int = 0
-    var searchScrollHeight:CGFloat = 0
-    var searchResults:NSMutableArray = NSMutableArray()
+    var isRotationLocked: Bool = false
+    var isBookmarked: Bool!
+    var lastNumberOfSearched: Int = 0
+    var searchScrollHeight: CGFloat = 0
+    var searchResults: NSMutableArray = NSMutableArray()
     
-    var fontNames:NSMutableArray = NSMutableArray()
-    var fontAliases:NSMutableArray = NSMutableArray()
-    var selectedFontOffsetY:CGFloat = 0
-    var currentSelectedFontIndex:Int = 0
-    var currentSelectedFontButton:UIButton!
+    var fontNames: NSMutableArray = NSMutableArray()
+    var fontAliases: NSMutableArray = NSMutableArray()
+    var selectedFontOffsetY: CGFloat = 0
+    var currentSelectedFontIndex: Int = 0
+    var currentSelectedFontButton: UIButton!
     
-    var themes:NSMutableArray = NSMutableArray()
-    var currentTheme:SkyEpubTheme = SkyEpubTheme()
-    var currentThemeIndex:Int = 0
+    var themes: NSMutableArray = NSMutableArray()
+    var currentTheme: SkyEpubTheme = SkyEpubTheme()
+    var currentThemeIndex: Int = 0
     
-    var highlights:NSMutableArray   = NSMutableArray()
-    var bookmarks:NSMutableArray    = NSMutableArray()
+    var highlights: NSMutableArray   = NSMutableArray()
+    var bookmarks: NSMutableArray    = NSMutableArray()
     
-    var isAutoPlaying:Bool = true
-    var isLoop:Bool = false
-    var autoStartPlayingWhenNewChapterLoaded:Bool = false
-    var autoMoveChapterWhenParallesFinished:Bool = false
-    var currentParallel:Parallel!
-    var isChapterJustLoaded:Bool = false
-    var isControlsShown:Bool = true
-    var isScrollMode:Bool = false
-    var isFontBoxMade:Bool = false
+    var isAutoPlaying: Bool = true
+    var isLoop: Bool = false
+    var autoStartPlayingWhenNewChapterLoaded: Bool = false
+    var autoMoveChapterWhenParallesFinished: Bool = false
+    var currentParallel: Parallel!
+    var isChapterJustLoaded: Bool = false
+    var isControlsShown: Bool = true
+    var isScrollMode: Bool = false
+    var isFontBoxMade: Bool = false
     
-    var arrow:ArrowView!
+    var arrow: ArrowView!
     
+    var snapView: UIView!
+    var activityIndicator: UIActivityIndicatorView!
     
-    var snapView:UIView!
-    var activityIndicator:UIActivityIndicatorView!
-    
-    
+    //MARK: - IBOutlet
     @IBOutlet var listBox: UIView!
     @IBOutlet weak var listBoxTitleLabel: UILabel!
     @IBOutlet weak var listBoxResumeButton: UIButton!
@@ -129,6 +130,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    //MARK: - IBAction
     @IBAction func sliderValueChanged(_ sender: Any) {
         self.updateSIBox()
     }
@@ -175,7 +177,6 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
     @IBAction func sliderDragEndedOutside(_ sender: Any) {
     }
     
-    
     @IBAction func homePressed(_ sender: Any) {
         destroy()
         self.dismiss(animated: true, completion: nil)
@@ -189,7 +190,6 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         self.showSearchBox(isCollapsed: true)
     }
     
-    
     @IBAction func fontPressed(_ sender: Any) {
         self.showFontBox()
     }
@@ -198,6 +198,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         self.toggleBookmark()
     }
     
+    //MARK: - Helper
     func getBookPath()->String {
         let bookPath:String = "\(rv.baseDirectory!)/\(rv.fileName!)"
         return bookPath
@@ -216,7 +217,6 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.dataSource = self
         // set rv's delegate to self.
         rv.delegate = self
-        
         // set the font of rv
         rv.fontSize = Int32(self.getRealFontSize(fontSizeIndex: setting.fontSize))
         // set lineSpacing of rv
@@ -230,25 +230,20 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.setDoublePagedForLandscape(self.setting.doublePaged)
         // if true, sdk will use gloabal pagination.
         rv.setGlobalPaging(self.setting.globalPagination)
-        
         // set filename and bookCode to open.
         rv.fileName = self.bookInformation!.fileName
         rv.bookCode = self.bookInformation!.bookCode
         self.bookCode = Int(self.bookInformation!.bookCode)
-        
         // set baseDirector of rv to booksDirectory
         let booksDirectory = sd.getBooksDirectory()
         rv.baseDirectory = booksDirectory
-        
         // since 8.5.0, the path of epub can be set by setBookPath.
         let bookPath = self.getBookPath()
         rv.setBookPath(bookPath)
-        
         // 25% space (in both left most and right most margins)
         rv.setHorizontalGapRatio(0.25)
         // 20% space (in both top and bottom margins)
         rv.setVerticalGapRatio(0.20)
-        
         // enable tts feature
         rv.setTTSEnabled(setting.tts)
         // set the speed of tts.
@@ -265,10 +260,8 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.setMediaOverlayRate(1.0)
         // disable scroll mode.
         rv.setScrollMode(false);
-        
         // set License Key for Reflowable Layout
         rv.setLicenseKey("0000-0000-0000-0000");
-        
         // make SkyProvider object to read epub reader.
         let skyProvider:SkyProvider = SkyProvider()
         // set skyProvider datasource
@@ -287,7 +280,6 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         self.addChild(rv)
         self.view.autoresizesSubviews = true
     }
-    
     // make all custom themes.
     func makeThemes() {
         // Theme 0  -  White
@@ -299,7 +291,6 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         // Theme 3 - Black
         self.themes.add(SkyEpubTheme(themeName:"Black",textColor: UIColor.init(red:175/255,green:175/255,blue: 175/255,alpha:1), backgroundColor: .black, boxColor: UIColor.init(red:44/255,green:44/255,blue: 46/255,alpha:1), borderColor: UIColor.init(red:90/255,green:90/255,blue: 92/255,alpha:1), iconColor: UIColor.init(red:241/255,green:241/255,blue: 241/255,alpha:1), labelColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1),selectedColor:.white, sliderThumbColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1),sliderMinTrackColor: UIColor.init(red:169/255,green:169/255,blue: 169/255,alpha:1), sliderMaxTrackColor: UIColor.init(red:42/255,green:42/255,blue: 44/255,alpha:1)))
     }
-    
     // make user interface.
     func makeUI() {
         // if RTL (Right to Left writing like Arabic or Hebrew)
@@ -307,23 +298,17 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             // Inverse the direction of slider.
             slider.transform = slider.transform.rotated(by: CGFloat(180.0/180*3.141592));
         }
-        
         if rv.isGlobalPagination() {
             slider.maximumValue = Float(rv.getNumberOfPagesInBook()-1)
             slider.minimumValue = 0;
-            
             let globalPageIndex = rv.getPageIndexInBook()
             slider.value = Float(globalPageIndex)
         }
-        
         isRotationLocked = setting.lockRotation
-        
         self.makeFonts()
-        
         arrow = ArrowView()
         arrow.isHidden = true
         self.view.addSubview(arrow)
-        
         // listBox
         contentsTableView.delegate = self
         contentsTableView.dataSource = self
@@ -331,10 +316,8 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         bookmarksTableView.dataSource = self
         notesTableView.delegate = self
         notesTableView.dataSource = self
-        
         fillFontScrollView()
         applyCurrentTheme()
-        
         menuBox.isHidden = true
         colorBox.isHidden = true
         highlightBox.isHidden = true
@@ -348,38 +331,31 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         let gesture = UITapGestureRecognizer(target: self, action:#selector(self.baseClick(_:)))
         baseView.addGestureRecognizer(gesture)
     }
-    
     func hideBaseView() {
         if !baseView.isHidden {
             baseView.removeFromSuperview()
             baseView.isHidden = true
         }
     }
-    
     @objc func baseClick(_ sender:UITapGestureRecognizer){
         self.hideBoxes()
     }
-    
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didReceiveSkyErrorNotification(_:)),
                                                name: NSNotification.Name("SkyError"),
                                                object: nil)
     }
-    
     func removeSkyErrorNotification() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name("SkyError"), object: nil)
     }
-    
     // if any error is reported by sdk.
     @objc func didReceiveSkyErrorNotification(_ notification: Notification) {
         guard let code: String = notification.userInfo?["code"] as? String else { return }
         guard let level: String = notification.userInfo?["level"] as? String else { return }
         guard let message: String = notification.userInfo?["message"] as? String else { return }
-        
         NSLog("SkyError code %d level %d message:%@",code,level,message)
     }
-    
     
     // display proper ui controls for rotation and direction.
     func recalcPageLabels() {
@@ -399,7 +375,6 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             }
         }
     }
-    
     
     // returns true when device is portrait.
     func isPortrait()->Bool {
@@ -422,52 +397,39 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         return ret
     }
     
-    
     // called when device has just been rotated.
     @objc func didRotated() {
         print("rotated")
         recalcPageLabels()
     }
-    
     override var shouldAutorotate: Bool{
         return !self.isRotationLocked
     }
     
-    
     // entry point of view controller.
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         var ad:AppDelegate!
         ad = UIApplication.shared.delegate as? AppDelegate
         sd = ad.data
-        
         setting = sd.fetchSetting()
         makeThemes()
         currentThemeIndex = setting.theme
         currentThemeIndex = 0
-        
         currentTheme = themes.object(at: currentThemeIndex) as! SkyEpubTheme
-        
         self.addSkyErrorNotificationObserver()
         NotificationCenter.default.addObserver(self, selector: #selector(didRotate), name: UIDevice.orientationDidChangeNotification, object: nil)
-        
         self.makeBookViewer()
         self.makeUI()
-        
         self.recalcPageLabels()
-        
         currentColor = self.getMarkerColor(colorIndex: 0)
-        
         var markerImage = self.getMakerImageFromColor(color: UIColor.yellow)
-        
         isAutoPlaying = true
         autoStartPlayingWhenNewChapterLoaded = setting.autoStartPlaying
         autoMoveChapterWhenParallesFinished  = setting.autoLoadNewChapter
         isLoop = false
         // Do any additional setup after loading the view.
     }
-    
     // this destory function should be called whenever is is dismissed.
     func destroy() {
         NotificationCenter.default.removeObserver(self)
@@ -482,13 +444,11 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         rv.view.removeFromSuperview()
         rv.destroy()
     }
-    
     override func dismiss(animated flag: Bool,
                           completion: (() -> Void)?) {
         super.dismiss(animated: flag, completion: completion)
         NSLog("Dismissed");
     }
-    
     // display page number or index.
     func changePageLabels(pageInformation:PageInformation) {
         var pi,pn:Int
@@ -499,9 +459,7 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             pi = pageInformation.pageIndex;
             pn = pageInformation.numberOfPagesInChapter;
         }
-        
         var dpi,dpn:Int
-        
         if rv.isDoublePaged() && !self.isPortrait() {
             dpi = (pi*2)+1
             dpn = pn*2
@@ -514,14 +472,12 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
             pageIndexLabel.text = "\(dpi)/\(dpn)"
         }
     }
-    
     // SKYEPUB SDK CALLBACK
     // called when page is moved.
     // PageInformation object contains all information about current page position.
     func reflowableViewController(_ rvc:ReflowableViewController,pageMoved pageInformation:PageInformation) {
         let ppb = pageInformation.pagePositionInBook
         let pageDelta = ((1/pageInformation.numberOfChaptersInBook)/pageInformation.numberOfPagesInChapter)
-        
         if rv.isGlobalPagination() {
             if !rv.isPaging() {
                 slider.minimumValue = 0;
@@ -535,23 +491,17 @@ class BookViewController: UIViewController,ReflowableViewControllerDataSource,Re
         }else {
             slider.value = Float(ppb);
         }
-        
         self.bookInformation.position = pageInformation.pagePositionInBook
-        
         titleLabel.text = rvc.title
         changePageLabels(pageInformation: pageInformation)
-        
         isBookmarked = sd.isBookmarked(pageInformation: pageInformation)
-        
         currentPageInformation = pageInformation
-        
         if autoStartPlayingWhenNewChapterLoaded && isChapterJustLoaded {
             if (rv.isMediaOverlayAvailable() && setting.mediaOverlay) || (rv.isTTSEnabled() && setting.tts && isAutoPlaying) {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.rv.playFirstParallelInPage()
                     self.changePlayAndPauseButton()
                 }
-                
             }
         }
         
