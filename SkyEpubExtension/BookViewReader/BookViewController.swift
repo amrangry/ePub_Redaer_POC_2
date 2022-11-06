@@ -141,6 +141,8 @@ class BookViewController: UIViewController {
         var ad = UIApplication.shared.delegate as? AppDelegate
         sd = ad?.data
         
+        setting = sd.fetchSetting()
+        setting.mediaOverlay = false
         
         makeThemes()
         
@@ -2282,15 +2284,20 @@ extension BookViewController: ReflowableViewControllerDataSource, ReflowableView
     // SKYEPUB SDK CALLBACK
     // called when a new chapter has been just loaded.
     func reflowableViewController(_ rvc: ReflowableViewController!, didChapterLoad chapterIndex: Int32) {
-        if rv.isMediaOverlayAvailable() && setting.mediaOverlay {
-            rv.setTTSEnabled(false)
-            self.showMediaBox()
-        } else if  rv.isTTSEnabled() {
-            self.showMediaBox()
-        } else {
-            self.hideMediaBox()
-        }
         isChapterJustLoaded = true
+        if setting.mediaOverlay == false {
+            self.hideMediaBox()
+            return
+        } else {
+            if rv.isMediaOverlayAvailable() && setting.mediaOverlay {
+                rv.setTTSEnabled(false)
+                self.showMediaBox()
+            } else if  rv.isTTSEnabled() {
+                self.showMediaBox()
+            } else {
+                self.hideMediaBox()
+            }
+        }
     }
     
     // SKYEPUB SDK CALLBACK - DataSource
