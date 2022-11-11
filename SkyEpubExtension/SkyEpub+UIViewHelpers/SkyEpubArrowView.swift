@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArrowView : UIView {
+class SkyEpubArrowView : UIView {
     private var _upSide:Bool = true
     private var _color:UIColor = UIColor.white
     

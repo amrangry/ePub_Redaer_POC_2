@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum SearchResultType {
+enum SkySearchResultType {
   case normal,more,finished
 }

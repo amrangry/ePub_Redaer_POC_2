@@ -138,8 +138,8 @@ class ViewController: UIViewController {
     }
     
     func openBook(_ bi: BookInformation) {
-        let storyboard = UIStoryboard(name: "SkyEpubBookReaderStoryboard", bundle: nil)
-        let bvc = storyboard.instantiateViewController(withIdentifier: "SkyEpubBookReaderViewController") as? SkyEpubBookReaderViewController
+        let storyboard = UIStoryboard(name: "SkyEpubStoryboard", bundle: nil)
+        let bvc = storyboard.instantiateViewController(withIdentifier: "SkyBookReaderViewController") as? SkyBookReaderViewController
         bvc?.modalPresentationStyle = .fullScreen
         bvc?.bookInformation = bi
         let enableMediaOverlar = mediaSwitch.isOn

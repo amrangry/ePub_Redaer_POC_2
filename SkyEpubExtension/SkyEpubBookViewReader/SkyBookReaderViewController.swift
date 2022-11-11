@@ -1,5 +1,5 @@
 //
-//  SkyEpubBookReaderViewController.swift
+//  BookViewController.swift
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 04/11/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SkyEpubBookReaderViewController: UIViewController {
+class SkyBookReaderViewController: UIViewController {
     
     var enableMediaOverlay = true
     //MARK: - Variables In extension usage
@@ -61,7 +61,7 @@ class SkyEpubBookReaderViewController: UIViewController {
     var isScrollMode: Bool = false
     var isFontBoxMade: Bool = false
     
-    var arrow: ArrowView!
+    var arrow: SkyEpubArrowView!
     
     var snapView: UIView!
     var activityIndicator: UIActivityIndicatorView!
@@ -319,7 +319,7 @@ class SkyEpubBookReaderViewController: UIViewController {
         }
         isRotationLocked = setting.lockRotation
         self.makeFonts()
-        arrow = ArrowView()
+        arrow = SkyEpubArrowView()
         arrow.isHidden = true
         self.view.addSubview(arrow)
         // listBox
@@ -672,7 +672,7 @@ class SkyEpubBookReaderViewController: UIViewController {
 }
 
 // MARK: - Search
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func searchPressed(_ sender: Any) {
         self.showSearchBox(isCollapsed: true)
@@ -701,7 +701,7 @@ extension SkyEpubBookReaderViewController {
         }
     }
     
-    func addSearchResult(searchResult:SearchResult, mode:SearchResultType) {
+    func addSearchResult(searchResult:SearchResult, mode:SkySearchResultType) {
         var headerText:String = ""
         var contentText:String = ""
         
@@ -777,7 +777,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - Theme
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func theme0Pressed(_ sender: Any) {
         self.themePressed(themeIndex: 0)
@@ -978,7 +978,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - highlight
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func highlightPressed(_ sender: Any) {
         hideMenuBox()
@@ -1019,7 +1019,7 @@ extension SkyEpubBookReaderViewController {
     }
 }
 // MARK: - listBox
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func listPressed(_ sender: Any) {
         self.showListBox()
@@ -1072,7 +1072,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - Bookmark
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func bookmarkPressed(_ sender: Any) {
         self.toggleBookmark()
@@ -1100,7 +1100,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - ColorBox
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func yellowPressed(_ sender: Any) {
         let color = self.getMarkerColor(colorIndex: 0)
@@ -1239,7 +1239,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - LineSpacing
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     func getRealLineSpacing(_ lineSpaceIndex:Int) ->Int {
         var rs:Int = 0
         switch lineSpaceIndex {
@@ -1324,7 +1324,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - fonts
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func fontPressed(_ sender: Any) {
         self.showFontBox()
@@ -1510,7 +1510,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - SIBox
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         self.updateSIBox()
@@ -1619,7 +1619,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - Note
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     @IBAction func notePressed(_ sender: Any) {
         hideMenuBox()
@@ -1857,7 +1857,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - Media Box
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     // MediaOverlay && TTS
     func showMediaBox() {
         if setting.mediaOverlay == true {
@@ -1954,7 +1954,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - UITextFieldDelegate
-extension SkyEpubBookReaderViewController: UITextFieldDelegate {
+extension SkyBookReaderViewController: UITextFieldDelegate {
     // Saerch Routine ======================================================================================
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         let searchKey = searchTextField.text
@@ -2067,7 +2067,7 @@ extension SkyEpubBookReaderViewController: UITextFieldDelegate {
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension SkyEpubBookReaderViewController: UITableViewDelegate, UITableViewDataSource  {
+extension SkyBookReaderViewController: UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var ret:Int = 0
@@ -2200,7 +2200,7 @@ extension SkyEpubBookReaderViewController: UITableViewDelegate, UITableViewDataS
 }
 
 // MARK: - SkyError
-extension SkyEpubBookReaderViewController {
+extension SkyBookReaderViewController {
     
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
@@ -2224,7 +2224,7 @@ extension SkyEpubBookReaderViewController {
 }
 
 // MARK: - SkyProviderDataSource
-extension SkyEpubBookReaderViewController: SkyProviderDataSource {
+extension SkyBookReaderViewController: SkyProviderDataSource {
     
     // SKYEPUB SDK CALLBACK
     // called when sdk needs to ask key to decrypt the encrypted epub. (encrypted by skydrm or any other drm which conforms to epub3 encrypt specification)
@@ -2240,7 +2240,7 @@ extension SkyEpubBookReaderViewController: SkyProviderDataSource {
 }
 
 // MARK: - ReflowableViewControllerDataSource, ReflowableViewControllerDelegate
-extension SkyEpubBookReaderViewController: ReflowableViewControllerDataSource, ReflowableViewControllerDelegate {
+extension SkyBookReaderViewController: ReflowableViewControllerDataSource, ReflowableViewControllerDelegate {
     
     // SKYEPUB SDK CALLBACK
     // called when page is moved.
