@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultView: UIView {
+class SkyEpubSearchResultView: UIView {
     @IBOutlet weak var bottomLine: UIView!
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!

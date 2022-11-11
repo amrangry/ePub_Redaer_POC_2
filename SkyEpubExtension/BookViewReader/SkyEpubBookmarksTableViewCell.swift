@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookmarksTableViewCell: UITableViewCell {
+class SkyEpubBookmarksTableViewCell: UITableViewCell {
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var datetimeLabel: UILabel!    
     

@@ -1,5 +1,5 @@
 //
-//  EpubBookReaderViewController.swift
+//  SkyEpubBookReaderViewController.swift
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 04/11/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EpubBookReaderViewController: UIViewController {
+class SkyEpubBookReaderViewController: UIViewController {
     
     var enableMediaOverlay = true
     //MARK: - Variables In extension usage
@@ -672,7 +672,7 @@ class EpubBookReaderViewController: UIViewController {
 }
 
 // MARK: - Search
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func searchPressed(_ sender: Any) {
         self.showSearchBox(isCollapsed: true)
@@ -705,7 +705,7 @@ extension EpubBookReaderViewController {
         var headerText:String = ""
         var contentText:String = ""
         
-        let resultView = Bundle.main.loadNibNamed("SearchResultView", owner: self, options: nil)?.first as! SearchResultView
+        let resultView = Bundle.main.loadNibNamed("SkyEpubSearchResultView", owner: self, options: nil)?.first as! SkyEpubSearchResultView
         let gotoButton = resultView.searchResultButton!
         
         if (mode == .normal) {
@@ -777,7 +777,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - Theme
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func theme0Pressed(_ sender: Any) {
         self.themePressed(themeIndex: 0)
@@ -875,9 +875,9 @@ extension EpubBookReaderViewController {
         searchCancelButton.setTitleColor(theme.textColor, for: .normal)
         applyThemeToSearchTextFieldClearButton(theme: theme)
         
-        let resultViews = searchScrollView.subviews.filter{$0 is SearchResultView}
+        let resultViews = searchScrollView.subviews.filter{$0 is SkyEpubSearchResultView}
         for i in 0..<resultViews.count {
-            let resultView:SearchResultView = resultViews[i] as! SearchResultView
+            let resultView:SkyEpubSearchResultView = resultViews[i] as! SkyEpubSearchResultView
             resultView.headerLabel.textColor = theme.textColor
             resultView.contentLabel.textColor = theme.textColor
             resultView.bottomLine.backgroundColor = theme.borderColor
@@ -978,7 +978,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - highlight
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func highlightPressed(_ sender: Any) {
         hideMenuBox()
@@ -1019,7 +1019,7 @@ extension EpubBookReaderViewController {
     }
 }
 // MARK: - listBox
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func listPressed(_ sender: Any) {
         self.showListBox()
@@ -1072,7 +1072,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - Bookmark
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func bookmarkPressed(_ sender: Any) {
         self.toggleBookmark()
@@ -1100,7 +1100,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - ColorBox
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func yellowPressed(_ sender: Any) {
         let color = self.getMarkerColor(colorIndex: 0)
@@ -1239,7 +1239,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - LineSpacing
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     func getRealLineSpacing(_ lineSpaceIndex:Int) ->Int {
         var rs:Int = 0
         switch lineSpaceIndex {
@@ -1324,7 +1324,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - fonts
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func fontPressed(_ sender: Any) {
         self.showFontBox()
@@ -1510,7 +1510,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - SIBox
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         self.updateSIBox()
@@ -1619,7 +1619,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - Note
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     @IBAction func notePressed(_ sender: Any) {
         hideMenuBox()
@@ -1857,7 +1857,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - Media Box
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     // MediaOverlay && TTS
     func showMediaBox() {
         if setting.mediaOverlay == true {
@@ -1954,7 +1954,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - UITextFieldDelegate
-extension EpubBookReaderViewController: UITextFieldDelegate {
+extension SkyEpubBookReaderViewController: UITextFieldDelegate {
     // Saerch Routine ======================================================================================
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
         let searchKey = searchTextField.text
@@ -2067,7 +2067,7 @@ extension EpubBookReaderViewController: UITextFieldDelegate {
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension EpubBookReaderViewController: UITableViewDelegate, UITableViewDataSource  {
+extension SkyEpubBookReaderViewController: UITableViewDelegate, UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var ret:Int = 0
@@ -2088,7 +2088,7 @@ extension EpubBookReaderViewController: UITableViewDelegate, UITableViewDataSour
             // constructs the table of contents.
             // navMap and navPoint contains the information of TOC (table of contents)
             let cnp:NavPoint! = rv.getCurrentNavPoint()
-            if let cell:ContentsTableViewCell = contentsTableView.dequeueReusableCell(withIdentifier: "contentsTableViewCell", for: indexPath) as? ContentsTableViewCell {
+            if let cell:SkyEpubContentsTableViewCell = contentsTableView.dequeueReusableCell(withIdentifier: "SkyEpubContentsTableViewCell", for: indexPath) as? SkyEpubContentsTableViewCell {
                 let np:NavPoint = rv.navMap.object(at: index) as! NavPoint
                 var leadingSpaceForDepth:String = ""
                 for _ in 0..<np.depth {
@@ -2110,7 +2110,7 @@ extension EpubBookReaderViewController: UITableViewDelegate, UITableViewDataSour
             }
         }else if (tableView.tag==201) {
             // constructs the table of highlights
-            if let cell:NotesTableViewCell = notesTableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath) as? NotesTableViewCell {
+            if let cell:SkyEpubNotesTableViewCell = notesTableView.dequeueReusableCell(withIdentifier: "SkyEpubNotesTableViewCell", for: indexPath) as? SkyEpubNotesTableViewCell {
                 let highlight:Highlight = highlights.object(at: index) as! Highlight
                 cell.positionLabel.text = rv.getChapterTitle(highlight.chapterIndex)
                 cell.highlightTextLabel.text = highlight.text
@@ -2127,7 +2127,7 @@ extension EpubBookReaderViewController: UITableViewDelegate, UITableViewDataSour
             }
         }else if (tableView.tag==202) {
             // constructs the table of bookmarks
-            if let cell:BookmarksTableViewCell = bookmarksTableView.dequeueReusableCell(withIdentifier: "bookmarksTableViewCell", for: indexPath) as? BookmarksTableViewCell {
+            if let cell:SkyEpubBookmarksTableViewCell = bookmarksTableView.dequeueReusableCell(withIdentifier: "SkyEpubBookmarksTableViewCell", for: indexPath) as? SkyEpubBookmarksTableViewCell {
                 let pg:PageInformation = bookmarks.object(at: index) as! PageInformation
                 cell.positionLabel.text = rv.getChapterTitle(Int32(pg.chapterIndex))
                 cell.datetimeLabel.text = pg.datetime
@@ -2200,7 +2200,7 @@ extension EpubBookReaderViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 // MARK: - SkyError
-extension EpubBookReaderViewController {
+extension SkyEpubBookReaderViewController {
     
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
@@ -2224,7 +2224,7 @@ extension EpubBookReaderViewController {
 }
 
 // MARK: - SkyProviderDataSource
-extension EpubBookReaderViewController: SkyProviderDataSource {
+extension SkyEpubBookReaderViewController: SkyProviderDataSource {
     
     // SKYEPUB SDK CALLBACK
     // called when sdk needs to ask key to decrypt the encrypted epub. (encrypted by skydrm or any other drm which conforms to epub3 encrypt specification)
@@ -2240,7 +2240,7 @@ extension EpubBookReaderViewController: SkyProviderDataSource {
 }
 
 // MARK: - ReflowableViewControllerDataSource, ReflowableViewControllerDelegate
-extension EpubBookReaderViewController: ReflowableViewControllerDataSource, ReflowableViewControllerDelegate {
+extension SkyEpubBookReaderViewController: ReflowableViewControllerDataSource, ReflowableViewControllerDelegate {
     
     // SKYEPUB SDK CALLBACK
     // called when page is moved.

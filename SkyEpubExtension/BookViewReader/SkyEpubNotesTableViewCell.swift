@@ -1,5 +1,5 @@
 //
-//  ContentsTableViewCell.swift
+//  NotesTableViewCell.swift
 //  SkyAD
 //
 //  Created by 하늘나무 on 2020/09/28.
@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ContentsTableViewCell: UITableViewCell {
-    @IBOutlet weak var chapterTitleLabel: UILabel!
+class SkyEpubNotesTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var highlightTextLabel: UILabel!
+    @IBOutlet weak var noteTextLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var datetimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Epub Book Reader View Controller-->
+        <!--Sky Epub Book Reader View Controller-->
         <scene sceneID="y3Z-kE-zKl">
             <objects>
-                <viewController storyboardIdentifier="EpubBookReaderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qBF-iV-SBP" customClass="EpubBookReaderViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SkyEpubBookReaderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qBF-iV-SBP" customClass="SkyEpubBookReaderViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7l0-X0-hwi">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -679,7 +679,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="349" height="299"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <prototypes>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notesTableViewCell" rowHeight="129" id="TCW-a2-uJM" userLabel="NotesTableViewCell" customClass="NotesTableViewCell" customModule="EpubBookReader" customModuleProvider="target">
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkyEpubNotesTableViewCell" rowHeight="129" id="TCW-a2-uJM" userLabel="SkyEpubNotesTableViewCell" customClass="SkyEpubNotesTableViewCell" customModule="EpubBookReader" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="50" width="349" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TCW-a2-uJM" id="tBS-rN-9bF">
@@ -742,7 +742,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="349" height="299"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <prototypes>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bookmarksTableViewCell" rowHeight="67" id="jrC-a8-WMd" customClass="BookmarksTableViewCell" customModule="EpubBookReader" customModuleProvider="target">
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkyEpubBookmarksTableViewCell" rowHeight="67" id="jrC-a8-WMd" userLabel="SkyEpubBookmarksTableViewCell" customClass="SkyEpubBookmarksTableViewCell" customModule="EpubBookReader" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="50" width="349" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jrC-a8-WMd" id="R7a-al-y2P">
@@ -792,7 +792,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="349" height="299"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <prototypes>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="contentsTableViewCell          " insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contentsTableViewCell" rowHeight="46" id="A4H-VW-7xE" userLabel="ContentsTableViewCell" customClass="ContentsTableViewCell" customModule="EpubBookReader" customModuleProvider="target">
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SkyEpubContentsTableViewCell          " insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SkyEpubContentsTableViewCell" rowHeight="46" id="A4H-VW-7xE" customClass="SkyEpubContentsTableViewCell" customModule="EpubBookReader" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="50" width="349" height="46"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A4H-VW-7xE" id="eXt-4J-WS9">
