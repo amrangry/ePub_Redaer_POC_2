@@ -1,5 +1,5 @@
 //
-//  AppDelegate+Extension+SkyEpub.swift
+//  SkyConfigurator.swift
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 11/11/2022.
@@ -7,7 +7,14 @@
 
 import Foundation
 
-extension AppDelegate {
+class SkyConfigurator {
+    static let shared = SkyConfigurator()
+    
+    var data: SkyData!
+    
+    private init() {
+        
+    }
     
     func configureSkyEpubData() {
         self.data = SkyData()

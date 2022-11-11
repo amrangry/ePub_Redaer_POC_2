@@ -139,8 +139,8 @@ class SkyBookReaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ad = UIApplication.shared.delegate as? AppDelegate
-        sd = ad?.data
+        var ad = SkyConfigurator.shared//UIApplication.shared.delegate as? AppDelegate
+        sd = ad.data
         
         setting = sd.fetchSetting()
         setting.mediaOverlay = enableMediaOverlay

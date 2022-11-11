@@ -37,6 +37,7 @@
 		C592005629165C91001A8879 /* Mayflower Antique.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C592005429165C91001A8879 /* Mayflower Antique.ttf */; };
 		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
 		C5BC7CDC29149A5A00950F23 /* SkyBookReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BC7CDB29149A5A00950F23 /* SkyBookReaderViewController.swift */; };
+		C5C782F0291E41DB00341B07 /* SkyConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */; };
 		C5F89F582916731F008144BA /* SkyEpubArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F572916731F008144BA /* SkyEpubArrowView.swift */; };
 		C5F89F5A2916735A008144BA /* UIImage+Extension+SkyEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F592916735A008144BA /* UIImage+Extension+SkyEpub.swift */; };
 		C5F89F5C2916737A008144BA /* UIButton+Extension+SkyEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */; };
@@ -103,6 +104,7 @@
 		C5BC7CCE2913039800950F23 /* FixedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedViewController.h; sourceTree = "<group>"; };
 		C5BC7CD02913047B00950F23 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		C5BC7CDB29149A5A00950F23 /* SkyBookReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyBookReaderViewController.swift; sourceTree = "<group>"; };
+		C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyConfigurator.swift; sourceTree = "<group>"; };
 		C5F89F572916731F008144BA /* SkyEpubArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyEpubArrowView.swift; sourceTree = "<group>"; };
 		C5F89F592916735A008144BA /* UIImage+Extension+SkyEpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension+SkyEpub.swift"; sourceTree = "<group>"; };
 		C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension+SkyEpub.swift"; sourceTree = "<group>"; };
@@ -147,9 +149,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		5DFF739D291519FE00112C27 /* SkyEpubExtension */ = {
+		5DFF739D291519FE00112C27 /* SkyEpubSDK */ = {
 			isa = PBXGroup;
 			children = (
+				C5BC7CD02913047B00950F23 /* Bridge.h */,
+				C5BC7CC12913039800950F23 /* SkyEpub */,
+				C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */,
 				5DFF739E29151A1F00112C27 /* SkyData.swift */,
 				5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */,
 				C5F89F6629168616008144BA /* SkyEpub+Books+Samples */,
@@ -159,7 +164,7 @@
 				C592005229165C91001A8879 /* SkyEpub+Fonts */,
 				5DFF73A229151A7B00112C27 /* fmdb */,
 			);
-			path = SkyEpubExtension;
+			path = SkyEpubSDK;
 			sourceTree = "<group>";
 		};
 		5DFF73A229151A7B00112C27 /* fmdb */ = {
@@ -184,9 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				C51E9DFB28F8533B00A972A6 /* .gitignore */,
-				C5BC7CD02913047B00950F23 /* Bridge.h */,
-				C5BC7CC12913039800950F23 /* SkyEpub */,
-				5DFF739D291519FE00112C27 /* SkyEpubExtension */,
+				5DFF739D291519FE00112C27 /* SkyEpubSDK */,
 				C5F89F742916A048008144BA /* Extra */,
 				C5678CAE28D61F34001096BE /* EpubBookReader */,
 				C5678CAD28D61F34001096BE /* Products */,
@@ -444,6 +447,7 @@
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
 				5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */,
 				C5BC7CDC29149A5A00950F23 /* SkyBookReaderViewController.swift in Sources */,
+				C5C782F0291E41DB00341B07 /* SkyConfigurator.swift in Sources */,
 				C5F89F582916731F008144BA /* SkyEpubArrowView.swift in Sources */,
 				5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */,
 				C5F89F62291673CF008144BA /* SkySearchResultType.swift in Sources */,

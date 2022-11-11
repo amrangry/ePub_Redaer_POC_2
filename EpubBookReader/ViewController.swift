@@ -10,7 +10,7 @@ import Alamofire
 
 class ViewController: UIViewController {
 
-    var ad:AppDelegate!
+    var ad:SkyConfigurator!
     var sd:SkyData!
     
     var sortType:Int = 0
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         
         mediaSwitch.isOn = true
         
-        ad = UIApplication.shared.delegate as? AppDelegate
+        ad = SkyConfigurator.shared //UIApplication.shared.delegate as? AppDelegate
         sd = ad.data
         self.addSkyErrorNotificationObserver()
         installSampleBooks() // if books are already installed, it will do nothing.
