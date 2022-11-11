@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Setting  {
+class SkyEpubSetting {
     var bookCode:Int!
     var fontName:String!
     var fontSize:Int!

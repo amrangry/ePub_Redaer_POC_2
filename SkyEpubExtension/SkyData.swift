@@ -310,7 +310,7 @@ class SkyData:NSObject ,SkyProviderDataSource {
     }
     
     
-    func updateSetting(setting:Setting!) {
+    func updateSetting(setting:SkyEpubSetting!) {
         checkDatabase()
         if setting.fontName == nil {
             setting.fontName = ""
@@ -324,13 +324,13 @@ class SkyData:NSObject ,SkyProviderDataSource {
     }
     
     
-    func fetchSetting() ->Setting! {
+    func fetchSetting() ->SkyEpubSetting! {
         checkDatabase()
         let sql = "SELECT * FROM Setting where BookCode=0"
         do {
             let results = try database.executeQuery(sql, values: [])
             while results.next() {
-                let setting = Setting()
+                let setting = SkyEpubSetting()
                 setting.bookCode =                      0
                 setting.fontName                        =   results.string(forColumn: "FontName")
                 setting.fontSize                        =   Int(results.int(forColumn:"FontSize"))

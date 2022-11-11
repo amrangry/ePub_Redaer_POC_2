@@ -17,7 +17,7 @@ class SkyEpubBookReaderViewController: UIViewController {
     var sd: SkyData!
     var info: PageInformation!
     var bookInformation: BookInformation!
-    var setting: Setting!
+    var setting: SkyEpubSetting!
     var rv: ReflowableViewController!
     
     // Informations related to Hightlight/Note UI, Coordinations.

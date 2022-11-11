@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5201F4663449A602073007AA /* Pods_EpubBookReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8670F98AD48F35C40967A51C /* Pods_EpubBookReader.framework */; };
 		5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF739E29151A1F00112C27 /* SkyData.swift */; };
-		5DFF73A129151A4900112C27 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A029151A4900112C27 /* Setting.swift */; };
+		5DFF73A129151A4900112C27 /* SkyEpubSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */; };
 		5DFF73AE29151A7B00112C27 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A429151A7B00112C27 /* FMDatabaseQueue.m */; };
 		5DFF73AF29151A7B00112C27 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A729151A7B00112C27 /* FMDatabaseAdditions.m */; };
 		5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A829151A7B00112C27 /* FMDatabase.m */; };
@@ -52,7 +52,7 @@
 
 /* Begin PBXFileReference section */
 		5DFF739E29151A1F00112C27 /* SkyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyData.swift; sourceTree = "<group>"; };
-		5DFF73A029151A4900112C27 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubSetting.swift; sourceTree = "<group>"; };
 		5DFF73A329151A7B00112C27 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		5DFF73A429151A7B00112C27 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
 		5DFF73A529151A7B00112C27 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
@@ -151,12 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				5DFF739E29151A1F00112C27 /* SkyData.swift */,
-				5DFF73A029151A4900112C27 /* Setting.swift */,
-				C5F89F6629168616008144BA /* Samples */,
+				5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */,
+				C5F89F6629168616008144BA /* SkyEpub+Books+Samples */,
 				C5F89F652916745F008144BA /* SkyEpubBookViewReader */,
-				C5F89F56291672F0008144BA /* UIViewHelpers */,
-				C592004929165C5E001A8879 /* Scripts */,
-				C592005229165C91001A8879 /* Fonts */,
+				C5F89F56291672F0008144BA /* SkyEpub+UIViewHelpers */,
+				C592004929165C5E001A8879 /* SkyEpub+Scripts */,
+				C592005229165C91001A8879 /* SkyEpub+Fonts */,
 				5DFF73A229151A7B00112C27 /* fmdb */,
 			);
 			path = SkyEpubExtension;
@@ -216,7 +216,7 @@
 			path = EpubBookReader;
 			sourceTree = "<group>";
 		};
-		C592004929165C5E001A8879 /* Scripts */ = {
+		C592004929165C5E001A8879 /* SkyEpub+Scripts */ = {
 			isa = PBXGroup;
 			children = (
 				C592004A29165C5E001A8879 /* scriptForFixed.js */,
@@ -224,16 +224,16 @@
 				C592004C29165C5E001A8879 /* script.js */,
 				C592004D29165C5E001A8879 /* Books.sql */,
 			);
-			path = Scripts;
+			path = "SkyEpub+Scripts";
 			sourceTree = "<group>";
 		};
-		C592005229165C91001A8879 /* Fonts */ = {
+		C592005229165C91001A8879 /* SkyEpub+Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				C592005329165C91001A8879 /* uwch.ttf */,
 				C592005429165C91001A8879 /* Mayflower Antique.ttf */,
 			);
-			path = Fonts;
+			path = "SkyEpub+Fonts";
 			sourceTree = "<group>";
 		};
 		C5BC7CC12913039800950F23 /* SkyEpub */ = {
@@ -256,7 +256,7 @@
 			path = SkyEpub;
 			sourceTree = "<group>";
 		};
-		C5F89F56291672F0008144BA /* UIViewHelpers */ = {
+		C5F89F56291672F0008144BA /* SkyEpub+UIViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
 				C5F89F6329167424008144BA /* SkyEpubTheme.swift */,
@@ -267,7 +267,7 @@
 				C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */,
 				C5F89F5D2916739B008144BA /* UIColor+Extension+SkyEpub.swift */,
 			);
-			path = UIViewHelpers;
+			path = "SkyEpub+UIViewHelpers";
 			sourceTree = "<group>";
 		};
 		C5F89F652916745F008144BA /* SkyEpubBookViewReader */ = {
@@ -284,7 +284,7 @@
 			path = SkyEpubBookViewReader;
 			sourceTree = "<group>";
 		};
-		C5F89F6629168616008144BA /* Samples */ = {
+		C5F89F6629168616008144BA /* SkyEpub+Books+Samples */ = {
 			isa = PBXGroup;
 			children = (
 				C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */,
@@ -292,7 +292,7 @@
 				C5F89F6729168616008144BA /* Alice.epub */,
 				C5F89F6829168616008144BA /* Doctor.epub */,
 			);
-			path = Samples;
+			path = "SkyEpub+Books+Samples";
 			sourceTree = "<group>";
 		};
 		C5F89F742916A048008144BA /* Extra */ = {
@@ -452,7 +452,7 @@
 				C5F89F5A2916735A008144BA /* UIImage+Extension+SkyEpub.swift in Sources */,
 				5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */,
 				5DFF73AF29151A7B00112C27 /* FMDatabaseAdditions.m in Sources */,
-				5DFF73A129151A4900112C27 /* Setting.swift in Sources */,
+				5DFF73A129151A4900112C27 /* SkyEpubSetting.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
 				C5F89F60291673B6008144BA /* SkySlider.swift in Sources */,
 			);
