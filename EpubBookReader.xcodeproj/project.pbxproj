@@ -243,18 +243,18 @@
 			isa = PBXGroup;
 			children = (
 				C5BC7CC82913039800950F23 /* libskyepub.a */,
-				C5BC7CC22913039800950F23 /* Book.h */,
-				C5BC7CC32913039800950F23 /* SkyDRMControl.h */,
-				C5BC7CC42913039800950F23 /* Highlight.h */,
 				C5BC7CC52913039800950F23 /* SkyEpub.h */,
-				C5BC7CC62913039800950F23 /* SearchResult.h */,
+				C5BC7CC22913039800950F23 /* Book.h */,
 				C5BC7CC72913039800950F23 /* BookInformation.h */,
 				C5BC7CC92913039800950F23 /* ContentProvider.h */,
-				C5BC7CCA2913039800950F23 /* SpeechSynthesizer.h */,
-				C5BC7CCB2913039800950F23 /* ReflowableViewController.h */,
-				C5BC7CCC2913039800950F23 /* SkyProvider.h */,
-				C5BC7CCD2913039800950F23 /* SkyKeyManager.h */,
 				C5BC7CCE2913039800950F23 /* FixedViewController.h */,
+				C5BC7CC42913039800950F23 /* Highlight.h */,
+				C5BC7CCB2913039800950F23 /* ReflowableViewController.h */,
+				C5BC7CC62913039800950F23 /* SearchResult.h */,
+				C5BC7CC32913039800950F23 /* SkyDRMControl.h */,
+				C5BC7CCD2913039800950F23 /* SkyKeyManager.h */,
+				C5BC7CCC2913039800950F23 /* SkyProvider.h */,
+				C5BC7CCA2913039800950F23 /* SpeechSynthesizer.h */,
 			);
 			path = SkyEpub;
 			sourceTree = "<group>";
