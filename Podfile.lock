@@ -1,16 +1,104 @@
 PODS:
   - Alamofire (5.6.2)
+  - AnimatedField (2.4.4)
+  - ClockWise (1.2.5)
+  - FloatRatingView (4.0)
+  - IQKeyboardManagerSwift (6.5.10)
+  - JWTDecode (3.0.0)
+  - KeychainSwift (20.0.0)
+  - Kingfisher (7.4.0)
+  - KRActivityIndicatorView (3.0.7)
+  - KRProgressHUD (3.4.7):
+    - KRActivityIndicatorView (= 3.0.7)
+  - Loaf (0.7.0)
+  - MGStarRatingView (1.0.0)
+  - PocketSVG (2.7.2)
+  - RAMAnimatedTabBarController (5.2.0)
+  - ReachabilitySwift (5.0.0)
+  - SVProgressHUD (2.2.6):
+    - SVProgressHUD/Core (= 2.2.6)
+  - SVProgressHUD/Core (2.2.6)
+  - SwiftLint (0.49.1)
+  - SwiftMessages (9.0.6):
+    - SwiftMessages/App (= 9.0.6)
+  - SwiftMessages/App (9.0.6)
 
 DEPENDENCIES:
   - Alamofire
+  - AnimatedField
+  - ClockWise
+  - FloatRatingView (from `https://github.com/amrangry/FloatRatingView.git`)
+  - IQKeyboardManagerSwift
+  - JWTDecode
+  - KeychainSwift
+  - Kingfisher
+  - KRProgressHUD
+  - Loaf
+  - MGStarRatingView (from `https://github.com/amrangry/MGStarRatingView.git`)
+  - PocketSVG
+  - RAMAnimatedTabBarController
+  - ReachabilitySwift
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
+  - SwiftLint
+  - SwiftMessages
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AnimatedField
+    - ClockWise
+    - IQKeyboardManagerSwift
+    - JWTDecode
+    - KeychainSwift
+    - Kingfisher
+    - KRActivityIndicatorView
+    - KRProgressHUD
+    - Loaf
+    - PocketSVG
+    - RAMAnimatedTabBarController
+    - ReachabilitySwift
+    - SwiftLint
+    - SwiftMessages
+
+EXTERNAL SOURCES:
+  FloatRatingView:
+    :git: https://github.com/amrangry/FloatRatingView.git
+  MGStarRatingView:
+    :git: https://github.com/amrangry/MGStarRatingView.git
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  FloatRatingView:
+    :commit: 4853caf7c94d493597617eab551e72a835e0319b
+    :git: https://github.com/amrangry/FloatRatingView.git
+  MGStarRatingView:
+    :commit: 951bc287a7d8d80a509704cd05c10cb797b543cc
+    :git: https://github.com/amrangry/MGStarRatingView.git
+  SVProgressHUD:
+    :commit: de1d4dba816a19454329031156b8788692bcfa2c
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  AnimatedField: af48a2d59a50b33b30446267f7f2af274296203c
+  ClockWise: f03a36f07ecaa46976d70e0c7587fcec594ffc1a
+  FloatRatingView: bb6bdddfbeec51b1d387b4bd50abc27b4dfccd48
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  JWTDecode: 82480a7173f8a811954e7e14a2b59f688ca4222a
+  KeychainSwift: 0ce6a4d13f7228054d1a71bb1b500448fb2ab837
+  Kingfisher: 596b207973051aae5e4c54a1c1cb39837ea10d36
+  KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
+  KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
+  MGStarRatingView: 78c9bfc20d6b6f2a4d6b69e7821043685ad1372a
+  PocketSVG: c597e6916641fd2674d2f0cabca0d1869cb82880
+  RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SVProgressHUD: de812b4f0e1d65358f0064416473174ae619843f
+  SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
+  SwiftMessages: f0c7ef4705a570ad6c5e208b611f4333e660ed92
 
-PODFILE CHECKSUM: 3818f967194ae5d3ef550f1a36ce3c2ba5458bc0
+PODFILE CHECKSUM: 6524b171e11ccd605d1a2e97d5aa6daad37dff23
 
 COCOAPODS: 1.11.3
