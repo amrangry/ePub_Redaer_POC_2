@@ -37,8 +37,7 @@
 		C54FAC8A2922ADB50038A0B2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC892922ADB50038A0B2 /* FacebookCore */; };
 		C54FAC8C2922ADB50038A0B2 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC8B2922ADB50038A0B2 /* FacebookLogin */; };
 		C54FAC8E2922ADB50038A0B2 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC8D2922ADB50038A0B2 /* FacebookShare */; };
-		C54FAC912922AE0A0038A0B2 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC902922AE0A0038A0B2 /* SwiftMessages */; };
-		C54FAC932922AE0A0038A0B2 /* SwiftMessages-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC922922AE0A0038A0B2 /* SwiftMessages-Dynamic */; };
+		C54FAC952922B3F40038A0B2 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54FAC942922B3F40038A0B2 /* AuthenticationServices.framework */; };
 		C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CAF28D61F34001096BE /* AppDelegate.swift */; };
 		C5678CB428D61F34001096BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CB328D61F34001096BE /* ViewController.swift */; };
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
@@ -107,6 +106,7 @@
 		C51E9DF528F8415D00A972A6 /* English_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Book.epub; sourceTree = "<group>"; };
 		C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arabic_Book.epub; sourceTree = "<group>"; };
 		C51E9DFB28F8533B00A972A6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C54FAC942922B3F40038A0B2 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		C5678CAC28D61F34001096BE /* EpubBookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpubBookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5678CAF28D61F34001096BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5678CB328D61F34001096BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +176,6 @@
 				C54FAC792922AD130038A0B2 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */,
 				C54FAC852922AD130038A0B2 /* FirebaseRemoteConfig in Frameworks */,
-				C54FAC932922AE0A0038A0B2 /* SwiftMessages-Dynamic in Frameworks */,
 				C54FAC732922AD130038A0B2 /* FirebaseAnalytics in Frameworks */,
 				C54FAC8C2922ADB50038A0B2 /* FacebookLogin in Frameworks */,
 				C54FAC7B2922AD130038A0B2 /* FirebaseAppCheck in Frameworks */,
@@ -185,9 +184,9 @@
 				C54FAC772922AD130038A0B2 /* FirebaseAnalyticsSwift in Frameworks */,
 				C54FAC8E2922ADB50038A0B2 /* FacebookShare in Frameworks */,
 				C54FAC8A2922ADB50038A0B2 /* FacebookCore in Frameworks */,
+				C54FAC952922B3F40038A0B2 /* AuthenticationServices.framework in Frameworks */,
 				C54FAC7D2922AD130038A0B2 /* FirebaseAuth in Frameworks */,
 				C54FAC832922AD130038A0B2 /* FirebaseMessaging in Frameworks */,
-				C54FAC912922AE0A0038A0B2 /* SwiftMessages in Frameworks */,
 				C54FAC812922AD130038A0B2 /* FirebaseDynamicLinks in Frameworks */,
 				C54FAC872922AD130038A0B2 /* FirebaseRemoteConfigSwift in Frameworks */,
 			);
@@ -199,6 +198,7 @@
 		014F8107492AE50E66B61A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C54FAC942922B3F40038A0B2 /* AuthenticationServices.framework */,
 				8670F98AD48F35C40967A51C /* Pods_EpubBookReader.framework */,
 			);
 			name = Frameworks;
@@ -428,8 +428,6 @@
 				C54FAC892922ADB50038A0B2 /* FacebookCore */,
 				C54FAC8B2922ADB50038A0B2 /* FacebookLogin */,
 				C54FAC8D2922ADB50038A0B2 /* FacebookShare */,
-				C54FAC902922AE0A0038A0B2 /* SwiftMessages */,
-				C54FAC922922AE0A0038A0B2 /* SwiftMessages-Dynamic */,
 			);
 			productName = EpubBookReader;
 			productReference = C5678CAC28D61F34001096BE /* EpubBookReader.app */;
@@ -462,7 +460,6 @@
 			packageReferences = (
 				C54FAC712922AD130038A0B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-				C54FAC8F2922AE0A0038A0B2 /* XCRemoteSwiftPackageReference "SwiftMessages" */,
 			);
 			productRefGroup = C5678CAD28D61F34001096BE /* Products */;
 			projectDirPath = "";
@@ -661,7 +658,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -715,7 +712,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -740,8 +737,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -777,8 +774,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -809,7 +806,7 @@
 				C5678CBF28D61F35001096BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C5678CC028D61F35001096BE /* Build configuration list for PBXNativeTarget "EpubBookReader" */ = {
 			isa = XCConfigurationList;
@@ -818,7 +815,7 @@
 				C5678CC228D61F35001096BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
@@ -828,7 +825,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 8.0.0;
 			};
 		};
 		C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
@@ -836,15 +833,7 @@
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-		C54FAC8F2922AE0A0038A0B2 /* XCRemoteSwiftPackageReference "SwiftMessages" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftKickMobile/SwiftMessages";
-			requirement = {
-				branch = master;
-				kind = branch;
+				minimumVersion = 12.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -919,16 +908,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
-		};
-		C54FAC902922AE0A0038A0B2 /* SwiftMessages */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C54FAC8F2922AE0A0038A0B2 /* XCRemoteSwiftPackageReference "SwiftMessages" */;
-			productName = SwiftMessages;
-		};
-		C54FAC922922AE0A0038A0B2 /* SwiftMessages-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C54FAC8F2922AE0A0038A0B2 /* XCRemoteSwiftPackageReference "SwiftMessages" */;
-			productName = "SwiftMessages-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
