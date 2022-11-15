@@ -42,6 +42,11 @@
 		C5505D11292403B3004C9D68 /* SkyEpubStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5505CFA292403B3004C9D68 /* SkyEpubStoryboard.storyboard */; };
 		C5505D12292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CFB292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift */; };
 		C5505D13292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CFC292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift */; };
+		C5505D16292407FF004C9D68 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = C5505D15292407FF004C9D68 /* FacebookAEM */; };
+		C5505D18292407FF004C9D68 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = C5505D17292407FF004C9D68 /* FacebookBasics */; };
+		C5505D1A292407FF004C9D68 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = C5505D19292407FF004C9D68 /* FacebookCore */; };
+		C5505D1C292407FF004C9D68 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = C5505D1B292407FF004C9D68 /* FacebookLogin */; };
+		C5505D1E292407FF004C9D68 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = C5505D1D292407FF004C9D68 /* FacebookShare */; };
 		C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CAF28D61F34001096BE /* AppDelegate.swift */; };
 		C5678CB428D61F34001096BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CB328D61F34001096BE /* ViewController.swift */; };
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
@@ -162,8 +167,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5505D18292407FF004C9D68 /* FacebookBasics in Frameworks */,
+				C5505D1A292407FF004C9D68 /* FacebookCore in Frameworks */,
+				C5505D1E292407FF004C9D68 /* FacebookShare in Frameworks */,
+				C5505D16292407FF004C9D68 /* FacebookAEM in Frameworks */,
 				C596872B2922BA410046E870 /* FirebaseAnalytics in Frameworks */,
 				5201F4663449A602073007AA /* Pods_EpubBookReader.framework in Frameworks */,
+				C5505D1C292407FF004C9D68 /* FacebookLogin in Frameworks */,
 				C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */,
 				C596872D2922BA410046E870 /* FirebaseAnalyticsSwift in Frameworks */,
 				C596872F2922BA410046E870 /* FirebaseCrashlytics in Frameworks */,
@@ -398,6 +408,11 @@
 				C596872C2922BA410046E870 /* FirebaseAnalyticsSwift */,
 				C596872E2922BA410046E870 /* FirebaseCrashlytics */,
 				C59687302922BA410046E870 /* FirebaseDynamicLinks */,
+				C5505D15292407FF004C9D68 /* FacebookAEM */,
+				C5505D17292407FF004C9D68 /* FacebookBasics */,
+				C5505D19292407FF004C9D68 /* FacebookCore */,
+				C5505D1B292407FF004C9D68 /* FacebookLogin */,
+				C5505D1D292407FF004C9D68 /* FacebookShare */,
 			);
 			productName = EpubBookReader;
 			productReference = C5678CAC28D61F34001096BE /* EpubBookReader.app */;
@@ -429,6 +444,7 @@
 			mainGroup = C5678CA328D61F34001096BE;
 			packageReferences = (
 				C59687292922BA410046E870 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = C5678CAD28D61F34001096BE /* Products */;
 			projectDirPath = "";
@@ -789,17 +805,50 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.2.0;
+			};
+		};
 		C59687292922BA410046E870 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 8.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C5505D15292407FF004C9D68 /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		C5505D17292407FF004C9D68 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		C5505D19292407FF004C9D68 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		C5505D1B292407FF004C9D68 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		C5505D1D292407FF004C9D68 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C5505D14292407FE004C9D68 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
 		C596872A2922BA410046E870 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C59687292922BA410046E870 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
