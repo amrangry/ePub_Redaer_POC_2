@@ -15,24 +15,38 @@
 		5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73A829151A7B00112C27 /* FMDatabase.m */; };
 		5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73AC29151A7B00112C27 /* FMDatabasePool.m */; };
 		5DFF73B229151A7B00112C27 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73AD29151A7B00112C27 /* FMResultSet.m */; };
-		5DFF73B529151B4A00112C27 /* SkyEpubSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73B329151B4A00112C27 /* SkyEpubSearchResultView.swift */; };
-		5DFF73B629151B4A00112C27 /* SkyEpubSearchResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFF73B429151B4A00112C27 /* SkyEpubSearchResultView.xib */; };
-		5DFF73B829151BB600112C27 /* SkyEpubContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73B729151BB600112C27 /* SkyEpubContentsTableViewCell.swift */; };
-		5DFF73BA29151BD400112C27 /* SkyEpubNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73B929151BD400112C27 /* SkyEpubNotesTableViewCell.swift */; };
-		5DFF73BC29151BE800112C27 /* SkyEpubBookmarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF73BB29151BE800112C27 /* SkyEpubBookmarksTableViewCell.swift */; };
 		C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */; };
 		C51E9DF828F8416400A972A6 /* English_Book.epub in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DF528F8415D00A972A6 /* English_Book.epub */; };
 		C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DFB28F8533B00A972A6 /* .gitignore */; };
-		C54FAC8A2922ADB50038A0B2 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC892922ADB50038A0B2 /* FacebookCore */; };
-		C54FAC8C2922ADB50038A0B2 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC8B2922ADB50038A0B2 /* FacebookLogin */; };
-		C54FAC8E2922ADB50038A0B2 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = C54FAC8D2922ADB50038A0B2 /* FacebookShare */; };
 		C54FAC952922B3F40038A0B2 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54FAC942922B3F40038A0B2 /* AuthenticationServices.framework */; };
+		C5505CFD292403B3004C9D68 /* SkyBookReaderViewController+listBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CE5292403B3004C9D68 /* SkyBookReaderViewController+listBox.swift */; };
+		C5505CFE292403B3004C9D68 /* SkyBookReaderViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CE6292403B3004C9D68 /* SkyBookReaderViewController+Search.swift */; };
+		C5505CFF292403B3004C9D68 /* SkyEpubSearchResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5505CE8292403B3004C9D68 /* SkyEpubSearchResultView.xib */; };
+		C5505D00292403B3004C9D68 /* SkyEpubSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CE9292403B3004C9D68 /* SkyEpubSearchResultView.swift */; };
+		C5505D01292403B3004C9D68 /* SkyEpubNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CEA292403B3004C9D68 /* SkyEpubNotesTableViewCell.swift */; };
+		C5505D02292403B3004C9D68 /* SkyEpubBookmarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CEB292403B3004C9D68 /* SkyEpubBookmarksTableViewCell.swift */; };
+		C5505D03292403B3004C9D68 /* SkyEpubContentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CEC292403B3004C9D68 /* SkyEpubContentsTableViewCell.swift */; };
+		C5505D04292403B3004C9D68 /* SkyBookReaderViewController+SIBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CED292403B3004C9D68 /* SkyBookReaderViewController+SIBox.swift */; };
+		C5505D05292403B3004C9D68 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CEE292403B3004C9D68 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift */; };
+		C5505D06292403B3004C9D68 /* SkyBookReaderViewController+LineSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CEF292403B3004C9D68 /* SkyBookReaderViewController+LineSpacing.swift */; };
+		C5505D07292403B3004C9D68 /* SkyBookReaderViewController+SkyProviderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF0292403B3004C9D68 /* SkyBookReaderViewController+SkyProviderDataSource.swift */; };
+		C5505D08292403B3004C9D68 /* SkyBookReaderViewController+ColorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF1292403B3004C9D68 /* SkyBookReaderViewController+ColorBox.swift */; };
+		C5505D09292403B3004C9D68 /* SkyBookReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF2292403B3004C9D68 /* SkyBookReaderViewController.swift */; };
+		C5505D0A292403B3004C9D68 /* SkyBookReaderViewController+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF3292403B3004C9D68 /* SkyBookReaderViewController+Note.swift */; };
+		C5505D0B292403B3004C9D68 /* SkyBookReaderViewController+Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF4292403B3004C9D68 /* SkyBookReaderViewController+Bookmark.swift */; };
+		C5505D0C292403B3004C9D68 /* SkyBookReaderViewController+fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF5292403B3004C9D68 /* SkyBookReaderViewController+fonts.swift */; };
+		C5505D0D292403B3004C9D68 /* SkyBookReaderViewController+highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF6292403B3004C9D68 /* SkyBookReaderViewController+highlight.swift */; };
+		C5505D0E292403B3004C9D68 /* SkyBookReaderViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF7292403B3004C9D68 /* SkyBookReaderViewController+UITableView.swift */; };
+		C5505D0F292403B3004C9D68 /* SkyBookReaderViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF8292403B3004C9D68 /* SkyBookReaderViewController+UITextFieldDelegate.swift */; };
+		C5505D10292403B3004C9D68 /* SkyBookReaderViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CF9292403B3004C9D68 /* SkyBookReaderViewController+Theme.swift */; };
+		C5505D11292403B3004C9D68 /* SkyEpubStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5505CFA292403B3004C9D68 /* SkyEpubStoryboard.storyboard */; };
+		C5505D12292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CFB292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift */; };
+		C5505D13292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5505CFC292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift */; };
 		C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CAF28D61F34001096BE /* AppDelegate.swift */; };
 		C5678CB428D61F34001096BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CB328D61F34001096BE /* ViewController.swift */; };
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
 		C5678CB928D61F35001096BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB828D61F35001096BE /* Assets.xcassets */; };
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
-		C592002529163C8C001A8879 /* SkyEpubStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C592002429163C8C001A8879 /* SkyEpubStoryboard.storyboard */; };
 		C592004E29165C5E001A8879 /* scriptForFixed.js in Resources */ = {isa = PBXBuildFile; fileRef = C592004A29165C5E001A8879 /* scriptForFixed.js */; };
 		C592004F29165C5E001A8879 /* custom.css in Resources */ = {isa = PBXBuildFile; fileRef = C592004B29165C5E001A8879 /* custom.css */; };
 		C592005029165C5E001A8879 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = C592004C29165C5E001A8879 /* script.js */; };
@@ -45,23 +59,6 @@
 		C59687312922BA410046E870 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = C59687302922BA410046E870 /* FirebaseDynamicLinks */; };
 		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
 		C5C782F0291E41DB00341B07 /* SkyConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */; };
-		C5C7838629218D0000341B07 /* SkyBookReaderViewController+SkyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837529218CFF00341B07 /* SkyBookReaderViewController+SkyError.swift */; };
-		C5C7838729218D0000341B07 /* SkyBookReaderViewController+fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837629218CFF00341B07 /* SkyBookReaderViewController+fonts.swift */; };
-		C5C7838829218D0000341B07 /* SkyBookReaderViewController+Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837729218CFF00341B07 /* SkyBookReaderViewController+Bookmark.swift */; };
-		C5C7838929218D0000341B07 /* SkyBookReaderViewController+Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837829218CFF00341B07 /* SkyBookReaderViewController+Note.swift */; };
-		C5C7838A29218D0000341B07 /* SkyBookReaderViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837929218CFF00341B07 /* SkyBookReaderViewController+UITableView.swift */; };
-		C5C7838B29218D0000341B07 /* SkyBookReaderViewController+MediaBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837A29218CFF00341B07 /* SkyBookReaderViewController+MediaBox.swift */; };
-		C5C7838C29218D0000341B07 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837B29218CFF00341B07 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift */; };
-		C5C7838D29218D0000341B07 /* SkyBookReaderViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837C29218CFF00341B07 /* SkyBookReaderViewController+UITextFieldDelegate.swift */; };
-		C5C7838E29218D0000341B07 /* SkyBookReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837D29218CFF00341B07 /* SkyBookReaderViewController.swift */; };
-		C5C7838F29218D0000341B07 /* SkyBookReaderViewController+SkyProviderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837E29218CFF00341B07 /* SkyBookReaderViewController+SkyProviderDataSource.swift */; };
-		C5C7839029218D0000341B07 /* SkyBookReaderViewController+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7837F29218CFF00341B07 /* SkyBookReaderViewController+Theme.swift */; };
-		C5C7839129218D0000341B07 /* SkyBookReaderViewController+SIBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7838029218CFF00341B07 /* SkyBookReaderViewController+SIBox.swift */; };
-		C5C7839229218D0000341B07 /* SkyBookReaderViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7838129218CFF00341B07 /* SkyBookReaderViewController+Search.swift */; };
-		C5C7839329218D0000341B07 /* SkyBookReaderViewController+highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7838229218D0000341B07 /* SkyBookReaderViewController+highlight.swift */; };
-		C5C7839429218D0000341B07 /* SkyBookReaderViewController+ColorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7838329218D0000341B07 /* SkyBookReaderViewController+ColorBox.swift */; };
-		C5C7839529218D0000341B07 /* SkyBookReaderViewController+LineSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7838429218D0000341B07 /* SkyBookReaderViewController+LineSpacing.swift */; };
-		C5C7839629218D0000341B07 /* SkyBookReaderViewController+listBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C7838529218D0000341B07 /* SkyBookReaderViewController+listBox.swift */; };
 		C5F89F582916731F008144BA /* SkyEpubArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F572916731F008144BA /* SkyEpubArrowView.swift */; };
 		C5F89F5A2916735A008144BA /* UIImage+Extension+SkyEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F592916735A008144BA /* UIImage+Extension+SkyEpub.swift */; };
 		C5F89F5C2916737A008144BA /* UIButton+Extension+SkyEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */; };
@@ -89,17 +86,35 @@
 		5DFF73AB29151A7B00112C27 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
 		5DFF73AC29151A7B00112C27 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		5DFF73AD29151A7B00112C27 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		5DFF73B329151B4A00112C27 /* SkyEpubSearchResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubSearchResultView.swift; sourceTree = "<group>"; };
-		5DFF73B429151B4A00112C27 /* SkyEpubSearchResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkyEpubSearchResultView.xib; sourceTree = "<group>"; };
-		5DFF73B729151BB600112C27 /* SkyEpubContentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubContentsTableViewCell.swift; sourceTree = "<group>"; };
-		5DFF73B929151BD400112C27 /* SkyEpubNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubNotesTableViewCell.swift; sourceTree = "<group>"; };
-		5DFF73BB29151BE800112C27 /* SkyEpubBookmarksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubBookmarksTableViewCell.swift; sourceTree = "<group>"; };
 		8670F98AD48F35C40967A51C /* Pods_EpubBookReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EpubBookReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FC3C88A5D1A1E5BE341FB5 /* Pods-EpubBookReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.debug.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.debug.xcconfig"; sourceTree = "<group>"; };
 		C51E9DF528F8415D00A972A6 /* English_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Book.epub; sourceTree = "<group>"; };
 		C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arabic_Book.epub; sourceTree = "<group>"; };
 		C51E9DFB28F8533B00A972A6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C54FAC942922B3F40038A0B2 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		C5505CE5292403B3004C9D68 /* SkyBookReaderViewController+listBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+listBox.swift"; sourceTree = "<group>"; };
+		C5505CE6292403B3004C9D68 /* SkyBookReaderViewController+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Search.swift"; sourceTree = "<group>"; };
+		C5505CE8292403B3004C9D68 /* SkyEpubSearchResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SkyEpubSearchResultView.xib; sourceTree = "<group>"; };
+		C5505CE9292403B3004C9D68 /* SkyEpubSearchResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubSearchResultView.swift; sourceTree = "<group>"; };
+		C5505CEA292403B3004C9D68 /* SkyEpubNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubNotesTableViewCell.swift; sourceTree = "<group>"; };
+		C5505CEB292403B3004C9D68 /* SkyEpubBookmarksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubBookmarksTableViewCell.swift; sourceTree = "<group>"; };
+		C5505CEC292403B3004C9D68 /* SkyEpubContentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyEpubContentsTableViewCell.swift; sourceTree = "<group>"; };
+		C5505CED292403B3004C9D68 /* SkyBookReaderViewController+SIBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+SIBox.swift"; sourceTree = "<group>"; };
+		C5505CEE292403B3004C9D68 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+ReflowableViewControllerDataSource.swift"; sourceTree = "<group>"; };
+		C5505CEF292403B3004C9D68 /* SkyBookReaderViewController+LineSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+LineSpacing.swift"; sourceTree = "<group>"; };
+		C5505CF0292403B3004C9D68 /* SkyBookReaderViewController+SkyProviderDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+SkyProviderDataSource.swift"; sourceTree = "<group>"; };
+		C5505CF1292403B3004C9D68 /* SkyBookReaderViewController+ColorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+ColorBox.swift"; sourceTree = "<group>"; };
+		C5505CF2292403B3004C9D68 /* SkyBookReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyBookReaderViewController.swift; sourceTree = "<group>"; };
+		C5505CF3292403B3004C9D68 /* SkyBookReaderViewController+Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Note.swift"; sourceTree = "<group>"; };
+		C5505CF4292403B3004C9D68 /* SkyBookReaderViewController+Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Bookmark.swift"; sourceTree = "<group>"; };
+		C5505CF5292403B3004C9D68 /* SkyBookReaderViewController+fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+fonts.swift"; sourceTree = "<group>"; };
+		C5505CF6292403B3004C9D68 /* SkyBookReaderViewController+highlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+highlight.swift"; sourceTree = "<group>"; };
+		C5505CF7292403B3004C9D68 /* SkyBookReaderViewController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+UITableView.swift"; sourceTree = "<group>"; };
+		C5505CF8292403B3004C9D68 /* SkyBookReaderViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		C5505CF9292403B3004C9D68 /* SkyBookReaderViewController+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Theme.swift"; sourceTree = "<group>"; };
+		C5505CFA292403B3004C9D68 /* SkyEpubStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SkyEpubStoryboard.storyboard; sourceTree = "<group>"; };
+		C5505CFB292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+MediaBox.swift"; sourceTree = "<group>"; };
+		C5505CFC292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+SkyError.swift"; sourceTree = "<group>"; };
 		C5678CAC28D61F34001096BE /* EpubBookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpubBookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5678CAF28D61F34001096BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5678CB328D61F34001096BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +122,6 @@
 		C5678CB828D61F35001096BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5678CBB28D61F35001096BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5678CBD28D61F35001096BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C592002429163C8C001A8879 /* SkyEpubStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SkyEpubStoryboard.storyboard; sourceTree = "<group>"; };
 		C592004A29165C5E001A8879 /* scriptForFixed.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = scriptForFixed.js; sourceTree = "<group>"; };
 		C592004B29165C5E001A8879 /* custom.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = custom.css; sourceTree = "<group>"; };
 		C592004C29165C5E001A8879 /* script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
@@ -129,23 +143,6 @@
 		C5BC7CCE2913039800950F23 /* FixedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedViewController.h; sourceTree = "<group>"; };
 		C5BC7CD02913047B00950F23 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyConfigurator.swift; sourceTree = "<group>"; };
-		C5C7837529218CFF00341B07 /* SkyBookReaderViewController+SkyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+SkyError.swift"; sourceTree = "<group>"; };
-		C5C7837629218CFF00341B07 /* SkyBookReaderViewController+fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+fonts.swift"; sourceTree = "<group>"; };
-		C5C7837729218CFF00341B07 /* SkyBookReaderViewController+Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Bookmark.swift"; sourceTree = "<group>"; };
-		C5C7837829218CFF00341B07 /* SkyBookReaderViewController+Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Note.swift"; sourceTree = "<group>"; };
-		C5C7837929218CFF00341B07 /* SkyBookReaderViewController+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+UITableView.swift"; sourceTree = "<group>"; };
-		C5C7837A29218CFF00341B07 /* SkyBookReaderViewController+MediaBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+MediaBox.swift"; sourceTree = "<group>"; };
-		C5C7837B29218CFF00341B07 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+ReflowableViewControllerDataSource.swift"; sourceTree = "<group>"; };
-		C5C7837C29218CFF00341B07 /* SkyBookReaderViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
-		C5C7837D29218CFF00341B07 /* SkyBookReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyBookReaderViewController.swift; sourceTree = "<group>"; };
-		C5C7837E29218CFF00341B07 /* SkyBookReaderViewController+SkyProviderDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+SkyProviderDataSource.swift"; sourceTree = "<group>"; };
-		C5C7837F29218CFF00341B07 /* SkyBookReaderViewController+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Theme.swift"; sourceTree = "<group>"; };
-		C5C7838029218CFF00341B07 /* SkyBookReaderViewController+SIBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+SIBox.swift"; sourceTree = "<group>"; };
-		C5C7838129218CFF00341B07 /* SkyBookReaderViewController+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+Search.swift"; sourceTree = "<group>"; };
-		C5C7838229218D0000341B07 /* SkyBookReaderViewController+highlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+highlight.swift"; sourceTree = "<group>"; };
-		C5C7838329218D0000341B07 /* SkyBookReaderViewController+ColorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+ColorBox.swift"; sourceTree = "<group>"; };
-		C5C7838429218D0000341B07 /* SkyBookReaderViewController+LineSpacing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+LineSpacing.swift"; sourceTree = "<group>"; };
-		C5C7838529218D0000341B07 /* SkyBookReaderViewController+listBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SkyBookReaderViewController+listBox.swift"; sourceTree = "<group>"; };
 		C5F89F572916731F008144BA /* SkyEpubArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyEpubArrowView.swift; sourceTree = "<group>"; };
 		C5F89F592916735A008144BA /* UIImage+Extension+SkyEpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension+SkyEpub.swift"; sourceTree = "<group>"; };
 		C5F89F5B2916737A008144BA /* UIButton+Extension+SkyEpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension+SkyEpub.swift"; sourceTree = "<group>"; };
@@ -168,11 +165,8 @@
 				C596872B2922BA410046E870 /* FirebaseAnalytics in Frameworks */,
 				5201F4663449A602073007AA /* Pods_EpubBookReader.framework in Frameworks */,
 				C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */,
-				C54FAC8C2922ADB50038A0B2 /* FacebookLogin in Frameworks */,
 				C596872D2922BA410046E870 /* FirebaseAnalyticsSwift in Frameworks */,
-				C54FAC8E2922ADB50038A0B2 /* FacebookShare in Frameworks */,
 				C596872F2922BA410046E870 /* FirebaseCrashlytics in Frameworks */,
-				C54FAC8A2922ADB50038A0B2 /* FacebookCore in Frameworks */,
 				C54FAC952922B3F40038A0B2 /* AuthenticationServices.framework in Frameworks */,
 				C59687312922BA410046E870 /* FirebaseDynamicLinks in Frameworks */,
 			);
@@ -207,8 +201,8 @@
 				C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */,
 				5DFF739E29151A1F00112C27 /* SkyData.swift */,
 				5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */,
+				C5505CE4292403B3004C9D68 /* SkyEpubBookViewReader */,
 				C5F89F6629168616008144BA /* SkyEpub+Books+Samples */,
-				C5F89F652916745F008144BA /* SkyEpubBookViewReader */,
 				C5F89F56291672F0008144BA /* SkyEpub+UIViewHelpers */,
 				C592004929165C5E001A8879 /* SkyEpub+Scripts */,
 				C592005229165C91001A8879 /* SkyEpub+Fonts */,
@@ -233,6 +227,44 @@
 				5DFF73AD29151A7B00112C27 /* FMResultSet.m */,
 			);
 			path = fmdb;
+			sourceTree = "<group>";
+		};
+		C5505CE4292403B3004C9D68 /* SkyEpubBookViewReader */ = {
+			isa = PBXGroup;
+			children = (
+				C5505CE5292403B3004C9D68 /* SkyBookReaderViewController+listBox.swift */,
+				C5505CE6292403B3004C9D68 /* SkyBookReaderViewController+Search.swift */,
+				C5505CE7292403B3004C9D68 /* cells */,
+				C5505CED292403B3004C9D68 /* SkyBookReaderViewController+SIBox.swift */,
+				C5505CEE292403B3004C9D68 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift */,
+				C5505CEF292403B3004C9D68 /* SkyBookReaderViewController+LineSpacing.swift */,
+				C5505CF0292403B3004C9D68 /* SkyBookReaderViewController+SkyProviderDataSource.swift */,
+				C5505CF1292403B3004C9D68 /* SkyBookReaderViewController+ColorBox.swift */,
+				C5505CF2292403B3004C9D68 /* SkyBookReaderViewController.swift */,
+				C5505CF3292403B3004C9D68 /* SkyBookReaderViewController+Note.swift */,
+				C5505CF4292403B3004C9D68 /* SkyBookReaderViewController+Bookmark.swift */,
+				C5505CF5292403B3004C9D68 /* SkyBookReaderViewController+fonts.swift */,
+				C5505CF6292403B3004C9D68 /* SkyBookReaderViewController+highlight.swift */,
+				C5505CF7292403B3004C9D68 /* SkyBookReaderViewController+UITableView.swift */,
+				C5505CF8292403B3004C9D68 /* SkyBookReaderViewController+UITextFieldDelegate.swift */,
+				C5505CF9292403B3004C9D68 /* SkyBookReaderViewController+Theme.swift */,
+				C5505CFA292403B3004C9D68 /* SkyEpubStoryboard.storyboard */,
+				C5505CFB292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift */,
+				C5505CFC292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift */,
+			);
+			path = SkyEpubBookViewReader;
+			sourceTree = "<group>";
+		};
+		C5505CE7292403B3004C9D68 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				C5505CE8292403B3004C9D68 /* SkyEpubSearchResultView.xib */,
+				C5505CE9292403B3004C9D68 /* SkyEpubSearchResultView.swift */,
+				C5505CEA292403B3004C9D68 /* SkyEpubNotesTableViewCell.swift */,
+				C5505CEB292403B3004C9D68 /* SkyEpubBookmarksTableViewCell.swift */,
+				C5505CEC292403B3004C9D68 /* SkyEpubContentsTableViewCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		C5678CA328D61F34001096BE = {
@@ -309,18 +341,6 @@
 			path = SkyEpub;
 			sourceTree = "<group>";
 		};
-		C5C7837329218C5A00341B07 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				5DFF73BB29151BE800112C27 /* SkyEpubBookmarksTableViewCell.swift */,
-				5DFF73B729151BB600112C27 /* SkyEpubContentsTableViewCell.swift */,
-				5DFF73B929151BD400112C27 /* SkyEpubNotesTableViewCell.swift */,
-				5DFF73B329151B4A00112C27 /* SkyEpubSearchResultView.swift */,
-				5DFF73B429151B4A00112C27 /* SkyEpubSearchResultView.xib */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		C5F89F56291672F0008144BA /* SkyEpub+UIViewHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,32 +353,6 @@
 				C5F89F5D2916739B008144BA /* UIColor+Extension+SkyEpub.swift */,
 			);
 			path = "SkyEpub+UIViewHelpers";
-			sourceTree = "<group>";
-		};
-		C5F89F652916745F008144BA /* SkyEpubBookViewReader */ = {
-			isa = PBXGroup;
-			children = (
-				C5C7837329218C5A00341B07 /* Cells */,
-				C592002429163C8C001A8879 /* SkyEpubStoryboard.storyboard */,
-				C5C7837D29218CFF00341B07 /* SkyBookReaderViewController.swift */,
-				C5C7837B29218CFF00341B07 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift */,
-				C5C7837929218CFF00341B07 /* SkyBookReaderViewController+UITableView.swift */,
-				C5C7837C29218CFF00341B07 /* SkyBookReaderViewController+UITextFieldDelegate.swift */,
-				C5C7837E29218CFF00341B07 /* SkyBookReaderViewController+SkyProviderDataSource.swift */,
-				C5C7837529218CFF00341B07 /* SkyBookReaderViewController+SkyError.swift */,
-				C5C7837F29218CFF00341B07 /* SkyBookReaderViewController+Theme.swift */,
-				C5C7837729218CFF00341B07 /* SkyBookReaderViewController+Bookmark.swift */,
-				C5C7838329218D0000341B07 /* SkyBookReaderViewController+ColorBox.swift */,
-				C5C7837629218CFF00341B07 /* SkyBookReaderViewController+fonts.swift */,
-				C5C7838229218D0000341B07 /* SkyBookReaderViewController+highlight.swift */,
-				C5C7838429218D0000341B07 /* SkyBookReaderViewController+LineSpacing.swift */,
-				C5C7838529218D0000341B07 /* SkyBookReaderViewController+listBox.swift */,
-				C5C7837A29218CFF00341B07 /* SkyBookReaderViewController+MediaBox.swift */,
-				C5C7837829218CFF00341B07 /* SkyBookReaderViewController+Note.swift */,
-				C5C7838129218CFF00341B07 /* SkyBookReaderViewController+Search.swift */,
-				C5C7838029218CFF00341B07 /* SkyBookReaderViewController+SIBox.swift */,
-			);
-			path = SkyEpubBookViewReader;
 			sourceTree = "<group>";
 		};
 		C5F89F6629168616008144BA /* SkyEpub+Books+Samples */ = {
@@ -400,9 +394,6 @@
 			);
 			name = EpubBookReader;
 			packageProductDependencies = (
-				C54FAC892922ADB50038A0B2 /* FacebookCore */,
-				C54FAC8B2922ADB50038A0B2 /* FacebookLogin */,
-				C54FAC8D2922ADB50038A0B2 /* FacebookShare */,
 				C596872A2922BA410046E870 /* FirebaseAnalytics */,
 				C596872C2922BA410046E870 /* FirebaseAnalyticsSwift */,
 				C596872E2922BA410046E870 /* FirebaseCrashlytics */,
@@ -437,7 +428,6 @@
 			);
 			mainGroup = C5678CA328D61F34001096BE;
 			packageReferences = (
-				C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				C59687292922BA410046E870 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C5678CAD28D61F34001096BE /* Products */;
@@ -463,13 +453,13 @@
 				C592004E29165C5E001A8879 /* scriptForFixed.js in Resources */,
 				C5678CB928D61F35001096BE /* Assets.xcassets in Resources */,
 				C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */,
-				5DFF73B629151B4A00112C27 /* SkyEpubSearchResultView.xib in Resources */,
 				C592004F29165C5E001A8879 /* custom.css in Resources */,
-				C592002529163C8C001A8879 /* SkyEpubStoryboard.storyboard in Resources */,
+				C5505CFF292403B3004C9D68 /* SkyEpubSearchResultView.xib in Resources */,
 				C592005129165C5E001A8879 /* Books.sql in Resources */,
 				C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */,
 				C592005629165C91001A8879 /* Mayflower Antique.ttf in Resources */,
 				C5678CB728D61F34001096BE /* Main.storyboard in Resources */,
+				C5505D11292403B3004C9D68 /* SkyEpubStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,44 +512,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5C7839229218D0000341B07 /* SkyBookReaderViewController+Search.swift in Sources */,
-				5DFF73B529151B4A00112C27 /* SkyEpubSearchResultView.swift in Sources */,
-				C5C7839329218D0000341B07 /* SkyBookReaderViewController+highlight.swift in Sources */,
 				C5F89F5E2916739B008144BA /* UIColor+Extension+SkyEpub.swift in Sources */,
-				C5C7838D29218D0000341B07 /* SkyBookReaderViewController+UITextFieldDelegate.swift in Sources */,
-				5DFF73BA29151BD400112C27 /* SkyEpubNotesTableViewCell.swift in Sources */,
 				C5F89F782916A096008144BA /* Debugger.swift in Sources */,
-				5DFF73BC29151BE800112C27 /* SkyEpubBookmarksTableViewCell.swift in Sources */,
-				C5C7838929218D0000341B07 /* SkyBookReaderViewController+Note.swift in Sources */,
-				C5C7838629218D0000341B07 /* SkyBookReaderViewController+SkyError.swift in Sources */,
+				C5505D0D292403B3004C9D68 /* SkyBookReaderViewController+highlight.swift in Sources */,
+				C5505D01292403B3004C9D68 /* SkyEpubNotesTableViewCell.swift in Sources */,
+				C5505D10292403B3004C9D68 /* SkyBookReaderViewController+Theme.swift in Sources */,
 				C5F89F6429167424008144BA /* SkyEpubTheme.swift in Sources */,
+				C5505D03292403B3004C9D68 /* SkyEpubContentsTableViewCell.swift in Sources */,
+				C5505D07292403B3004C9D68 /* SkyBookReaderViewController+SkyProviderDataSource.swift in Sources */,
+				C5505D0B292403B3004C9D68 /* SkyBookReaderViewController+Bookmark.swift in Sources */,
 				5DFF73AE29151A7B00112C27 /* FMDatabaseQueue.m in Sources */,
 				C5F89F5C2916737A008144BA /* UIButton+Extension+SkyEpub.swift in Sources */,
-				5DFF73B829151BB600112C27 /* SkyEpubContentsTableViewCell.swift in Sources */,
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
-				C5C7838A29218D0000341B07 /* SkyBookReaderViewController+UITableView.swift in Sources */,
 				5DFF73B029151A7B00112C27 /* FMDatabase.m in Sources */,
-				C5C7838729218D0000341B07 /* SkyBookReaderViewController+fonts.swift in Sources */,
-				C5C7838E29218D0000341B07 /* SkyBookReaderViewController.swift in Sources */,
-				C5C7839129218D0000341B07 /* SkyBookReaderViewController+SIBox.swift in Sources */,
-				C5C7838C29218D0000341B07 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift in Sources */,
 				C5C782F0291E41DB00341B07 /* SkyConfigurator.swift in Sources */,
-				C5C7839529218D0000341B07 /* SkyBookReaderViewController+LineSpacing.swift in Sources */,
 				C5F89F582916731F008144BA /* SkyEpubArrowView.swift in Sources */,
 				5DFF73B129151A7B00112C27 /* FMDatabasePool.m in Sources */,
+				C5505D06292403B3004C9D68 /* SkyBookReaderViewController+LineSpacing.swift in Sources */,
 				C5F89F62291673CF008144BA /* SkySearchResultType.swift in Sources */,
 				5DFF73B229151A7B00112C27 /* FMResultSet.m in Sources */,
-				C5C7838B29218D0000341B07 /* SkyBookReaderViewController+MediaBox.swift in Sources */,
-				C5C7839029218D0000341B07 /* SkyBookReaderViewController+Theme.swift in Sources */,
+				C5505D12292403B3004C9D68 /* SkyBookReaderViewController+MediaBox.swift in Sources */,
+				C5505D09292403B3004C9D68 /* SkyBookReaderViewController.swift in Sources */,
+				C5505D08292403B3004C9D68 /* SkyBookReaderViewController+ColorBox.swift in Sources */,
+				C5505D0E292403B3004C9D68 /* SkyBookReaderViewController+UITableView.swift in Sources */,
+				C5505D04292403B3004C9D68 /* SkyBookReaderViewController+SIBox.swift in Sources */,
+				C5505D05292403B3004C9D68 /* SkyBookReaderViewController+ReflowableViewControllerDataSource.swift in Sources */,
+				C5505CFD292403B3004C9D68 /* SkyBookReaderViewController+listBox.swift in Sources */,
 				C5F89F762916A055008144BA /* FileHelper.swift in Sources */,
+				C5505D0A292403B3004C9D68 /* SkyBookReaderViewController+Note.swift in Sources */,
 				C5F89F5A2916735A008144BA /* UIImage+Extension+SkyEpub.swift in Sources */,
+				C5505D00292403B3004C9D68 /* SkyEpubSearchResultView.swift in Sources */,
+				C5505CFE292403B3004C9D68 /* SkyBookReaderViewController+Search.swift in Sources */,
+				C5505D0C292403B3004C9D68 /* SkyBookReaderViewController+fonts.swift in Sources */,
 				5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */,
-				C5C7839629218D0000341B07 /* SkyBookReaderViewController+listBox.swift in Sources */,
-				C5C7838F29218D0000341B07 /* SkyBookReaderViewController+SkyProviderDataSource.swift in Sources */,
-				C5C7839429218D0000341B07 /* SkyBookReaderViewController+ColorBox.swift in Sources */,
 				5DFF73AF29151A7B00112C27 /* FMDatabaseAdditions.m in Sources */,
-				C5C7838829218D0000341B07 /* SkyBookReaderViewController+Bookmark.swift in Sources */,
 				5DFF73A129151A4900112C27 /* SkyEpubSetting.swift in Sources */,
+				C5505D0F292403B3004C9D68 /* SkyBookReaderViewController+UITextFieldDelegate.swift in Sources */,
+				C5505D02292403B3004C9D68 /* SkyEpubBookmarksTableViewCell.swift in Sources */,
+				C5505D13292403B3004C9D68 /* SkyBookReaderViewController+SkyError.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
 				C5F89F60291673B6008144BA /* SkySlider.swift in Sources */,
 			);
@@ -799,14 +789,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.2.0;
-			};
-		};
 		C59687292922BA410046E870 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -818,21 +800,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C54FAC892922ADB50038A0B2 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		C54FAC8B2922ADB50038A0B2 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-		C54FAC8D2922ADB50038A0B2 /* FacebookShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C54FAC882922ADB50038A0B2 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookShare;
-		};
 		C596872A2922BA410046E870 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C59687292922BA410046E870 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

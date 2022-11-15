@@ -20,7 +20,7 @@ extension SkyBookReaderViewController {
     }
     
     @objc func gotoSearchPressed(_ sender: UIButton) {
-        let gotoSearchButton:UIButton = sender
+        let gotoSearchButton: UIButton = sender
         if (gotoSearchButton.tag == -1) {
             self.hideSearchBox()
         } else if (gotoSearchButton.tag == -2) {
@@ -39,8 +39,8 @@ extension SkyBookReaderViewController {
     }
     
     func addSearchResult(searchResult: SearchResult, mode: SkySearchResultType) {
-        var headerText:String = ""
-        var contentText:String = ""
+        var headerText: String = ""
+        var contentText: String = ""
         
         let resultView = Bundle.main.loadNibNamed("SkyEpubSearchResultView", owner: self, options: nil)?.first as! SkyEpubSearchResultView
         let gotoButton = resultView.searchResultButton!
@@ -75,11 +75,11 @@ extension SkyBookReaderViewController {
             gotoButton.tag = searchResults.count - 1
         } else if (mode == .more) {
             headerText =  NSLocalizedString("search_more",comment: "")
-            contentText = String(format:"%d %@",searchResult.numberOfSearched,NSLocalizedString("found",comment: ""))
+            contentText = String(format: "%d %@", searchResult.numberOfSearched, NSLocalizedString("found", comment: ""))
             gotoButton.tag =  -2
         } else if (mode == .finished) {
-            headerText =  NSLocalizedString("search_finished",comment: "")
-            contentText = String(format:"%d %@",searchResult.numberOfSearched,NSLocalizedString("found",comment: ""))
+            headerText =  NSLocalizedString("search_finished", comment: "")
+            contentText = String(format:"%d %@", searchResult.numberOfSearched, NSLocalizedString("found", comment: ""))
             gotoButton.tag =  -1
         }
         
@@ -102,13 +102,13 @@ extension SkyBookReaderViewController {
         resultView.frame = CGRect(x: rx, y: ry, width: rw, height: rh)
         
         searchScrollView.addSubview(resultView)
-        searchScrollHeight+=rh
+        searchScrollHeight += rh
         searchScrollView.contentSize = CGSize(width: rw, height: searchScrollHeight)
         var co = searchScrollHeight-searchScrollView.bounds.size.height
-        if (co<=0) {
+        if ( co <= 0) {
             co = 0
         }
         searchScrollView.contentOffset  = CGPoint(x: 0, y: co)
-        
     }
+    
 }

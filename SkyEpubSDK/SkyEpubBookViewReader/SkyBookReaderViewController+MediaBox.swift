@@ -6,7 +6,7 @@
 //  Copyright © 2022 ADKA Tech. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - SkyBookReaderViewController+MediaBox
 extension SkyBookReaderViewController {
@@ -55,7 +55,6 @@ extension SkyBookReaderViewController {
     @IBAction func nextPressed(_ sender: Any) {
         self.playNext()
     }
-    
     
     // play or pause the parallel of MediaOverlay or TTS.
     func playAndPause() {

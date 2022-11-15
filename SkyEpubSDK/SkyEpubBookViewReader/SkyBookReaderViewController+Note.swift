@@ -6,7 +6,7 @@
 //  Copyright © 2022 ADKA Tech. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - SkyBookReaderViewController+Note
 extension SkyBookReaderViewController {
@@ -31,15 +31,15 @@ extension SkyBookReaderViewController {
     }
     
     func saveNote() {
-        if self.noteBox.isHidden  {
+        if self.noteBox.isHidden {
             return
         }
         if currentHighlight == nil {
             return
         }
         if let text = noteTextView.text {
-            let newColor:UIColor!
-            if (currentHighlight.highlightColor==0) {
+            let newColor: UIColor!
+            if (currentHighlight.highlightColor == 0) {
                 newColor = self.getMarkerColor(colorIndex: 0)
             } else {
                 newColor = self.UIColorFromRGB(rgbValue: UInt(currentHighlight.highlightColor))
@@ -148,7 +148,7 @@ extension SkyBookReaderViewController {
     @objc func noteIconPressed(_ sender: Any) {
         let noteIcon = sender as! UIButton
         let index = noteIcon.tag - 10000
-        let pi:PageInformation = rv.getPageInformation()
+        let pi: PageInformation = rv.getPageInformation()
         if let highlightsInPage = pi.highlightsInPage {
             let highlight = highlightsInPage[index] as! Highlight
             currentHighlight = highlight
@@ -159,11 +159,11 @@ extension SkyBookReaderViewController {
         }
     }
     
-    func getNoteIcon(highlight:Highlight,index:Int)->UIButton {
+    func getNoteIcon(highlight: Highlight, index:Int) -> UIButton {
         let noteIcon = UIButton(type: .custom)
         let iconImage = self.getNoteIconImageByHighlightColor(highlightColor: highlight.highlightColor)
         noteIcon.setImage(iconImage, for: .normal)
-        noteIcon.addTarget(self, action:#selector(self.noteIconPressed(_:)), for: .touchUpInside) //<- use `#selector(...)`
+        noteIcon.addTarget(self, action: #selector(self.noteIconPressed(_:)), for: .touchUpInside) //<- use `#selector(...)`
         noteIcon.contentMode = .center
         var mx:CGFloat = 0
         var my:CGFloat = 0
