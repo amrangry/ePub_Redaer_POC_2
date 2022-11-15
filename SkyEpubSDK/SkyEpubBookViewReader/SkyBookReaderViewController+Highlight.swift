@@ -1,5 +1,5 @@
 //
-//  SkyBookReaderViewController+highlight.swift
+//  SkyBookReaderViewController+Highlight.swift
 //  BookStore
 //
 //  Created by Amr Elghadban on 13/11/2022.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - SkyBookReaderViewController+highlight
+// MARK: - SkyBookReaderViewController+Highlight
 extension SkyBookReaderViewController {
     
     @IBAction func highlightPressed(_ sender: Any) {

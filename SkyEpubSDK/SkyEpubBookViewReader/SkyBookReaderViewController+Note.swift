@@ -58,27 +58,27 @@ extension SkyBookReaderViewController {
     
     func showNoteBox() {
         showBaseView()
-        var startRect = rv.getStartRect(from: currentHighlight)
-        var endRect = rv.getEndRect(from: currentHighlight)
+        let startRect = rv.getStartRect(from: currentHighlight)
+        let endRect = rv.getEndRect(from: currentHighlight)
         
-        var topHegith:CGFloat = 50
-        var bottomHeight:CGFloat = 50
-        var noteX,noteY,noteWidth,noteHeight:CGFloat
+        let topHeight: CGFloat = 50
+        //var bottomHeight: CGFloat = 50
+        var noteX, noteY, noteWidth, noteHeight: CGFloat
         noteWidth = 280
         noteHeight = 230
-        var arrowWidth:CGFloat = 20
-        var arrowHeight:CGFloat = 20
-        var arrowX:CGFloat = 0
-        var arrowY:CGFloat = 0
+        let arrowWidth: CGFloat = 20
+        let arrowHeight: CGFloat = 20
+        var arrowX: CGFloat = 0
+        var arrowY: CGFloat = 0
         
         arrow.color = currentColor
-        let delta:CGFloat = 60
+        let delta: CGFloat = 60
         
         if (self.isPad()) { // iPad
-            var toDownSide:Bool!
-            var targetRect:CGRect!
+            var toDownSide: Bool!
+            var targetRect: CGRect!
             // detect there's room in top side
-            if ((startRect.origin.y - noteHeight)<topHegith) {
+            if ((startRect.origin.y - noteHeight) < topHeight) {
                 toDownSide = true  // reverse case
                 targetRect = endRect
                 isUpArrow = true
@@ -245,3 +245,4 @@ extension SkyBookReaderViewController {
         }
     }
 }
+

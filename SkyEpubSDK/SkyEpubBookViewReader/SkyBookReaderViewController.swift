@@ -139,7 +139,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ad = SkyConfigurator.shared//UIApplication.shared.delegate as? AppDelegate
+        let ad = SkyConfigurator.shared//UIApplication.shared.delegate as? AppDelegate
         sd = ad.data
         
         setting = sd.fetchSetting()
@@ -161,7 +161,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         
         currentColor = self.getMarkerColor(colorIndex: 0)
         
-        var markerImage = self.getMakerImageFromColor(color: UIColor.yellow)
+        let markerImage = self.getMakerImageFromColor(color: UIColor.yellow)
         isAutoPlaying = true
         autoStartPlayingWhenNewChapterLoaded = setting.autoStartPlaying
         autoMoveChapterWhenParallesFinished  = setting.autoLoadNewChapter
@@ -670,3 +670,4 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         // Pass the selected object to the new view controller.
     }
 }
+

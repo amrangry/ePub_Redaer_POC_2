@@ -1,5 +1,5 @@
 //
-//  SkyBookReaderViewController+fonts.swift
+//  SkyBookReaderViewController+Fonts.swift
 //  BookStore
 //
 //  Created by Amr Elghadban on 13/11/2022.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - SkyBookReaderViewController+fonts
+// MARK: - SkyBookReaderViewController+Fonts
 extension SkyBookReaderViewController {
     
     @IBAction func fontPressed(_ sender: Any) {
