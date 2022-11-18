@@ -9,14 +9,14 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-
+    
     var ad: SkyConfigurator!
     var sd: SkyData!
     
     var sortType: Int = 0
     var searchKey: String = ""
     var bis: NSMutableArray!
-        
+    
     func loadBis() {
         self.bis = sd.fetchBookInformations(sortType: self.sortType, key: searchKey)
     }
@@ -50,9 +50,9 @@ class ViewController: UIViewController {
     
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
-        selector: #selector(didReceiveSkyErrorNotification(_:)),
-        name: NSNotification.Name("SkyError"),
-        object: nil)
+                                               selector: #selector(didReceiveSkyErrorNotification(_:)),
+                                               name: NSNotification.Name("SkyError"),
+                                               object: nil)
     }
     
     // if any error is reported by sdk.
@@ -64,32 +64,32 @@ class ViewController: UIViewController {
         NSLog("SkyError code %d level %d message:%@",code,level,message)
     }
     
-//    // when top,left import button pressed, new epub file can be imported and installed from device's file system.
-//    @IBAction func importPressed(_ sender: Any) {
-//        let picker = UIDocumentPickerViewController(documentTypes: ["org.idpf.epub-container"], in: .import)
-//        picker.delegate = self
-//        picker.modalPresentationStyle = .fullScreen
-//        self.present(picker, animated: true, completion: nil)
-//    }
-//
-//    // when importing a epub file from local file system is over,  install the epub.
-//    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-//        if controller.documentPickerMode == .import {
-//            print(urls[0].path)
-//            sd.installEpub(url:urls[0])
-//            self.reload()
-//        }
-//    }
+    //    // when top,left import button pressed, new epub file can be imported and installed from device's file system.
+    //    @IBAction func importPressed(_ sender: Any) {
+    //        let picker = UIDocumentPickerViewController(documentTypes: ["org.idpf.epub-container"], in: .import)
+    //        picker.delegate = self
+    //        picker.modalPresentationStyle = .fullScreen
+    //        self.present(picker, animated: true, completion: nil)
+    //    }
+    //
+    //    // when importing a epub file from local file system is over,  install the epub.
+    //    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    //        if controller.documentPickerMode == .import {
+    //            print(urls[0].path)
+    //            sd.installEpub(url:urls[0])
+    //            self.reload()
+    //        }
+    //    }
     
-//    @IBAction func readButtonPressed(_ sender: Any) {
-//        guard let name = bookName else { return }
-//        guard let bookPath = Bundle.main.path(forResource: name, ofType: "epub") else {
-//            return
-//        }
-//
-//        let url = URL(fileURLWithPath: bookPath, isDirectory: false)
-//        openBook()
-//    }
+    //    @IBAction func readButtonPressed(_ sender: Any) {
+    //        guard let name = bookName else { return }
+    //        guard let bookPath = Bundle.main.path(forResource: name, ofType: "epub") else {
+    //            return
+    //        }
+    //
+    //        let url = URL(fileURLWithPath: bookPath, isDirectory: false)
+    //        openBook()
+    //    }
     
     @IBAction func mediaSwitchValueChange(_ sender: Any) {
         
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
                     if (file.starts(with: startWithValue) == false) {
                         print("here")
                     }
-                        
+                    
                     self?.sd.installEpub(fileName: fileName)
                     guard let bi = self?.sd.fetchBookInformation(fileName: fileName) else { return }
                     self?.openBook(bi)

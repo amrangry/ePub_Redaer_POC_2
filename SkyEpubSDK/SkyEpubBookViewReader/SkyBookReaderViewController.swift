@@ -262,6 +262,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         rv.baseDirectory = booksDirectory
         // since 8.5.0, the path of epub can be set by setBookPath.
         let bookPath = self.getBookPath()
+        
         rv.setBookPath(bookPath)
         // 25% space (in both left most and right most margins)
         rv.setHorizontalGapRatio(0.25)
