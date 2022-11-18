@@ -23,13 +23,26 @@ class SkyData: NSObject, SkyProviderDataSource {
     var database: FMDatabase!
     var keyManager: SkyKeyManager!
     
-    override init() {
+    var booksDirectoryFolderName: String!
+    var downloadsDirectoryFolderName: String!
+    
+    private override init() {
         super.init()
+    }
+    
+    convenience init( booksDirectoryFolderName: String,
+                      downloadsDirectoryFolderName: String,
+                      clientId: String,
+                      clientSecret: String) {
+        self.init()
+        
+        self.booksDirectoryFolderName = booksDirectoryFolderName
+        self.downloadsDirectoryFolderName = downloadsDirectoryFolderName
         let docPath = self.getDocumentsPath()
         print(docPath)
         let dbPath = self.getDatabasePath()
         print(dbPath)
-        keyManager = SkyKeyManager.init(clientId: "A3UBZzJNCoXmXQlBWD4xNo", clientSecret: "zfZl40AQXu8xHTGKMRwG69")
+        keyManager = SkyKeyManager(clientId: clientId, clientSecret: clientSecret)
         self.checkDatabase()
     }
     
@@ -43,7 +56,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     // create books folder to store epub books under documents folder.
     func createBooksDirectory() {
         let docPath = self.getDocumentsPath()
-        let booksDir = docPath + "/books"
+        let booksDir = docPath + "/" + booksDirectoryFolderName
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: booksDir) {
             do {
@@ -60,7 +73,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     // create downloads folder to save downloaded files.
     func createDownloadsDirectory() {
         let docPath = self.getDocumentsPath()
-        let downloadsDir = docPath + "/downloads"
+        let downloadsDir = docPath + "/" + downloadsDirectoryFolderName
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: downloadsDir) {
             do {
@@ -92,13 +105,13 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     func getBooksDirectory()->String {
         self.createBooksDirectory()
-        let path = self.getDocumentsPath()+"/books"
+        let path = self.getDocumentsPath() + "/" + booksDirectoryFolderName
         return path
     }
     
     func getDownloadsDirectory()->String {
         self.createDownloadsDirectory()
-        let path = self.getDocumentsPath()+"/downloads"
+        let path = self.getDocumentsPath() + "/" + downloadsDirectoryFolderName
         return path
     }
     
