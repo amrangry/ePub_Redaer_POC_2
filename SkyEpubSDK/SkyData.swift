@@ -46,14 +46,14 @@ class SkyData: NSObject, SkyProviderDataSource {
         self.checkDatabase()
     }
     
-    // get documents folder
+    /// get documents folder
     func getDocumentsPath() ->String {
         var documentsPath : String
         documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         return documentsPath
     }
     
-    // create books folder to store epub books under documents folder.
+    /// create books folder to store epub books under documents folder.
     func createBooksDirectory() {
         let docPath = self.getDocumentsPath()
         let booksDir = docPath + "/" + booksDirectoryFolderName
@@ -65,12 +65,12 @@ class SkyData: NSObject, SkyProviderDataSource {
             } catch {
                 print("Couldn't create bools directory")
             }
-        }else {
+        } else {
             print(booksDir+" has been already created!")
         }
     }
     
-    // create downloads folder to save downloaded files.
+    /// create downloads folder to save downloaded files.
     func createDownloadsDirectory() {
         let docPath = self.getDocumentsPath()
         let downloadsDir = docPath + "/" + downloadsDirectoryFolderName
@@ -82,7 +82,7 @@ class SkyData: NSObject, SkyProviderDataSource {
             } catch {
                 print("Couldn't create downloads directory")
             }
-        }else {
+        } else {
             print(downloadsDir+" has been already created!")
         }
     }
@@ -98,7 +98,7 @@ class SkyData: NSObject, SkyProviderDataSource {
             } catch {
                 print("Couldn't create caches directory")
             }
-        }else {
+        } else {
             print(cachessDir+" has been already created!")
         }
     }
@@ -128,20 +128,20 @@ class SkyData: NSObject, SkyProviderDataSource {
         return path
     }
     
-    func getBookPath(fileName:String) ->String {
+    func getBookPath(fileName: String) ->String {
         let booksDir = self.getBooksDirectory()
         let path = booksDir+"/"+fileName
         return path
     }
     
-    func getCoverPath(fileName:String)->String {
+    func getCoverPath(fileName: String)->String {
         let booksDir = self.getBooksDirectory()
         let coverName = fileName.replacingOccurrences(of: "epub", with: "jpg")
         let coverPath = booksDir+"/"+coverName
         return coverPath;
     }
     
-    func createEPubDirectory(fileName:String) {
+    func createEPubDirectory(fileName: String) {
         let ePubDir = self.getEPubDirectory(fileName: fileName)
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: ePubDir) {
@@ -156,7 +156,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func copyFileFromBundleToDownloads(fileName:String) {
+    func copyFileFromBundleToDownloads(fileName: String) {
         let fileManager = FileManager.default
         let downloadPath = self.getDownloadPath(fileName:fileName)
         
@@ -169,7 +169,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func copyFileFromDownloadsToBooks(fileName:String) {
+    func copyFileFromDownloadsToBooks(fileName: String) {
         let fileManager = FileManager.default
         let sourcePath = self.getDownloadPath(fileName: fileName)
         let targetPath = self.getBooksDirectory()+"/"+fileName;
@@ -180,7 +180,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func copyFileFromURLToBooks(url:URL) {
+    func copyFileFromURLToBooks(url: URL) {
         let fileManager = FileManager.default
         let sourcePath:String = self.getFilePathFromURL(url: url)
         let fileName = (sourcePath as NSString).lastPathComponent
@@ -192,7 +192,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func getFilePathFromURL(url:URL)->String {
+    func getFilePathFromURL(url: URL)->String {
         let fileManager = FileManager.default
         var sourcePath:String = url.absoluteString
         sourcePath = sourcePath.replacingOccurrences(of: "file://", with: "")
@@ -200,13 +200,13 @@ class SkyData: NSObject, SkyProviderDataSource {
         return sourcePath
     }
     
-    func getFileNameFromURL(url:URL)->String {
+    func getFileNameFromURL(url: URL)->String {
         let filePath = self.getFilePathFromURL(url: url)
         let fileName = (filePath as NSString).lastPathComponent
         return fileName
     }
     
-    func installEpub(fileName:String) {
+    func installEpub(fileName: String) {
         let bookPath = self.getBookPath(fileName: fileName)
         let fileManager = FileManager.default
         let isExists = fileManager.fileExists(atPath: bookPath)
@@ -216,9 +216,9 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
         self.copyFileFromBundleToDownloads(fileName: fileName)
         self.copyFileFromDownloadsToBooks(fileName: fileName)
-        let bi:BookInformation = BookInformation.init(bookName: fileName, baseDirectory:self.getBooksDirectory())
+        let bi: BookInformation = BookInformation.init(bookName: fileName, baseDirectory:self.getBooksDirectory())
         bi.fileName = fileName
-        let skyProvider:SkyProvider = SkyProvider()
+        let skyProvider: SkyProvider = SkyProvider()
         skyProvider.dataSource = self
         skyProvider.book = bi.book
         bi.contentProvider = skyProvider
@@ -229,7 +229,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return
     }
     
-    func installEpub(url:URL) {
+    func installEpub(url: URL) {
         let fileManager = FileManager.default
         let fileName = self.getFileNameFromURL(url: url)
         let bookPath = self.getBookPath(fileName: fileName)
@@ -249,12 +249,10 @@ class SkyData: NSObject, SkyProviderDataSource {
         return
     }
     
-    
     func skyProvider(_ sp: SkyProvider!, keyForEncryptedData uuidForContent: String!, contentName: String!, uuidForEpub: String!) -> String! {
         let key = keyManager.getKey(uuidForEpub, uuidForContent: uuidForContent)
         return key;
     }
-    
     
     func getDatabasePath() -> String {
         let path = self.getDocumentsPath()+"/book.sqlite"
@@ -278,7 +276,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return contents
     }
     
-    // Database Functions
+    // MARK: - Database Functions
     func openDatabase() -> Bool {
         self.closeDatabase()
         var result = false
@@ -294,11 +292,11 @@ class SkyData: NSObject, SkyProviderDataSource {
                     // At the end close the database.
                     database.close()
                     print("Database Successfully Created.")
-                }else {
+                } else {
                     print("Could not open the database.")
                 }
             }
-        }else {
+        } else {
             let dbPath = self.getDatabasePath()
             database = FMDatabase(path: dbPath)
             database.open()
@@ -322,22 +320,20 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    
-    func updateSetting(setting:SkyEpubSetting!) {
+    func updateSetting(setting: SkyEpubSetting!) {
         checkDatabase()
         if setting.fontName == nil {
             setting.fontName = ""
         }
         let sql = "UPDATE Setting SET FontName=?, FontSize=? , LineSpacing=? , Foreground=? , Background=? , Theme=? , Brightness=?, TransitionType=? , LockRotation=? , DoublePaged=?,Allow3G=?,GlobalPagination=?,MediaOverlay=?,TTS=?,AutoStartPlaying=?,AutoLoadNewChapter=?,HighlightTextToVoice=? where BookCode=0"
         do {
-            try database.executeUpdate(sql, values:[setting.fontName,setting.fontSize,setting.lineSpacing,setting.foreground,setting.background,setting.theme,setting.brightness,setting.transitionType,setting.lockRotation ? 1:0 ,setting.doublePaged ? 1:0,setting.allow3G ? 1:0,setting.globalPagination ? 1:0,setting.mediaOverlay ? 1:0 ,setting.tts ? 1:0,setting.autoStartPlaying ? 1:0,setting.autoLoadNewChapter ? 1:0,setting.highlightTextToVoice ? 1:0])
-        }catch {
+            try database.executeUpdate(sql, values:[setting.fontName, setting.fontSize, setting.lineSpacing, setting.foreground, setting.background, setting.theme, setting.brightness, setting.transitionType, setting.lockRotation ? 1:0 , setting.doublePaged ? 1:0, setting.allow3G ? 1:0, setting.globalPagination ? 1:0, setting.mediaOverlay ? 1:0 , setting.tts ? 1:0, setting.autoStartPlaying ? 1:0, setting.autoLoadNewChapter ? 1:0, setting.highlightTextToVoice ? 1:0])
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    
-    func fetchSetting() ->SkyEpubSetting! {
+    func fetchSetting() -> SkyEpubSetting! {
         checkDatabase()
         let sql = "SELECT * FROM Setting where BookCode=0"
         do {
@@ -364,37 +360,36 @@ class SkyData: NSObject, SkyProviderDataSource {
                 setting.highlightTextToVoice            =   results.int(forColumn:"HighlightTextToVoice") != 0 ? true:false
                 return setting
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return nil
     }
     
-    
-    // BookInformation
-    func insertBookInformation(_ bi:BookInformation)  {
+    // MARK: - BookInformation
+    func insertBookInformation(_ bi: BookInformation) {
         checkDatabase()
         let ns = self.getNowString()
         let sql = "INSERT INTO Book (Title,Author,Publisher,Subject,Type,Date,Language,Filename,IsFixedLayout,IsRTL,Position,Spread) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)"
         do {
             try database.executeUpdate(sql, values: [(bi.title ?? ""), (bi.creator ?? ""), (bi.publisher ?? ""), (bi.subject ?? ""), (bi.type ?? ""),ns, (bi.language  ?? ""), bi.fileName, bi.isFixedLayout ? 1:0 ,bi.isRTL ? 1:0 ,-1.0,bi.spread])
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    func updateBookPosition(bookInformation:BookInformation) {
+    func updateBookPosition(bookInformation: BookInformation) {
         let bi:BookInformation = bookInformation
         let ns = self.getNowString()
         let sql = "UPDATE Book SET Position=?,LastRead=?,IsRead=? where BookCode=?"
         do {
             try database.executeUpdate(sql, values: [bi.position,ns,1,bi.bookCode])
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    func deleteBookByBookCode(bookCode:Int) {
+    func deleteBookByBookCode(bookCode: Int) {
         checkDatabase()
         let bi:BookInformation = self.fetchBookInformation(bookCode: bookCode)
         let bookPath = self.getBookPath(fileName: bi.fileName)
@@ -405,14 +400,14 @@ class SkyData: NSObject, SkyProviderDataSource {
         if fileManager.fileExists(atPath: bookPath) {
             do {
                 try fileManager.removeItem(atPath: bookPath)
-            }catch{
+            } catch {
                 print(error)
             }
         }
         if fileManager.fileExists(atPath: coverPath) {
             do {
                 try fileManager.removeItem(atPath: coverPath)
-            }catch{
+            } catch {
                 print(error)
             }
         }
@@ -424,7 +419,7 @@ class SkyData: NSObject, SkyProviderDataSource {
                     do {
                         let path = "\(cacheFolder)\(fileName)"
                         try fileManager.removeItem(atPath: path)
-                    }catch {
+                    } catch {
                         print(error)
                     }
                 }
@@ -440,13 +435,13 @@ class SkyData: NSObject, SkyProviderDataSource {
         database.executeUpdate(sql, withArgumentsIn: [])
     }
     
-    func fetchBookInformations(sortType:Int,key:String)->NSMutableArray {
+    func fetchBookInformations(sortType: Int, key: String) -> NSMutableArray {
         var orderBy:String = ""
         if (sortType==0) {
             orderBy = " ORDER BY Title"
-        }else if (sortType==1) {
+        } else if (sortType==1) {
             orderBy = " ORDER BY Author"
-        }else if (sortType==2) {
+        } else if (sortType==2) {
             orderBy = " ORDER BY LastRead DESC"
         }
         var condition:String = ""
@@ -467,13 +462,13 @@ class SkyData: NSObject, SkyProviderDataSource {
                 let count = Int(results.int(forColumn: "Count"))
                 return count
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return -1
     }
     
-    func fetchBookInformations(sql:String)->NSMutableArray {
+    func fetchBookInformations(sql: String)-> NSMutableArray {
         checkDatabase()
         let rets = NSMutableArray()
         do {
@@ -508,7 +503,7 @@ class SkyData: NSObject, SkyProviderDataSource {
                 bi.isDownloaded     =   results.int(forColumn:"IsDownloaded") != 0 ? true:false
                 rets.add(bi)
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return rets
@@ -549,7 +544,7 @@ class SkyData: NSObject, SkyProviderDataSource {
                 bi.isDownloaded     =   results.int(forColumn:"IsDownloaded") != 0 ? true:false
                 return bi
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return nil
@@ -597,8 +592,8 @@ class SkyData: NSObject, SkyProviderDataSource {
         return nil
     }
     
-    // Highlight Routines ================================================================================================================================================
-    func fetchHighlights(bookCode:Int,chapterIndex:Int) -> NSMutableArray {
+    // MARK: - Highlight Routines ================================================================================================================================================
+    func fetchHighlights(bookCode: Int, chapterIndex: Int) -> NSMutableArray {
         checkDatabase()
         let rets = NSMutableArray()
         let sql = "SELECT * FROM Highlight where BookCode=\(bookCode) and ChapterIndex=\(chapterIndex)"
@@ -620,13 +615,13 @@ class SkyData: NSObject, SkyProviderDataSource {
                 highlight.datetime          = results.string(forColumn: "CreatedDate")
                 rets.add(highlight)
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return rets
     }
     
-    func fetchHighlights(bookCode:Int) -> NSMutableArray {
+    func fetchHighlights(bookCode: Int) -> NSMutableArray {
         checkDatabase()
         let rets = NSMutableArray()
         let sql = "SELECT * FROM Highlight where BookCode=\(bookCode) order by ChapterIndex"
@@ -648,25 +643,24 @@ class SkyData: NSObject, SkyProviderDataSource {
                 highlight.datetime          = results.string(forColumn: "CreatedDate")
                 rets.add(highlight)
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return rets
     }
     
-    
-    func isSameHighlight(firstHighlight:Highlight?,secondHighlight:Highlight?) ->Bool {
+    func isSameHighlight(firstHighlight: Highlight?, secondHighlight: Highlight?) ->Bool {
         if let first = firstHighlight, let second = secondHighlight {
             if (first.bookCode==second.bookCode && first.startIndex == second.startIndex && first.endIndex == second.endIndex && first.startOffset==second.startOffset && first.endOffset==second.endOffset && first.chapterIndex==second.chapterIndex) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }
         return false;
     }
     
-    func insertHighlight(highlight:Highlight) {
+    func insertHighlight(highlight: Highlight) {
         checkDatabase()
         let ns = self.getNowString()
         if highlight.text == nil {
@@ -677,20 +671,19 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
         let sql = "INSERT INTO Highlight (BookCode,ChapterIndex,StartIndex,StartOffset,EndIndex,EndOffset,Color,Text,Note,IsNote,CreatedDate) VALUES(?,?,?,?,?,?,?,?,?,?,?)"
         do {
-            try database.executeUpdate(sql, values: [highlight.bookCode,highlight.chapterIndex,highlight.startIndex,highlight.startOffset,highlight.endIndex,highlight.endOffset,highlight.highlightColor,highlight.text!,highlight.note!, highlight.isNote ? 1:0 ,ns])
-        }catch {
+            try database.executeUpdate(sql, values: [highlight.bookCode, highlight.chapterIndex, highlight.startIndex, highlight.startOffset, highlight.endIndex, highlight.endOffset, highlight.highlightColor, highlight.text!, highlight.note!, highlight.isNote ? 1:0 , ns])
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    
-    func deleteHighlight(highlight:Highlight) {
+    func deleteHighlight(highlight: Highlight) {
         checkDatabase()
         let sql = "DELETE FROM Highlight where BookCode=\(highlight.bookCode) and ChapterIndex=\(highlight.chapterIndex) and StartIndex=\(highlight.startIndex) and StartOffset=\(highlight.startOffset) and EndIndex=\(highlight.endIndex) and EndOffset=\(highlight.endOffset)"
         database.executeUpdate(sql, withArgumentsIn: [])
     }
     
-    func updateHighlight(highlight:Highlight) {
+    func updateHighlight(highlight: Highlight) {
         checkDatabase()
         let ns = self.getNowString()
         if highlight.text == nil {
@@ -701,50 +694,48 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
         let sql = "UPDATE Highlight SET StartIndex=?,StartOffset=?,EndIndex=?,EndOffset=?,Color=?,Text=?,Note=?,IsNote=?,CreatedDate=? where BookCode=? and ChapterIndex=? and StartIndex=? and StartOffset=? and EndIndex=? and EndOffset=?"
         do {
-            try database.executeUpdate(sql, values: [highlight.startIndex,highlight.startOffset,highlight.endIndex,highlight.endOffset,highlight.highlightColor,highlight.text,highlight.note, highlight.isNote ? 1:0 ,ns, highlight.bookCode,highlight.chapterIndex,highlight.startIndex,highlight.startOffset,highlight.endIndex,highlight.endOffset])
-        }catch {
+            try database.executeUpdate(sql, values: [highlight.startIndex, highlight.startOffset,highlight.endIndex, highlight.endOffset, highlight.highlightColor,highlight.text, highlight.note, highlight.isNote ? 1:0 , ns, highlight.bookCode, highlight.chapterIndex, highlight.startIndex, highlight.startOffset, highlight.endIndex, highlight.endOffset])
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    // Bookmark Routines ================================================================================================================================================
-    
-    
+    // MARK: - Bookmark Routines ================================================================================================================================================
     func isBookmarked(pageInformation:PageInformation)->Bool {
         let code = self.getBookmarkCode(pageInformation: pageInformation)
         if code == -1 {
             return false
-        }else {
+        } else {
             return true
         }
     }
     
-    func toggleBookmark(pageInformation:PageInformation) {
+    func toggleBookmark(pageInformation: PageInformation) {
         let code = self.getBookmarkCode(pageInformation: pageInformation)
         if code == -1 {
             self.insertBookmark(pageInformation: pageInformation)
-        }else {
+        } else {
             self.deleteBookmark(code: code)
         }
     }
     
-    func getNowString() ->String {
+    func getNowString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let dateString = formatter.string(from: Date())
         return dateString
     }
     
-    func isFixedLayout(bookCode:Int)->Bool {
+    func isFixedLayout(bookCode: Int)->Bool {
         let bi:BookInformation = self.fetchBookInformation(bookCode:bookCode)
         if bi.isFixedLayout {
             return true
-        }else {
+        } else {
             return false
         }
     }
     
-    func insertBookmark(pageInformation:PageInformation) {
+    func insertBookmark(pageInformation: PageInformation) {
         checkDatabase()
         let ppb = pageInformation.pagePositionInBook
         let ppc = pageInformation.pagePositionInChapter
@@ -756,19 +747,19 @@ class SkyData: NSObject, SkyProviderDataSource {
         database.executeUpdate(sql, withArgumentsIn: [])
     }
     
-    func deleteBookmark(code:Int) {
+    func deleteBookmark(code: Int) {
         checkDatabase()
         let sql = "DELETE FROM Bookmark where Code = \(code)"
         database.executeUpdate(sql, withArgumentsIn: [])
     }
     
-    func deleteBookmark(pageInformation:PageInformation) {
+    func deleteBookmark(pageInformation: PageInformation) {
         checkDatabase()
         let code = pageInformation.code
         self.deleteBookmark(code: code)
     }
     
-    func getBookmarkCode(pageInformation:PageInformation) ->Int {
+    func getBookmarkCode(pageInformation: PageInformation) ->Int {
         checkDatabase()
         let isFixedLayout = self.isFixedLayout(bookCode: pageInformation.bookCode)
         if isFixedLayout {
@@ -779,10 +770,10 @@ class SkyData: NSObject, SkyProviderDataSource {
                     let code = Int(results.int(forColumn:"Code"))
                     return code
                 }
-            }catch {
+            } catch {
                 print(error.localizedDescription)
             }
-        }else {
+        } else {
             let pageDelta = 1.0/Double(pageInformation.numberOfPagesInChapter)
             let target = pageInformation.pagePositionInChapter
             
@@ -796,14 +787,14 @@ class SkyData: NSObject, SkyProviderDataSource {
                         return code
                     }
                 }
-            }catch {
+            } catch {
                 print(error.localizedDescription)
             }
         }
         return -1
     }
     
-    func fetchBookmarks(bookCode:Int) -> NSMutableArray {
+    func fetchBookmarks(bookCode: Int) -> NSMutableArray {
         let rets = NSMutableArray()
         do {
             let sql = "SELECT * FROM Bookmark where BookCode=\(bookCode) ORDER BY ChapterIndex,PagePositionInBook"
@@ -819,20 +810,20 @@ class SkyData: NSObject, SkyProviderDataSource {
                 pg.datetime = results.string(forColumn: "CreatedDate")
                 rets.add(pg)
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return rets
     }
     
-    // PagingInformation ===========================================================================================================
-    func deletePagingInformation(pagingInformation pgi:PagingInformation!) {
+    // MARK: - PagingInformation ===========================================================================================================
+    func deletePagingInformation(pagingInformation pgi: PagingInformation!) {
         checkDatabase()
         let sql = String(format:"DELETE FROM Paging WHERE BookCode=%d AND ChapterIndex=%d AND FontName='%@' AND FontSize=%d AND LineSpacing=%d AND Width=%d AND Height=%d AND HorizontalGapRatio=%f AND VerticalGapRatio=%f AND IsPortrait=%d AND IsDoublePagedForLandscape=%d",pgi.bookCode,    pgi.chapterIndex,        pgi.fontName,        pgi.fontSize,        pgi.lineSpacing,    pgi.width,        pgi.height,        pgi.horizontalGapRatio,        pgi.verticalGapRatio,        pgi.isPortrait ? 1:0,    pgi.isDoublePagedForLandscape ? 1:0 )
         database.executeUpdate(sql, withArgumentsIn: [])
     }
     
-    func insertPagingInformation(pagingInformation pgi:PagingInformation!) {
+    func insertPagingInformation(pagingInformation pgi: PagingInformation!) {
         checkDatabase()
         if let tgi = self.fetchPagingInformation(pagingInformation: pgi) {
             self.deletePagingInformation(pagingInformation: tgi)
@@ -842,21 +833,20 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
         let sql = "INSERT INTO Paging (BookCode,ChapterIndex,NumberOfPagesInChapter,FontName,FontSize,LineSpacing,Width,height,VerticalGapRatio,HorizontalGapRatio,IsPortrait,IsDoublePagedForLandscape) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"
         do {
-            try database.executeUpdate(sql, values: [pgi.bookCode,pgi.chapterIndex,pgi.numberOfPagesInChapter,pgi.fontName,pgi.fontSize,pgi.lineSpacing,pgi.width,pgi.height,pgi.verticalGapRatio,pgi.horizontalGapRatio, pgi.isPortrait ? 1:0,pgi.isDoublePagedForLandscape ? 1:0 ])
-        }catch {
+            try database.executeUpdate(sql, values: [pgi.bookCode, pgi.chapterIndex, pgi.numberOfPagesInChapter, pgi.fontName, pgi.fontSize, pgi.lineSpacing, pgi.width, pgi.height, pgi.verticalGapRatio, pgi.horizontalGapRatio, pgi.isPortrait ? 1:0, pgi.isDoublePagedForLandscape ? 1:0 ])
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    func fetchPagingInformation(pagingInformation:PagingInformation!)->PagingInformation! {
+    func fetchPagingInformation(pagingInformation: PagingInformation!)->PagingInformation! {
         checkDatabase()
         if let pgi = pagingInformation {
             if (pgi.fontName ?? "") == "Book Fonts" {
                 pgi.fontName = ""
             }
             let sql = String(format:"SELECT * FROM Paging WHERE BookCode=%d AND ChapterIndex=%d AND FontName='%@' AND FontSize=%d AND LineSpacing=%d AND Width=%d AND Height=%d AND HorizontalGapRatio=%f AND VerticalGapRatio=%f AND IsPortrait=%d AND IsDoublePagedForLandscape=%d",
-                             pgi.bookCode,    pgi.chapterIndex,        pgi.fontName,        pgi.fontSize,        pgi.lineSpacing,    pgi.width,        pgi.height,        pgi.horizontalGapRatio,        pgi.verticalGapRatio,        pgi.isPortrait ? 1:0,    pgi.isDoublePagedForLandscape ? 1:0);
-            
+                             pgi.bookCode, pgi.chapterIndex, pgi.fontName, pgi.fontSize, pgi.lineSpacing, pgi.width, pgi.height, pgi.horizontalGapRatio,        pgi.verticalGapRatio, pgi.isPortrait ? 1:0, pgi.isDoublePagedForLandscape ? 1:0)
             do {
                 let results = try database.executeQuery(sql, values: [])
                 while results.next() {
@@ -876,7 +866,7 @@ class SkyData: NSObject, SkyProviderDataSource {
                     pg.isDoublePagedForLandscape =  results.int(forColumn:"IsDoublePagedForLandscape") != 0 ? true:false
                     return pg
                 }
-            }catch {
+            } catch {
                 print(error.localizedDescription)
             }
         }
@@ -885,7 +875,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     // NSInteger ->   Int
     // int       ->   Int32
-    func fetchPagingInformations(sql:String!) ->NSMutableArray! {
+    func fetchPagingInformations(sql: String!) -> NSMutableArray! {
         let rets = NSMutableArray()
         do {
             let results = try database.executeQuery(sql, values: [])
@@ -908,13 +898,13 @@ class SkyData: NSObject, SkyProviderDataSource {
                 
                 rets.add(pg)
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return rets
     }
     
-    func fetchPagingInformations(bookCode:Int)->NSMutableArray! {
+    func fetchPagingInformations(bookCode: Int) -> NSMutableArray! {
         checkDatabase()
         let sql = "SELECT * FROM Paging WHERE BookCode=\(bookCode) AND ChapterIndex=0"
         return self.fetchPagingInformations(sql: sql)
@@ -927,7 +917,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return self.fetchPagingInformations(sql: sql)
     }
     
-    func fetchPagingInformationsForScan(bookCode:Int, numberOfChapters:Int)->NSMutableArray!  {
+    func fetchPagingInformationsForScan(bookCode: Int, numberOfChapters: Int) -> NSMutableArray! {
         checkDatabase()
         let sps:NSMutableArray = self.fetchPagingInformations(bookCode: bookCode)
         for i in 0 ..< sps.count {
@@ -940,8 +930,8 @@ class SkyData: NSObject, SkyProviderDataSource {
         return nil
     }
     
-    // ItemRef ========================================================================================================
-    func insertItemRef(itemRef:ItemRef!) {
+    // MARK: - ItemRef ========================================================================================================
+    func insertItemRef(itemRef: ItemRef!) {
         checkDatabase()
         /*
          let sql = "INSERT INTO ItemRef (BookCode,ChapterIndex,Title,Text,HRef,IdRef) Values(\(itemRef.bookCode),\(itemRef.chapterIndex),'','test text','','')"
@@ -951,28 +941,28 @@ class SkyData: NSObject, SkyProviderDataSource {
         let sql = "INSERT INTO ItemRef (BookCode,ChapterIndex,Title,Text,HRef,IdRef) VALUES(?,?,?,?,?,?)"
         do {
             try database.executeUpdate(sql, values: [itemRef.bookCode,itemRef.chapterIndex,itemRef.title! ,itemRef.text! ,itemRef.href!  ,itemRef.idref! ])
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    func updateItemRef(itemRef:ItemRef) {
+    func updateItemRef(itemRef: ItemRef) {
         checkDatabase()
         let sql = "UPDATE ItemRef SET Title=?,Text=? where BookCode=? and ChapterIndex=?"
         do {
             try database.executeUpdate(sql, values: [itemRef.title! ,itemRef.text! ,itemRef.bookCode,itemRef.chapterIndex])
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
     }
     
-    func deleteItemRefs(bookCode:Int) {
+    func deleteItemRefs(bookCode: Int) {
         checkDatabase()
         let sql = "DELETE FROM ItemRef where BookCode=\(bookCode)"
         database.executeUpdate(sql, withArgumentsIn: [])
     }
     
-    func fetchItemRef(bookCode:Int, chapterIndex:Int) -> ItemRef! {
+    func fetchItemRef(bookCode: Int, chapterIndex: Int) -> ItemRef! {
         checkDatabase()
         let sql = "SELECT * FROM ItemRef where BookCode=\(bookCode) and ChapterIndex=\(chapterIndex)"
         do {
@@ -988,7 +978,7 @@ class SkyData: NSObject, SkyProviderDataSource {
                 itemRef.idref   = results.string(forColumn: "IdREF")
                 return itemRef
             }
-        }catch {
+        } catch {
             print(error.localizedDescription)
         }
         return nil
