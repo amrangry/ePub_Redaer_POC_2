@@ -111,8 +111,26 @@ class ViewController: UIViewController {
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
         let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
         let fileName = "FederalistPapers.epub"
+        let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
         if let bi = sd.fetchBookInformation(fileName: fileName) {
-            openBook(bi)
+            let bookPath = sd.getBookPath(fileName: fileName)
+            let isExists = FileManager.default.fileExists(atPath: bookPath)
+            if (isExists) {
+                openBook(bi)
+            } else {
+                // need to download
+                let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
+                download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
+                    if case .success(_) = response {
+                        self?.sd.copyFileFromDownloadsToBooks(fileName: fileName)
+                        self?.openBook(bi)
+                    }
+                }
+            }
+            //            let bookPath2 = sd.getDownloadPath(fileName: fileName)
+            //            let isExistsInDownloads = fileManager.fileExists(atPath: bookPath)
+            //            if (isExists) {
+            //            openBook(bi)
         } else {
             let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
             download(downloadURL, fileName: fileName, folderDirName: downloadFolder ) { [weak self] response in
