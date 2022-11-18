@@ -114,7 +114,8 @@ class ViewController: UIViewController {
         if let bi = sd.fetchBookInformation(fileName: fileName) {
             openBook(bi)
         } else {
-            download(downloadURL, fileName: fileName) { [weak self] response in
+            let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
+            download(downloadURL, fileName: fileName, folderDirName: downloadFolder ) { [weak self] response in
                 switch response {
                 case .failure(let error):
                     print(error)
@@ -152,10 +153,10 @@ class ViewController: UIViewController {
 typealias ResultResponse<T> = ((Result<T, Error>) -> Void)
 
 extension ViewController {
-
-    func download(_ urlString: String, fileName: String, completion: @escaping ResultResponse<Any>) {
+    
+    func download(_ urlString: String, fileName: String, folderDirName: String, completion: @escaping ResultResponse<Any>) {
         var finalFileName = fileName
-        let downloadsFolderName = "downloads/"
+        let downloadsFolderName = folderDirName + "/"
         if (fileName.starts(with: downloadsFolderName) == false) {
             finalFileName = "\(downloadsFolderName)\(fileName)"
         }
