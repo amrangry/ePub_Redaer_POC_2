@@ -153,19 +153,19 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func getBooksDirectory()->String {
+    func getBooksDirectory() -> String {
         self.createBooksDirectory()
         let path = self.getDocumentsPath() + "/" + booksDirectoryFolderName
         return path
     }
     
-    func getDownloadsDirectory()->String {
+    func getDownloadsDirectory() -> String {
         self.createDownloadsDirectory()
         let path = self.getDocumentsPath() + "/" + downloadsDirectoryFolderName
         return path
     }
     
-    func getEPubDirectory(fileName: String)->String {
+    func getEPubDirectory(fileName: String) -> String {
         let pureName = fileName.prefix(fileName.count-5)
         let booksDir = self.getBooksDirectory()
         let ePubDir = booksDir+"/"+pureName;
@@ -174,20 +174,20 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     func getDownloadPath(fileName: String) ->String {
         let downloadsDir = self.getDownloadsDirectory()
-        let path = downloadsDir+"/"+fileName
+        let path = downloadsDir + "/" + fileName
         return path
     }
     
     func getBookPath(fileName: String) ->String {
         let booksDir = self.getBooksDirectory()
-        let path = booksDir+"/"+fileName
+        let path = booksDir + "/" + fileName
         return path
     }
     
-    func getCoverPath(fileName: String)->String {
+    func getCoverPath(fileName: String) -> String {
         let booksDir = self.getBooksDirectory()
         let coverName = fileName.replacingOccurrences(of: "epub", with: "jpg")
-        let coverPath = booksDir+"/"+coverName
+        let coverPath = booksDir + "/" + coverName
         return coverPath;
     }
     
@@ -197,12 +197,12 @@ class SkyData: NSObject, SkyProviderDataSource {
         if !fileManager.fileExists(atPath: ePubDir) {
             do {
                 try fileManager.createDirectory(atPath: ePubDir, withIntermediateDirectories: true, attributes: nil)
-                print(ePubDir+" is created successfully")
+                print(ePubDir + " is created successfully")
             } catch {
                 print("Couldn't create downloads directory")
             }
         } else {
-            print(ePubDir+" has been already created!")
+            print(ePubDir + " has been already created!")
         }
     }
     
@@ -222,7 +222,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     func copyFileFromDownloadsToBooks(fileName: String) {
         let fileManager = FileManager.default
         let sourcePath = self.getDownloadPath(fileName: fileName)
-        let targetPath = self.getBooksDirectory()+"/"+fileName;
+        let targetPath = self.getBooksDirectory() + "/" + fileName;
         do {
             try fileManager.copyItem(atPath: sourcePath, toPath: targetPath)
         } catch {
@@ -242,7 +242,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func getFilePathFromURL(url: URL)->String {
+    func getFilePathFromURL(url: URL) -> String {
         let fileManager = FileManager.default
         var sourcePath:String = url.absoluteString
         sourcePath = sourcePath.replacingOccurrences(of: "file://", with: "")
@@ -250,7 +250,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return sourcePath
     }
     
-    func getFileNameFromURL(url: URL)->String {
+    func getFileNameFromURL(url: URL) -> String {
         let filePath = self.getFilePathFromURL(url: url)
         let fileName = (filePath as NSString).lastPathComponent
         return fileName
@@ -261,7 +261,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return path
     }
     
-    func getDDLFromBundle()-> String {
+    func getDDLFromBundle() -> String {
         var contents:String!
         if let filepath = Bundle.main.path(forResource: "Books", ofType: "sql") {
             do {
@@ -470,7 +470,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return -1
     }
     
-    func fetchBookInformations(sql: String)-> NSMutableArray {
+    func fetchBookInformations(sql: String) -> NSMutableArray {
         checkDatabase()
         let rets = NSMutableArray()
         do {
@@ -511,7 +511,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return rets
     }
     
-    func fetchBookInformation(bookCode:Int)->BookInformation! {
+    func fetchBookInformation(bookCode:Int) -> BookInformation! {
         checkDatabase()
         let sql = "SELECT * FROM Book where BookCode=\(bookCode)"
         do {
@@ -703,7 +703,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     }
     
     // MARK: - Bookmark Routines ================================================================================================================================================
-    func isBookmarked(pageInformation:PageInformation)->Bool {
+    func isBookmarked(pageInformation:PageInformation) -> Bool {
         let code = self.getBookmarkCode(pageInformation: pageInformation)
         if code == -1 {
             return false
@@ -728,7 +728,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return dateString
     }
     
-    func isFixedLayout(bookCode: Int)->Bool {
+    func isFixedLayout(bookCode: Int) -> Bool {
         let bi:BookInformation = self.fetchBookInformation(bookCode:bookCode)
         if bi.isFixedLayout {
             return true
@@ -841,7 +841,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func fetchPagingInformation(pagingInformation: PagingInformation!)->PagingInformation! {
+    func fetchPagingInformation(pagingInformation: PagingInformation!) -> PagingInformation! {
         checkDatabase()
         if let pgi = pagingInformation {
             if (pgi.fontName ?? "") == "Book Fonts" {
@@ -912,7 +912,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         return self.fetchPagingInformations(sql: sql)
     }
     
-    func fetchPagingInformations(pagingInformation pgi:PagingInformation)->NSMutableArray! {
+    func fetchPagingInformations(pagingInformation pgi:PagingInformation) -> NSMutableArray! {
         checkDatabase()
         let sql = String(format:"SELECT * FROM Paging WHERE BookCode=%d AND FontName='%@' AND FontSize=%d AND LineSpacing=%d AND Width=%d AND Height=%d AND HorizontalGapRatio=%f AND VerticalGapRatio=%f AND IsPortrait=%d AND IsDoublePagedForLandscape=%d Order By ChapterIndex",
                          pgi.bookCode,         pgi.fontName,        pgi.fontSize,        pgi.lineSpacing,    pgi.width,        pgi.height,        pgi.horizontalGapRatio,        pgi.verticalGapRatio,        pgi.isPortrait ? 1:0,    pgi.isDoublePagedForLandscape ? 1:0 );
