@@ -223,7 +223,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
     
     //MARK: - Helper
     func getBookPath()->String {
-        let bookPath:String = "\(rv.baseDirectory!)/\(rv.fileName!)"
+        let bookPath: String = "\(rv.baseDirectory!)/\(rv.fileName!)"
         return bookPath
     }
     
@@ -286,7 +286,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         // set License Key for Reflowable Layout
         rv.setLicenseKey("0000-0000-0000-0000")
         // make SkyProvider object to read epub reader.
-        let skyProvider:SkyProvider = SkyProvider()
+        let skyProvider: SkyProvider = SkyProvider()
         // set skyProvider datasource
         skyProvider.dataSource = self
         // set skyProvider book to rv's book
