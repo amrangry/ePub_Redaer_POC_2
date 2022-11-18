@@ -46,6 +46,56 @@ class SkyData: NSObject, SkyProviderDataSource {
         self.checkDatabase()
     }
     
+    func skyProvider(_ sp: SkyProvider!, keyForEncryptedData uuidForContent: String!, contentName: String!, uuidForEpub: String!) -> String! {
+        let key = keyManager.getKey(uuidForEpub, uuidForContent: uuidForContent)
+        return key;
+    }
+    
+    // MARK: - ePub Book installation
+    func installEpub(fileName: String) {
+        let bookPath = self.getBookPath(fileName: fileName)
+        let fileManager = FileManager.default
+        let isExists = fileManager.fileExists(atPath: bookPath)
+        if (isExists) {
+            //print("Book already installed.")
+            return
+        }
+        self.copyFileFromBundleToDownloads(fileName: fileName)
+        self.copyFileFromDownloadsToBooks(fileName: fileName)
+        let bi: BookInformation = BookInformation.init(bookName: fileName, baseDirectory:self.getBooksDirectory())
+        bi.fileName = fileName
+        let skyProvider: SkyProvider = SkyProvider()
+        skyProvider.dataSource = self
+        skyProvider.book = bi.book
+        bi.contentProvider = skyProvider
+        bi.make()
+        //print("Book Code: \(bi.bookCode)")
+        self.insertBookInformation(bi)
+        return
+    }
+    
+    func installEpub(url: URL) {
+        let fileManager = FileManager.default
+        let fileName = self.getFileNameFromURL(url: url)
+        let bookPath = self.getBookPath(fileName: fileName)
+        let isExists = fileManager.fileExists(atPath: bookPath)
+        if (isExists) {
+            //print("Book already installed.")
+            return
+        }
+        self.copyFileFromURLToBooks(url: url)
+        let bi: BookInformation = BookInformation(bookName: fileName, baseDirectory: self.getBooksDirectory())
+        bi.fileName = fileName
+        let skyProvider: SkyProvider = SkyProvider()
+        skyProvider.dataSource = self
+        skyProvider.book = bi.book
+        bi.contentProvider = skyProvider
+        bi.make()
+        self.insertBookInformation(bi)
+        return
+    }
+    
+    // MARK: - Folder and File
     /// get documents folder
     func getDocumentsPath() ->String {
         var documentsPath : String
@@ -204,54 +254,6 @@ class SkyData: NSObject, SkyProviderDataSource {
         let filePath = self.getFilePathFromURL(url: url)
         let fileName = (filePath as NSString).lastPathComponent
         return fileName
-    }
-    
-    func installEpub(fileName: String) {
-        let bookPath = self.getBookPath(fileName: fileName)
-        let fileManager = FileManager.default
-        let isExists = fileManager.fileExists(atPath: bookPath)
-        if (isExists) {
-            print("Book already installed.")
-            return
-        }
-        self.copyFileFromBundleToDownloads(fileName: fileName)
-        self.copyFileFromDownloadsToBooks(fileName: fileName)
-        let bi: BookInformation = BookInformation.init(bookName: fileName, baseDirectory:self.getBooksDirectory())
-        bi.fileName = fileName
-        let skyProvider: SkyProvider = SkyProvider()
-        skyProvider.dataSource = self
-        skyProvider.book = bi.book
-        bi.contentProvider = skyProvider
-        bi.make()
-        
-        print("Book Code: \(bi.bookCode)")
-        self.insertBookInformation(bi)
-        return
-    }
-    
-    func installEpub(url: URL) {
-        let fileManager = FileManager.default
-        let fileName = self.getFileNameFromURL(url: url)
-        let bookPath = self.getBookPath(fileName: fileName)
-        let isExists = fileManager.fileExists(atPath: bookPath)
-        if (isExists) {
-            return
-        }
-        self.copyFileFromURLToBooks(url: url)
-        let bi:BookInformation = BookInformation.init(bookName: fileName, baseDirectory:self.getBooksDirectory())
-        bi.fileName = fileName
-        let skyProvider:SkyProvider = SkyProvider()
-        skyProvider.dataSource = self
-        skyProvider.book = bi.book
-        bi.contentProvider = skyProvider
-        bi.make()
-        self.insertBookInformation(bi)
-        return
-    }
-    
-    func skyProvider(_ sp: SkyProvider!, keyForEncryptedData uuidForContent: String!, contentName: String!, uuidForEpub: String!) -> String! {
-        let key = keyManager.getKey(uuidForEpub, uuidForContent: uuidForContent)
-        return key;
     }
     
     func getDatabasePath() -> String {
