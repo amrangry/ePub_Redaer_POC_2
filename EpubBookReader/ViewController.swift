@@ -10,12 +10,12 @@ import Alamofire
 
 class ViewController: UIViewController {
 
-    var ad:SkyConfigurator!
-    var sd:SkyData!
+    var ad: SkyConfigurator!
+    var sd: SkyData!
     
-    var sortType:Int = 0
-    var searchKey:String = ""
-    var bis:NSMutableArray!
+    var sortType: Int = 0
+    var searchKey: String = ""
+    var bis: NSMutableArray!
         
     func loadBis() {
         self.bis = sd.fetchBookInformations(sortType: self.sortType, key: searchKey)
