@@ -19,9 +19,9 @@ extension String {
 }
 
 // Data Management Module for Database or File. 
-class SkyData:NSObject ,SkyProviderDataSource {
+class SkyData: NSObject, SkyProviderDataSource {
     var database: FMDatabase!
-    var keyManager:SkyKeyManager!
+    var keyManager: SkyKeyManager!
     
     override init() {
         super.init()
@@ -102,14 +102,14 @@ class SkyData:NSObject ,SkyProviderDataSource {
         return path
     }
     
-    func getEPubDirectory(fileName:String)->String {
+    func getEPubDirectory(fileName: String)->String {
         let pureName = fileName.prefix(fileName.count-5)
         let booksDir = self.getBooksDirectory()
         let ePubDir = booksDir+"/"+pureName;
         return ePubDir
     }
     
-    func getDownloadPath(fileName:String) ->String {
+    func getDownloadPath(fileName: String) ->String {
         let downloadsDir = self.getDownloadsDirectory()
         let path = downloadsDir+"/"+fileName
         return path
