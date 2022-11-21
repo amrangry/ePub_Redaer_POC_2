@@ -169,12 +169,18 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         // Do any additional setup after loading the view.
     }
     
-    /// this destory function should be called whenever is is dismissed.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        destroy()
+    }
+    
+    /// this destroy function should be called whenever is is dismissed.
     func destroy() {
         NotificationCenter.default.removeObserver(self)
         self.removeSkyErrorNotification()
-        sd.updateBookPosition(bookInformation:self.bookInformation)
-        sd.updateSetting(setting:setting)
+        sd.updateBookPosition(bookInformation: self.bookInformation)
+        sd.updateSetting(setting: setting)
         self.bookInformation = nil
         rv.dataSource = nil
         rv.delegate = nil
@@ -486,14 +492,14 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         self.view.addSubview(menuBox)
         menuBox.frame = currentMenuFrame
         menuBox.isHidden = false
-        showArrow(type:0)
+        showArrow(type: 0)
     }
     
-    func showArrow(type targetType:Int) {
+    func showArrow(type targetType: Int) {
         arrow.backgroundColor = .clear
-        if (targetType==0) {
+        if (targetType == 0) {
             arrow.color = UIColor.darkGray
-        } else if targetType==1 {
+        } else if targetType == 1 {
             arrow.color = currentColor
         }
         
@@ -540,7 +546,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
             self.slider.maximumTrackTintColor = UIColor.lightGray
         }
         
-        if  mode == 1 {
+        if mode == 1 {
             self.slider.setThumbImage(UIImage(named: "clearthumb"), for: .normal)
             self.slider.setThumbImage(UIImage(named: "clearthumb"), for: .highlighted)
             self.slider.minimumTrackTintColor = UIColor.lightGray
@@ -620,17 +626,15 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         self.activityIndicator.removeFromSuperview()
     }
     
-    
-    
     func showTableView(index:Int) {
         contentsTableView.isHidden = true
         notesTableView.isHidden = true
         bookmarksTableView.isHidden = true
-        if (index==0) {
+        if (index == 0) {
             contentsTableView.isHidden = false
-        } else if (index==1) {
+        } else if (index == 1) {
             notesTableView.isHidden = false
-        } else if (index==2) {
+        } else if (index == 2) {
             bookmarksTableView.isHidden = false
         }
     }
@@ -671,4 +675,6 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         // Pass the selected object to the new view controller.
     }
 }
+
+
 

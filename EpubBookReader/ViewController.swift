@@ -127,10 +127,6 @@ class ViewController: UIViewController {
                     }
                 }
             }
-            //            let bookPath2 = sd.getDownloadPath(fileName: fileName)
-            //            let isExistsInDownloads = fileManager.fileExists(atPath: bookPath)
-            //            if (isExists) {
-            //            openBook(bi)
         } else {
             let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
             download(downloadURL, fileName: fileName, folderDirName: downloadFolder ) { [weak self] response in

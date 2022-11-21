@@ -191,17 +191,17 @@
 		5DFF739D291519FE00112C27 /* SkyEpubSDK */ = {
 			isa = PBXGroup;
 			children = (
+				C5505DBF29241DBE004C9D68 /* fmdb */,
+				C5505DD029241DD5004C9D68 /* SkyEpub */,
 				C5505E0529241F1B004C9D68 /* SkyEpub+Fonts */,
 				C5505DDF29241F1B004C9D68 /* SkyEpub+Scripts */,
 				C5505DE429241F1B004C9D68 /* SkyEpub+UIViewHelpers */,
 				C5505DEC29241F1B004C9D68 /* SkyEpubBookViewReader */,
-				C5BC7CC82913039800950F23 /* libskyepub.a */,
-				C5505DD029241DD5004C9D68 /* SkyEpub */,
-				C5505DBF29241DBE004C9D68 /* fmdb */,
-				C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */,
-				5DFF739E29151A1F00112C27 /* SkyData.swift */,
-				5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */,
 				C5F89F6629168616008144BA /* SkyEpub+Books+Samples */,
+				C5BC7CC82913039800950F23 /* libskyepub.a */,
+				5DFF739E29151A1F00112C27 /* SkyData.swift */,
+				C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */,
+				5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */,
 			);
 			path = SkyEpubSDK;
 			sourceTree = "<group>";

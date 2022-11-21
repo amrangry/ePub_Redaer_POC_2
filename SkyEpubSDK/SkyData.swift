@@ -18,7 +18,7 @@ extension String {
     }
 }
 
-// Data Management Module for Database or File. 
+/// Data Management Module for Database or File.
 class SkyData: NSObject, SkyProviderDataSource {
     var database: FMDatabase!
     var keyManager: SkyKeyManager!
@@ -51,50 +51,6 @@ class SkyData: NSObject, SkyProviderDataSource {
         return key;
     }
     
-    // MARK: - ePub Book installation
-    func installEpub(fileName: String) {
-        let bookPath = self.getBookPath(fileName: fileName)
-        let fileManager = FileManager.default
-        let isExists = fileManager.fileExists(atPath: bookPath)
-        if (isExists) {
-            //print("Book already installed.")
-            return
-        }
-        self.copyFileFromBundleToDownloads(fileName: fileName)
-        self.copyFileFromDownloadsToBooks(fileName: fileName)
-        let bi: BookInformation = BookInformation.init(bookName: fileName, baseDirectory:self.getBooksDirectory())
-        bi.fileName = fileName
-        let skyProvider: SkyProvider = SkyProvider()
-        skyProvider.dataSource = self
-        skyProvider.book = bi.book
-        bi.contentProvider = skyProvider
-        bi.make()
-        //print("Book Code: \(bi.bookCode)")
-        self.insertBookInformation(bi)
-        return
-    }
-    
-    func installEpub(url: URL) {
-        let fileManager = FileManager.default
-        let fileName = self.getFileNameFromURL(url: url)
-        let bookPath = self.getBookPath(fileName: fileName)
-        let isExists = fileManager.fileExists(atPath: bookPath)
-        if (isExists) {
-            //print("Book already installed.")
-            return
-        }
-        self.copyFileFromURLToBooks(url: url)
-        let bi: BookInformation = BookInformation(bookName: fileName, baseDirectory: self.getBooksDirectory())
-        bi.fileName = fileName
-        let skyProvider: SkyProvider = SkyProvider()
-        skyProvider.dataSource = self
-        skyProvider.book = bi.book
-        bi.contentProvider = skyProvider
-        bi.make()
-        self.insertBookInformation(bi)
-        return
-    }
-    
     // MARK: - Folder and File
     /// get documents folder
     func getDocumentsPath() ->String {
@@ -106,7 +62,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     /// create books folder to store epub books under documents folder.
     func createBooksDirectory() {
         let docPath = self.getDocumentsPath()
-        let booksDir = docPath + "/" + booksDirectoryFolderName
+        let booksDir = docPath //+ "/" + booksDirectoryFolderName
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: booksDir) {
             do {
@@ -123,7 +79,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     /// create downloads folder to save downloaded files.
     func createDownloadsDirectory() {
         let docPath = self.getDocumentsPath()
-        let downloadsDir = docPath + "/" + downloadsDirectoryFolderName
+        let downloadsDir = docPath// + "/" + downloadsDirectoryFolderName
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: downloadsDir) {
             do {
@@ -155,13 +111,13 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     func getBooksDirectory() -> String {
         self.createBooksDirectory()
-        let path = self.getDocumentsPath() + "/" + booksDirectoryFolderName
+        let path = self.getDocumentsPath() //+ "/" + booksDirectoryFolderName
         return path
     }
     
     func getDownloadsDirectory() -> String {
         self.createDownloadsDirectory()
-        let path = self.getDocumentsPath() + "/" + downloadsDirectoryFolderName
+        let path = self.getDocumentsPath()// + "/" + downloadsDirectoryFolderName
         return path
     }
     
@@ -206,39 +162,40 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
     }
     
-    func copyFileFromBundleToDownloads(fileName: String) {
-        let fileManager = FileManager.default
+    @discardableResult
+    func copyFileFromBundleToDownloads(fileName: String) -> Bool {
         let downloadPath = self.getDownloadPath(fileName:fileName)
-        
         let bundle = Bundle.main
         let path = bundle.resourcePath! + "/" + fileName
-        do {
-            try fileManager.copyItem(atPath: path, toPath: downloadPath)
-        } catch {
-            print(error)
-        }
+        let result = moveFile(from: path, to: downloadPath)
+        return result
     }
     
-    func copyFileFromDownloadsToBooks(fileName: String) {
-        let fileManager = FileManager.default
+    @discardableResult
+    func copyFileFromDownloadsToBooks(fileName: String) -> Bool {
         let sourcePath = self.getDownloadPath(fileName: fileName)
         let targetPath = self.getBooksDirectory() + "/" + fileName;
-        do {
-            try fileManager.copyItem(atPath: sourcePath, toPath: targetPath)
-        } catch {
-            print(error)
-        }
+        let result = moveFile(from: sourcePath, to: targetPath)
+        return result
     }
     
-    func copyFileFromURLToBooks(url: URL) {
-        let fileManager = FileManager.default
+    @discardableResult
+    func copyFileFromURLToBooks(url: URL) -> Bool {
         let sourcePath:String = self.getFilePathFromURL(url: url)
         let fileName = (sourcePath as NSString).lastPathComponent
         let targetPath = self.getBooksDirectory()+"/"+fileName;
+        let result = moveFile(from: sourcePath, to: targetPath)
+        return result
+    }
+    
+    private func moveFile(from sourcePath: String, to targetPath: String ) -> Bool {
+        let fileManager = FileManager.default
         do {
             try fileManager.copyItem(atPath: sourcePath, toPath: targetPath)
+            return true
         } catch {
             print(error)
+            return false
         }
     }
     
@@ -263,9 +220,9 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     func getDDLFromBundle() -> String {
         var contents:String!
-        if let filepath = Bundle.main.path(forResource: "Books", ofType: "sql") {
+        if let filePath = Bundle.main.path(forResource: "Books", ofType: "sql") {
             do {
-                contents = try String(contentsOfFile: filepath)
+                contents = try String(contentsOfFile: filePath)
                 print(contents!)
             } catch {
                 contents = ""
@@ -367,8 +324,52 @@ class SkyData: NSObject, SkyProviderDataSource {
         }
         return nil
     }
+
+    // MARK: - ePub Book installation
+    
+    func installEpub(fileName: String) {
+        let bookPath = self.getBookPath(fileName: fileName)
+        let fileManager = FileManager.default
+        let isExists = fileManager.fileExists(atPath: bookPath)
+        if (isExists) {
+            //print("Book already installed.")
+            return
+        }
+        self.copyFileFromBundleToDownloads(fileName: fileName)
+        self.copyFileFromDownloadsToBooks(fileName: fileName)
+        configBook(fileName)
+        return
+    }
+    
+    func installEpub(url: URL) {
+        let fileManager = FileManager.default
+        let fileName = self.getFileNameFromURL(url: url)
+        let bookPath = self.getBookPath(fileName: fileName)
+        let isExists = fileManager.fileExists(atPath: bookPath)
+        if (isExists) {
+            //print("Book already installed.")
+            return
+        }
+        self.copyFileFromURLToBooks(url: url)
+        configBook(fileName)
+        return
+    }
+    
+        
+    func configBook(_ fileName: String) {
+        let bi: BookInformation = BookInformation(bookName: fileName, baseDirectory: self.getBooksDirectory())
+        bi.fileName = fileName
+        let skyProvider = SkyProvider()
+        skyProvider.dataSource = self
+        skyProvider.book = bi.book
+        bi.contentProvider = skyProvider
+        bi.make()
+        //print("Book Code: \(bi.bookCode)")
+        self.insertBookInformation(bi)
+    }
     
     // MARK: - BookInformation
+    
     func insertBookInformation(_ bi: BookInformation) {
         checkDatabase()
         let ns = self.getNowString()
@@ -476,7 +477,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         do {
             let results = try database.executeQuery(sql, values: [])
             while results.next() {
-                let bi:BookInformation = BookInformation()
+                let bi: BookInformation = BookInformation()
                 bi.title            =   results.string(forColumn: "Title")
                 bi.creator          =   results.string(forColumn: "Author")
                 bi.publisher        =   results.string(forColumn: "Publisher")
@@ -517,7 +518,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         do {
             let results = try database.executeQuery(sql, values: [])
             while results.next() {
-                let bi:BookInformation = BookInformation()
+                let bi: BookInformation = BookInformation()
                 bi.title            =   results.string(forColumn: "Title")
                 bi.creator          =   results.string(forColumn: "Author")
                 bi.publisher        =   results.string(forColumn: "Publisher")
@@ -559,7 +560,7 @@ class SkyData: NSObject, SkyProviderDataSource {
         do {
             let results = try database.executeQuery(sql, values: [])
             while results.next() {
-                let bi:BookInformation = BookInformation()
+                let bi: BookInformation = BookInformation()
                 bi.title            =   results.string(forColumn: "Title")
                 bi.creator          =   results.string(forColumn: "Author")
                 bi.publisher        =   results.string(forColumn: "Publisher")
@@ -729,7 +730,7 @@ class SkyData: NSObject, SkyProviderDataSource {
     }
     
     func isFixedLayout(bookCode: Int) -> Bool {
-        let bi:BookInformation = self.fetchBookInformation(bookCode:bookCode)
+        let bi: BookInformation = self.fetchBookInformation(bookCode:bookCode)
         if bi.isFixedLayout {
             return true
         } else {
@@ -986,3 +987,5 @@ class SkyData: NSObject, SkyProviderDataSource {
         return nil
     }
 }
+
+

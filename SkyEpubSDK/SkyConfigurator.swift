@@ -19,13 +19,13 @@ class SkyConfigurator {
         case clientSecret = "zfZl40AQXu8xHTGKMRwG69"
     }
     
-    static var booksDirectoryFolderName: String?
+    var booksDirectoryFolderName: String?
     
-    static var downloadsDirectoryFolderName: String?
+    var downloadsDirectoryFolderName: String?
     
-    static var clientId: String?
+    var clientId: String?
     
-    static var clientSecret: String?
+    var clientSecret: String?
     
     private init() {
         
@@ -36,11 +36,10 @@ class SkyConfigurator {
                               clientId: String = CodeKeys.clientId.rawValue,
                               clientSecret: String = CodeKeys.clientSecret.rawValue) {
         
-        SkyConfigurator.booksDirectoryFolderName = booksDirectoryFolderName
-        SkyConfigurator.downloadsDirectoryFolderName = downloadsDirectoryFolderName
-        SkyConfigurator.clientId = clientId
-        SkyConfigurator.clientSecret = clientSecret
-        
+        self.booksDirectoryFolderName = booksDirectoryFolderName
+        self.downloadsDirectoryFolderName = downloadsDirectoryFolderName
+        self.clientId = clientId
+        self.clientSecret = clientSecret
         self.data = SkyData(booksDirectoryFolderName: booksDirectoryFolderName,
                             downloadsDirectoryFolderName: downloadsDirectoryFolderName,
                             clientId: clientId,
@@ -48,3 +47,5 @@ class SkyConfigurator {
     }
     
 }
+
+
