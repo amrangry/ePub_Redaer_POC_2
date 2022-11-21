@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-"http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>localhost</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSExceptionMinimumTLSVersion</key>
-                <string>TLSv1.2</string>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <true/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSRequiresCertificateTransparency</key>
-                <false/>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
-                <string>TLSv1.2</string>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <true/>
-            </dict>
-        </dict>
-    </dict>
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSRequiresCertificateTransparency</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+</dict>
 </plist>
