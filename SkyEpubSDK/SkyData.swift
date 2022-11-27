@@ -61,8 +61,11 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     /// create books folder to store epub books under documents folder.
     func createBooksDirectory() {
-        let docPath = self.getDocumentsPath()
-        let booksDir = docPath //+ "/" + booksDirectoryFolderName
+        var docPath = self.getDocumentsPath()
+        if booksDirectoryFolderName.isEmpty == false {
+            docPath = docPath + "/" + booksDirectoryFolderName
+        }
+        let booksDir = docPath
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: booksDir) {
             do {
@@ -78,8 +81,11 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     /// create downloads folder to save downloaded files.
     func createDownloadsDirectory() {
-        let docPath = self.getDocumentsPath()
-        let downloadsDir = docPath// + "/" + downloadsDirectoryFolderName
+        var docPath = self.getDocumentsPath()
+        if downloadsDirectoryFolderName.isEmpty == false {
+            docPath = docPath + "/" + downloadsDirectoryFolderName
+        }
+        let downloadsDir = docPath
         let fileManager = FileManager.default
         if !fileManager.fileExists(atPath: downloadsDir) {
             do {
@@ -111,13 +117,19 @@ class SkyData: NSObject, SkyProviderDataSource {
     
     func getBooksDirectory() -> String {
         self.createBooksDirectory()
-        let path = self.getDocumentsPath() //+ "/" + booksDirectoryFolderName
+        var path = self.getDocumentsPath()
+        if booksDirectoryFolderName.isEmpty == false {
+            path = path + "/" + booksDirectoryFolderName
+        }
         return path
     }
     
     func getDownloadsDirectory() -> String {
         self.createDownloadsDirectory()
-        let path = self.getDocumentsPath()// + "/" + downloadsDirectoryFolderName
+        var path = self.getDocumentsPath()
+        if downloadsDirectoryFolderName.isEmpty == false {
+            path = path + "/" + downloadsDirectoryFolderName
+        }
         return path
     }
     
@@ -986,5 +998,3 @@ class SkyData: NSObject, SkyProviderDataSource {
         return nil
     }
 }
-
-

@@ -63,6 +63,7 @@
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
 		C5B19F3629335AB900BAD35C /* ViewController+downloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B19F3529335AB900BAD35C /* ViewController+downloadable.swift */; };
 		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
+		C5BD43A729338829004878E1 /* EpubReaderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD43A629338829004878E1 /* EpubReaderConfigurator.swift */; };
 		C5C782F0291E41DB00341B07 /* SkyConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */; };
 		C5F89F6929168616008144BA /* Alice.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6729168616008144BA /* Alice.epub */; };
 		C5F89F6A29168616008144BA /* Doctor.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6829168616008144BA /* Doctor.epub */; };
@@ -149,6 +150,7 @@
 		C5B19F3529335AB900BAD35C /* ViewController+downloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+downloadable.swift"; sourceTree = "<group>"; };
 		C5BC7CC82913039800950F23 /* libskyepub.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libskyepub.a; sourceTree = "<group>"; };
 		C5BC7CD02913047B00950F23 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		C5BD43A629338829004878E1 /* EpubReaderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpubReaderConfigurator.swift; sourceTree = "<group>"; };
 		C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyConfigurator.swift; sourceTree = "<group>"; };
 		C5F89F6729168616008144BA /* Alice.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Alice.epub; sourceTree = "<group>"; };
 		C5F89F6829168616008144BA /* Doctor.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Doctor.epub; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				5DFF739E29151A1F00112C27 /* SkyData.swift */,
 				C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */,
 				5DFF73A029151A4900112C27 /* SkyEpubSetting.swift */,
+				C5BD43A629338829004878E1 /* EpubReaderConfigurator.swift */,
 			);
 			path = SkyEpubSDK;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				5DFF739F29151A1F00112C27 /* SkyData.swift in Sources */,
 				C5505E0D29241F1B004C9D68 /* UIColor+Extension+SkyEpub.swift in Sources */,
 				C5505E1229241F1B004C9D68 /* SkyEpubTheme.swift in Sources */,
+				C5BD43A729338829004878E1 /* EpubReaderConfigurator.swift in Sources */,
 				C5505E2529241F1B004C9D68 /* SkyBookReaderViewController+UITextFieldDelegate.swift in Sources */,
 				C5505E1829241F1B004C9D68 /* SkyEpubBookmarksTableViewCell.swift in Sources */,
 				C5505E2929241F1B004C9D68 /* SkyBookReaderViewController+SkyError.swift in Sources */,

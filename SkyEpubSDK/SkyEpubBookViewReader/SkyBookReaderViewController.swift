@@ -179,9 +179,17 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
     func destroy() {
         NotificationCenter.default.removeObserver(self)
         self.removeSkyErrorNotification()
-        sd.updateBookPosition(bookInformation: self.bookInformation)
-        sd.updateSetting(setting: setting)
-        self.bookInformation = nil
+        if sd != nil {
+            if bookInformation != nil {
+                sd.updateBookPosition(bookInformation: self.bookInformation)
+            }
+            
+            if setting != nil {
+                sd.updateSetting(setting: setting)
+            }
+        }
+        
+        bookInformation = nil
         rv.dataSource = nil
         rv.delegate = nil
         //        rv.customView = nil
@@ -675,6 +683,3 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
         // Pass the selected object to the new view controller.
     }
 }
-
-
-
