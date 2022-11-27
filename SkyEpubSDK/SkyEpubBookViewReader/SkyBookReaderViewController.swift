@@ -20,7 +20,7 @@ class SkyBookReaderViewController: UIViewController { //swiftlint:disable:this t
     var setting: SkyEpubSetting!
     var rv: ReflowableViewController!
     
-    // Informations related to Hightlight/Note UI, Coordinations.
+    // Informations related to Highlight/Note UI, Coordinations.
     var currentColor: UIColor!
     var currentHighlight: Highlight!
     var currentStartRect: CGRect!
