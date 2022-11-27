@@ -110,7 +110,7 @@ class ViewController: UIViewController {
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
         let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
         let fileName = "FederalistPapers.epub"
-        let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
+        let downloadFolder = SkyConfigurator.shared.downloadsDirectoryFolderName ?? ""
         if let bi = sd.fetchBookInformation(fileName: fileName) {
             let bookPath = sd.getBookPath(fileName: fileName)
             let isExists = FileManager.default.fileExists(atPath: bookPath)
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
                 openBook(bi)
             } else {
                 // need to download
-                let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
+                let downloadFolder = SkyConfigurator.shared.downloadsDirectoryFolderName ?? ""
                 download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
                     if case .success(_) = response {
                         self?.sd.copyFileFromDownloadsToBooks(fileName: fileName)
@@ -127,7 +127,7 @@ class ViewController: UIViewController {
                 }
             }
         } else {
-            let downloadFolder = SkyConfigurator.downloadsDirectoryFolderName ?? ""
+            let downloadFolder = SkyConfigurator.shared.downloadsDirectoryFolderName ?? ""
             download(downloadURL, fileName: fileName, folderDirName: downloadFolder ) { [weak self] response in
                 switch response {
                 case .failure(let error):
