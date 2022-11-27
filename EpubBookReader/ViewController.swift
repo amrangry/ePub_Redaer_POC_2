@@ -20,10 +20,10 @@ class ViewController: UIViewController {
     
     // install sample epubs from bundle.
     func installSampleBooks() {
-        EpubReaderConfigurator.shared.installPublication(fileName: "Alice.epub")
-        EpubReaderConfigurator.shared.installPublication(fileName: "Doctor.epub")
-        EpubReaderConfigurator.shared.installPublication(fileName: "English_Book.epub")
-        EpubReaderConfigurator.shared.installPublication(fileName: "Arabic_Book.epub")
+        EPubReaderConfigurator.shared.installPublication(fileName: "Alice.epub")
+        EPubReaderConfigurator.shared.installPublication(fileName: "Doctor.epub")
+        EPubReaderConfigurator.shared.installPublication(fileName: "English_Book.epub")
+        EPubReaderConfigurator.shared.installPublication(fileName: "Arabic_Book.epub")
     }
 
     @IBAction func mediaSwitchValueChange(_ sender: Any) {
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     @IBAction func openArabicBook(_ sender: Any) {
         let name = "Arabic_Book.epub"
         let fileName = name
-        let ePubReader = EpubReaderConfigurator.shared
+        let ePubReader = EPubReaderConfigurator.shared
         ePubReader.config(fileName)
         ePubReader.loadBook()
         guard let viewController = ePubReader.getReaderViewController() else { return }
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     @IBAction func openEnglishBook(_ sender: Any) {
         let name = "English_Book.epub"
         let fileName = name
-        let ePubReader = EpubReaderConfigurator.shared
+        let ePubReader = EPubReaderConfigurator.shared
         ePubReader.config(fileName)
         ePubReader.loadBook()
         guard let viewController = ePubReader.getReaderViewController() else { return }
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
         let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
         let fileName = "FederalistPapers.epub"
-        let ePubReader = EpubReaderConfigurator.shared
+        let ePubReader = EPubReaderConfigurator.shared
         ePubReader.config(fileName)
         if ePubReader.loadBook() {
             guard let viewController = ePubReader.getReaderViewController() else { return }

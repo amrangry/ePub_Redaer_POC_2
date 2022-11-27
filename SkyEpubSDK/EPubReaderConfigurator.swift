@@ -1,5 +1,5 @@
 //
-//  EpubReaderConfigurator.swift
+//  EPubReaderConfigurator.swift
 //  BookStore
 //
 //  Created by Amr Elghadban on 17/11/2022.
@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 //let fileName = downloadInfoObject.fileName
-//let ePubReader = EpubReaderConfigurator()
+//let ePubReader = EPubReaderConfigurator()
 //ePubReader.config(fileName)
 //ePubReader.loadBook()
 //guard let viewController = ePubReader.getReaderViewController() else { return }
 //viewController.modalPresentationStyle = .fullScreen
 //let router = NavigationRouter.shared
 //router.navigateTo(viewController: viewController, navigationController: router.navigatorController!)
-class EpubReaderConfigurator {
+class EPubReaderConfigurator {
     
-    static let shared = EpubReaderConfigurator()
+    static let shared = EPubReaderConfigurator()
     
     private init() {
         ePubConfigurator = SkyConfigurator.shared //UIApplication.shared.delegate as? AppDelegate
@@ -27,15 +27,15 @@ class EpubReaderConfigurator {
         addSkyErrorNotificationObserver()
     }
     
-    // MARK: - Controller MVVM
+    // MARK: - Controller
     private var fileName: String?
-    private var ePubConfigurator: SkyConfigurator!
-    private var ePubDataHandler: SkyData!
-    
     func config(_ value: String?) {
         fileName = value
     }
     
+    private var ePubConfigurator: SkyConfigurator!
+    private var ePubDataHandler: SkyData!
+ 
     func addSkyErrorNotificationObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didReceiveSkyErrorNotification(_:)),
@@ -52,7 +52,11 @@ class EpubReaderConfigurator {
         Debugger().printOut("SkyError code \(code) level \(level) message: \(message)", context: .error)
     }
     
+    // MARK: - ePub Book installation
     
+    /// Imports a new publication to the library, either from:
+    /// - a local file URL
+    /// - a remote URL which will be downloaded
     func instalPublication(url: URL) {
        
     }
