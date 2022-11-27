@@ -355,7 +355,6 @@ class SkyData: NSObject, SkyProviderDataSource {
         return
     }
     
-        
     func configBook(_ fileName: String) {
         let bi: BookInformation = BookInformation(bookName: fileName, baseDirectory: self.getBooksDirectory())
         bi.fileName = fileName
