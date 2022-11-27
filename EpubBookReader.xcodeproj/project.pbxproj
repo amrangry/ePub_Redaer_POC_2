@@ -61,6 +61,7 @@
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
 		C5678CB928D61F35001096BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB828D61F35001096BE /* Assets.xcassets */; };
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
+		C5B19F3629335AB900BAD35C /* ViewController+downloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B19F3529335AB900BAD35C /* ViewController+downloadable.swift */; };
 		C5BC7CCF2913039800950F23 /* libskyepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BC7CC82913039800950F23 /* libskyepub.a */; };
 		C5C782F0291E41DB00341B07 /* SkyConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */; };
 		C5F89F6929168616008144BA /* Alice.epub in Resources */ = {isa = PBXBuildFile; fileRef = C5F89F6729168616008144BA /* Alice.epub */; };
@@ -145,6 +146,7 @@
 		C5678CB828D61F35001096BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5678CBB28D61F35001096BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5678CBD28D61F35001096BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5B19F3529335AB900BAD35C /* ViewController+downloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+downloadable.swift"; sourceTree = "<group>"; };
 		C5BC7CC82913039800950F23 /* libskyepub.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libskyepub.a; sourceTree = "<group>"; };
 		C5BC7CD02913047B00950F23 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		C5C782EF291E41DB00341B07 /* SkyConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyConfigurator.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				C5678CAF28D61F34001096BE /* AppDelegate.swift */,
 				C5678CB528D61F34001096BE /* Main.storyboard */,
 				C5678CB328D61F34001096BE /* ViewController.swift */,
+				C5B19F3529335AB900BAD35C /* ViewController+downloadable.swift */,
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
 				C5678CBD28D61F35001096BE /* Info.plist */,
@@ -543,6 +546,7 @@
 				C5505E2929241F1B004C9D68 /* SkyBookReaderViewController+SkyError.swift in Sources */,
 				5DFF73A129151A4900112C27 /* SkyEpubSetting.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
+				C5B19F3629335AB900BAD35C /* ViewController+downloadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
