@@ -47,7 +47,7 @@ extension ViewController {
                     if let destinationURL = response.fileURL?.path {
                         completion(.success(destinationURL))
                     } else {
-                        let error = NSError(domain: "Network", code: 200) as! Error
+                        let error = NSError(domain: "Network", code: 200) as Error
                         //"Couldn't get destination url"
                         completion(.failure(error))
                     }

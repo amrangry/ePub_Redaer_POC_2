@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -48,8 +49,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWh-if-zZW">
                                                 <rect key="frame" x="0.0" y="27.5" width="240" height="45"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra6-IL-247">
-                                                        <rect key="frame" x="63" y="12.5" width="22.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra6-IL-247">
+                                                        <rect key="frame" x="63" y="12.5" width="24.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -69,10 +70,12 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="1Nd-Ql-lpl" firstAttribute="leading" secondItem="TL1-o1-Sd0" secondAttribute="trailing" constant="10" id="DlP-3i-x9v"/>
-                                                    <constraint firstItem="TL1-o1-Sd0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ra6-IL-247" secondAttribute="trailing" constant="8" symbolic="YES" id="WyP-UQ-QlB"/>
+                                                    <constraint firstItem="Ra6-IL-247" firstAttribute="leading" secondItem="ZWh-if-zZW" secondAttribute="leading" constant="63" id="Anf-Gw-hZH"/>
+                                                    <constraint firstItem="1Nd-Ql-lpl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TL1-o1-Sd0" secondAttribute="trailing" symbolic="YES" id="DlP-3i-x9v"/>
+                                                    <constraint firstItem="TL1-o1-Sd0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ra6-IL-247" secondAttribute="trailing" symbolic="YES" id="WyP-UQ-QlB"/>
                                                     <constraint firstItem="TL1-o1-Sd0" firstAttribute="centerX" secondItem="ZWh-if-zZW" secondAttribute="centerX" id="a1X-Kx-h7r"/>
                                                     <constraint firstItem="Ra6-IL-247" firstAttribute="centerY" secondItem="ZWh-if-zZW" secondAttribute="centerY" id="eh5-g6-LKr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="1Nd-Ql-lpl" secondAttribute="trailing" constant="63" id="ew7-dt-KgZ"/>
                                                     <constraint firstItem="TL1-o1-Sd0" firstAttribute="centerY" secondItem="ZWh-if-zZW" secondAttribute="centerY" id="gAE-18-8T4"/>
                                                     <constraint firstItem="1Nd-Ql-lpl" firstAttribute="centerY" secondItem="ZWh-if-zZW" secondAttribute="centerY" id="gt3-dZ-SkX"/>
                                                     <constraint firstAttribute="height" constant="45" id="zu6-ig-qbo"/>
@@ -82,24 +85,29 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-Zz-nLA">
                                         <rect key="frame" x="0.0" y="79.5" width="240" height="34.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="English Book"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="English Book"/>
                                         <connections>
                                             <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smc-8l-H08"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-CJ-KY5">
                                         <rect key="frame" x="0.0" y="121" width="240" height="34.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0" green="0.28627450980000002" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Arabic Book"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Arabic Book"/>
                                         <connections>
                                             <action selector="openArabicBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvo-fW-aQj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-oD-PNh">
                                         <rect key="frame" x="0.0" y="162.5" width="240" height="34.5"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Download Book and Read"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Download Book and Read"/>
                                         <connections>
                                             <action selector="downloadAndOpenEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uIz-kW-aoh"/>
                                         </connections>
@@ -125,6 +133,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
