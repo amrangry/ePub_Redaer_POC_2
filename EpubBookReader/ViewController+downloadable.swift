@@ -14,9 +14,11 @@ extension ViewController {
     
     func download(_ urlString: String, fileName: String, folderDirName: String, completion: @escaping ResultResponse<Any>) {
         var finalFileName = fileName
-        let downloadsFolderName = folderDirName + "/"
-        if (fileName.starts(with: downloadsFolderName) == false) {
-            finalFileName = "\(downloadsFolderName)\(fileName)"
+        if folderDirName.isEmpty == false {
+            let downloadsFolderName = folderDirName + "/"
+            if (fileName.starts(with: downloadsFolderName) == false) {
+                finalFileName = "\(downloadsFolderName)\(fileName)"
+            }
         }
         let destination: DownloadRequest.Destination = { _, _ in
             let fileURL = FileHelper.shared.getFileURL(for: finalFileName) ?? URL(fileURLWithPath: finalFileName)
